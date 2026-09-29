@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets';
+import waterfall from '../../assets/images/banner-waterfall.png';
+import { routes } from '../../data/site';
+---
+
+<section
+  class="regions container section photo-card on-dark"
+  aria-labelledby="regions-title"
+  style="--tint: linear-gradient(86deg, color-mix(in srgb, var(--color-dark) 90%, transparent) 0%, color-mix(in srgb, var(--color-dark) 55%, transparent) 55%, color-mix(in srgb, var(--color-dark) 15%, transparent) 100%)"
+>
+  <Image class="photo-card__bg" src={waterfall} alt="" widths={[1060]} sizes="(min-width: 1100px) 1060px, 100vw" />
+  <div class="regions__text">
+    <h2 id="regions-title" class="h3">One home base. Global reach.</h2>
+    <p>
+      Fractionalogic is based in India, the fastest-moving fractional-leadership economy in the region, where
+      virtual-CXO demand is growing roughly 25% a year and 70% of startups and small businesses now engage
+      Fractional CMOs. From there, our vetted twin partner network extends that same practice into APAC, the
+      Middle East, the United Kingdom, and the United States.
+    </p>
+  </div>
+  <a class="btn btn-glass regions__cta" href={routes.footprint}>See the footprint detail</a>
+</section>
+
+<style>
+  .regions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    padding: clamp(32px, 5vw, 56px);
+  }
+
+  .regions__text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 560px;
+  }
+
+  .regions__cta {
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 900px) {
+    .regions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

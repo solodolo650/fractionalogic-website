@@ -1,0 +1,84 @@
+---
+import { initials, type Partner } from '../../data/partners';
+
+interface Props {
+  partner: Partner;
+  compact?: boolean;
+}
+
+const { partner, compact = false } = Astro.props;
+---
+
+<article class:list={['partner', { 'partner--compact': compact }]}>
+  <span class="partner__mark" aria-hidden="true">{initials(partner.name)}</span>
+  <div class="partner__text">
+    <h3 class="partner__name">{partner.name}</h3>
+    <p class="partner__role">{partner.role}</p>
+    {!compact && <p class="partner__practice">{partner.practice}</p>}
+  </div>
+</article>
+
+<style>
+  .partner {
+    display: grid;
+    align-content: start;
+    gap: 20px;
+    height: 100%;
+    padding: 28px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius);
+  }
+
+  .partner--compact {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .partner__mark {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    background: var(--color-dark);
+    border-radius: 50%;
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-on-dark-muted);
+  }
+
+  .partner--compact .partner__mark {
+    width: 48px;
+    height: 48px;
+    font-size: 1rem;
+  }
+
+  .partner__text {
+    display: grid;
+    gap: 6px;
+  }
+
+  .partner__name {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+
+  .partner__role {
+    font-weight: 500;
+    color: var(--color-action);
+  }
+
+  .partner--compact .partner__role {
+    font-size: 0.9375rem;
+  }
+
+  .partner__practice {
+    color: var(--color-text-muted);
+  }
+</style>

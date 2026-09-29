@@ -1,0 +1,827 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import OnThisPage from '../components/ui/OnThisPage.astro';
+import CtaBand from '../components/ui/CtaBand.astro';
+import portrait from '../assets/images/founder-muralidharan-erumbala.png';
+import mountain from '../assets/images/card-fcmo-mountain.png';
+import { routes } from '../data/site';
+
+const toc = [
+  { id: 'founder', label: 'Founder' },
+  { id: 'story', label: 'Our story' },
+  { id: 'growth', label: 'How the practice grew' },
+  { id: 'market', label: 'The market' },
+  { id: 'footprint', label: 'Footprint' },
+  { id: 'values', label: 'Values' },
+];
+
+const recognition = [
+  { title: 'Top 100 Most Innovative MarTech Leaders', by: 'World Marketing Congress, 2019' },
+  { title: 'Member, Global Advisory Council', by: 'World Brand Congress' },
+];
+
+const beats = [
+  {
+    label: 'The moment we exist for',
+    body: [
+      'Growth eventually exposes the limits of founder-led commercial momentum. For growth-stage B2B SaaS, AI, enterprise technology, and tech-enabled businesses, marketing may be active yet fragmented, go-to-market decisions may still depend on the founder, and sales and marketing may operate from different assumptions. At this inflection point, the business does not need more activity or occasional advice. It needs senior leadership that can diagnose what is holding growth back, make the right choices, align the organization, and build a repeatable growth system — without necessarily adding a full-time C-suite role.',
+    ],
+  },
+  {
+    label: 'Where the name comes from',
+    body: [
+      'Fractionalogic exists for that moment. We give founders and CEOs clear, flexible access to seasoned C-suite capability tailored to their needs. “Fractional” makes that leadership flexible. “Logic” makes it effective: evidence before assumption, priorities before proliferation, ownership before activity, and measurable progress before vanity metrics.',
+      'Fractionalogic is where flexible, on-demand senior expertise meets the discipline, systems, and evidence that make fractional leadership enterprise-grade dependable. We free senior capability from the constraints of full-time employment, then reconstruct it into a structured engine of growth.',
+    ],
+  },
+  {
+    label: 'What we are not',
+    body: [
+      'This is not consulting at arm’s length, an agency executing disconnected campaigns, or a part-time executive filling a calendar. Fractionalogic embeds into the leadership team, takes responsibility for the mandate, and connects strategy with execution. The work begins with clear diagnosis and moves through decisions, systems, programs, KPIs, team development, and a leadership rhythm that the organization can sustain.',
+    ],
+  },
+  {
+    label: 'How the journey begins',
+    body: [
+      'The journey typically begins with a Fractional CMO: a revenue-accountable growth leader who brings market insight, ICP clarity, positioning, go-to-market strategy, demand, sales alignment, marketing technology, and team capability into one coherent agenda. The purpose is not to produce another plan. It turns market ambition into coordinated action, stronger commercial decisions, and visible momentum.',
+    ],
+  },
+  {
+    label: 'How the model extends',
+    body: [
+      'As the business grows, its challenges rarely remain within one function. Fractional Twinning extends the model by pairing complementary senior leaders around one shared business outcome. They work through a shared diagnosis, integrated priorities, unified reporting, and joint accountability — giving the organization broader leadership coverage without creating parallel advisers, conflicting agendas, or unnecessary executive overhead.',
+    ],
+  },
+  {
+    label: 'The intelligence layer',
+    body: [
+      'Around this embedded leadership sits a wider advantage: proven frameworks, collective intelligence, specialist partners, capability tools, and AI-enabled insight. AI expands the speed and depth of analysis; experienced human judgment remains accountable for context, priority, creativity, ethics, and commercial consequence. Technology strengthens the decision — it does not replace the leader.',
+    ],
+  },
+  {
+    label: 'What we leave behind',
+    body: [
+      'The goal is not to create dependency but to leave behind a stronger internal team, clearer ownership, and a sustainable growth system that equips the business for the future. Fractionalogic starts with the leadership capability the business needs now, proves impact through action, and expands only when greater complexity demands it.',
+    ],
+  },
+];
+
+const regions = [
+  {
+    name: 'APAC (ex-India)',
+    text: 'Riding India’s fractional wave with a time lag, powered by SaaS scale-ups and remote diaspora talent.',
+  },
+  {
+    name: 'Middle East (UAE/GCC)',
+    text: 'With most UAE businesses being SMEs and most GCC firms facing skills gaps, fractional leadership offers a 30–60% cost-smart alternative to full-time hires.',
+  },
+  {
+    name: 'United Kingdom',
+    text: 'Leads Europe’s fractional market, with fractional executives delivering around 71% cost savings over a full-time hire.',
+  },
+  {
+    name: 'United States',
+    text: 'Drives roughly 65% of global fractional-executive demand, with adoption rising from 25% to 35% of businesses by year-end 2026.',
+  },
+];
+
+const values = [
+  { label: 'Objective, not transactional.', text: 'Every engagement begins with the business’s long-term vision — sustained growth isn’t bought by the hour.' },
+  { label: 'Seasoned, strategic, simple.', text: 'Deep expertise delivered without unnecessary complexity. Priorities before proliferation.' },
+  { label: 'Extension, not dilution.', text: 'We grow client relationships by adding complementary fractional leadership as complexity crosses beyond a single function — never by stretching one leader thinner.' },
+  { label: 'Evidence-based.', text: 'Data, KPIs, and named sources back every recommendation and market claim on this site.' },
+  { label: 'Capability that outlives the engagement.', text: 'We build internal team capability and sustainable systems, not long-term external dependence.' },
+];
+---
+
+<Base
+  title="About Fractionalogic | Fractional CMO and Fractional Twinning"
+  description="Fractionalogic is a Fractional CMO practice founded by Muralidharan Erumbala: embedded, evidence-led senior marketing leadership that extends into a full fractional leadership system."
+>
+  <PageHeader
+    title="A fully assembled fractional leadership team."
+    current="About"
+    lede="One senior leader demonstrated it. Now the Fractionalogic model scales into a full leadership system."
+  />
+
+  <div class="about container">
+    <aside class="about__toc">
+      <OnThisPage links={toc} />
+    </aside>
+
+    <div class="about__body">
+      <section id="founder" class="founder-bio" aria-labelledby="founder-title">
+        <header class="founder-bio__head">
+          <Image
+            class="founder-bio__photo"
+            src={portrait}
+            alt="Portrait of Muralidharan Erumbala"
+            width={128}
+            densities={[1, 2]}
+            loading="eager"
+          />
+          <div class="founder-bio__id">
+            <h2 id="founder-title" class="h2">Muralidharan Erumbala</h2>
+            <p class="founder-bio__role">Founder &amp; Fractional CMO</p>
+            <p class="founder-bio__tag">From analog roots to AI-era relevance</p>
+          </div>
+        </header>
+        <div class="founder-bio__text">
+          <p>
+            Muralidharan Erumbala has spent over four decades across IT, FMCG, manufacturing, retail, financial services, and
+            telecom, evolving from analog-era creativity to AI-shaped strategic leadership. That experience shaped one conviction:
+            senior marketing leadership should be both flexible and structured — delivering enterprise-grade outcomes without the
+            delay and rigidity of a traditional full-time hire.
+          </p>
+          <p>
+            That conviction became Fractionalogic. Having led teams at Ivy Mobility, Sheenlac, Datri, Future Telecom, OptiSol
+            Business Solutions, Newwton, WiWA, and Wordedge, he built a cross-industry command of brand, demand, revenue, and
+            execution — designing ICP-led strategy, full-funnel demand generation, sales-marketing alignment, and MarTech advisory
+            as a Fractional CMO and founder.
+          </p>
+          <p>
+            That experience gave rise to Fractional Twinning, extending fractional leadership beyond a single advisory role by
+            pairing a second, complementary leader alongside the Fractional CMO for continuity, speed, and scale. Recognized by the
+            World Marketing Congress as a Top 100 Most Innovative Marketing Technology Leader in 2019, he blends founder,
+            strategist, and operator into one growth engine.
+          </p>
+        </div>
+
+        <div class="recognition">
+          <h3 class="recognition__title">Recognition</h3>
+          <ul>
+            {
+              recognition.map((r) => (
+                <li>
+                  <span class="recognition__name">{r.title}</span>
+                  <span class="recognition__by">{r.by}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <p class="founder-bio__handoff">
+          Full-service depth for both the <a href={routes.fcmo}>FCMO practice</a> and{' '}
+          <a href={routes.twinning}>Fractional Twinning</a> lives on Services — what follows is the belief behind it.
+        </p>
+      </section>
+
+      <section id="story" class="story" aria-labelledby="story-title">
+        <div class="section-head">
+          <h2 id="story-title" class="h2">The Fractionalogic story</h2>
+          <p class="story__thesis">
+            Senior judgment. Embedded ownership. Connected execution. Measurable progress that builds confidence in sustainable
+            growth.
+          </p>
+        </div>
+
+        <ol class="story__arc">
+          {
+            beats.map((beat) => (
+              <li class="story__beat">
+                <h3 class="story__label">{beat.label}</h3>
+                <div class="story__beat-body">
+                  {beat.body.map((p) => (
+                    <p>{p}</p>
+                  ))}
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+
+        <p class="story__close">
+          Fractionalogic transforms fractional leadership from a staffing choice into a scalable leadership architecture: senior
+          judgment, embedded ownership, connected execution, and measurable progress — applied fractionally, delivered with full
+          impact, and extended with logic.
+        </p>
+      </section>
+
+
+      <section id="growth" class="growth" aria-labelledby="growth-title">
+        <h2 id="growth-title" class="h2">How the practice grew</h2>
+        <div class="growth__text">
+          <p>
+            What began as a single Fractional CMO practice grew into a broader philosophy: senior expertise delivered on demand,
+            without the cost and delay of full-time hiring. As FCMO clients scaled, a natural question followed — if this works
+            for marketing, why not finance, technology, or operations? That question is the origin of Fractional Twinning: the
+            natural next step as complexity crosses beyond a single function. Once proven in one, senior leadership extends into
+            others, without diluting focus.
+          </p>
+          <p>
+            For companies that have already engaged a Fractional CMO, the question shifts from “should we go fractional again?”
+            to “how do we extend the model we already trust?” Fractional Twinning answers it by pairing a second, complementary
+            fractional executive alongside continued FCMO leadership: no new hires, no lost momentum.
+          </p>
+        </div>
+      </section>
+
+      <section id="market" class="market" aria-labelledby="market-title">
+        <div class="section-head">
+          <h2 id="market-title" class="h2">The category context</h2>
+          <p>
+            Fractional leadership has moved from a cost-saving alternative to a mainstream operating model. Analyst estimates for
+            the global fractional-executive market range from around USD 5.7 billion in 2025, growing at roughly 14% a year toward
+            USD 10–12 billion by 2029, to USD 9.4 billion in 2025, growing at 11.3% toward USD 24.7 billion by 2034, depending on
+            research methodology. The fractional CMO segment alone is projected at USD 1.27–2.28 billion in 2026.
+          </p>
+        </div>
+
+        <h3 class="market__subhead">The 2026 data behind the model</h3>
+        <ul class="stats" aria-label="The 2026 data behind the model">
+          <li class="stat stat--lead on-dark">
+            <span class="num stat__figure" aria-hidden="true">72%</span>
+            <p>72% of CEOs intend to increase their use of fractional executives in the next 12 months.</p>
+          </li>
+          <li class="stat stat--india">
+            <span class="num stat__figure" aria-hidden="true">68%</span>
+            <p>India’s fractional CXO demand grew 68% year-on-year between 2023 and 2024.</p>
+          </li>
+          <li class="stat stat--us">
+            <span class="num stat__figure" aria-hidden="true">35%</span>
+            <p>US adoption is projected to reach 35% of businesses by year-end 2026, up from 25%.</p>
+            <div class="stat__bars" aria-hidden="true">
+              <div class="stat__bar-row">
+                <span class="stat__bar-label">Up from</span>
+                <span class="stat__track"><span class="stat__bar" style="--v: 25"></span></span>
+                <span class="num stat__bar-value">25%</span>
+              </div>
+              <div class="stat__bar-row">
+                <span class="stat__bar-label">Year-end 2026</span>
+                <span class="stat__track"><span class="stat__bar stat__bar--lead" style="--v: 35"></span></span>
+                <span class="num stat__bar-value">35%</span>
+              </div>
+            </div>
+          </li>
+          <li class="stat stat--gartner">
+            <span class="num stat__figure" aria-hidden="true">30%+</span>
+            <p>Gartner forecasts more than 30% of midsize enterprises will carry at least one fractional executive by 2027.</p>
+          </li>
+          <li class="stat stat--wide">
+            <div class="stat__main">
+              <span class="num stat__figure" aria-hidden="true">282K</span>
+              <p>
+                LinkedIn lists approximately 282,000 professionals identifying as Fractional CMOs worldwide, including roughly
+                17,000 in India.
+              </p>
+            </div>
+            <div class="stat__share" aria-hidden="true">
+              <span class="stat__share-track"><span class="stat__share-part" style="--v: 17; --of: 282"></span></span>
+              <span class="stat__share-legend">
+                <span><span class="stat__key stat__key--india"></span>India, ~17K</span>
+                <span><span class="stat__key"></span>Rest of world, ~265K</span>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+  <section id="footprint" class="footprint" aria-labelledby="footprint-title">
+    <div class="section-head">
+      <h2 id="footprint-title" class="h2">One global shift. Five distinct growth realities.</h2>
+      <p>
+        FCMO is the entry point, and Twinning is the scale-up path in every market. Regional economics, talent gaps, adoption
+        maturity, and regulatory context shape the opportunity differently in each one.
+      </p>
+    </div>
+
+    <ul class="footprint__grid">
+      <li class="footprint__home photo-card on-dark" style="--tint: linear-gradient(180deg, color-mix(in srgb, var(--color-dark) 35%, transparent) 0%, color-mix(in srgb, var(--color-dark) 92%, transparent) 70%)">
+        <Image class="photo-card__bg" src={mountain} alt="" widths={[520, 1020]} sizes="(min-width: 900px) 520px, 100vw" />
+        <p class="footprint__badge">Primary base</p>
+        <h3 class="footprint__name">India</h3>
+        <p>
+          India’s fractional leadership economy is accelerating, powered by year-on-year demand growth, widespread startup
+          adoption, and a virtual-CXO market expanding at roughly 25% annually. 70% of Indian startups and small businesses now
+          engage Fractional CMOs.
+        </p>
+      </li>
+      {
+        regions.map((r) => (
+          <li class="footprint__region">
+            <h3 class="footprint__name">{r.name}</h3>
+            <p>{r.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="footprint__rest">
+      The rest of the world is served through the vetted Twin Partner Network.
+      <a class="text-link" href={routes.twinPartnerNetwork}>Meet the network <span aria-hidden="true">→</span></a>
+    </p>
+  </section>
+
+  <section id="values" class="values" aria-labelledby="values-title">
+    <h2 id="values-title" class="h2">Values</h2>
+    <ul class="rule-list">
+      {
+        values.map((v) => (
+          <li>
+            <h3 class="rule-list__label">{v.label}</h3>
+            <p>{v.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+    </div>
+  </div>
+
+  <CtaBand
+    title="Start with a diagnostic conversation."
+    body="Every engagement starts with a diagnostic conversation on your current marketing leadership gap, growth stage, and go-to-market priorities."
+    action={{ label: 'Book an FCMO Conversation', href: routes.bookConversation }}
+    image={mountain}
+  />
+</Base>
+
+<style>
+  .about {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 64px;
+    margin-top: clamp(56px, 7vw, 96px);
+  }
+
+  .about__body {
+    display: grid;
+    gap: var(--section-gap);
+    min-width: 0;
+  }
+
+  /* Founder ------------------------------------------------------- */
+  .founder-bio {
+    display: grid;
+    gap: 32px;
+  }
+
+  .founder-bio__head {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .founder-bio__photo {
+    flex: none;
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+    object-position: 50% 20%;
+    border-radius: var(--radius);
+  }
+
+  .founder-bio__id {
+    display: grid;
+    gap: 4px;
+  }
+
+  .founder-bio__id .h2 {
+    margin-bottom: 4px;
+  }
+
+  .founder-bio__role {
+    font-weight: 600;
+    color: var(--color-action);
+  }
+
+  .founder-bio__tag {
+    color: var(--color-text-muted);
+  }
+
+  .founder-bio__text {
+    display: grid;
+    gap: 16px;
+    max-width: var(--measure);
+  }
+
+  .recognition {
+    display: grid;
+    gap: 16px;
+    padding-top: 28px;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .recognition__title {
+    font-size: 1.1875rem;
+    line-height: 1.3;
+  }
+
+  .recognition ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 32px;
+  }
+
+  .recognition li {
+    display: grid;
+    gap: 2px;
+    padding-left: 16px;
+    border-left: 1px solid var(--color-prestige);
+  }
+
+  .recognition__name {
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+
+  .recognition__by {
+    color: var(--color-text-muted);
+  }
+
+  .founder-bio__handoff {
+    max-width: var(--measure);
+    color: var(--color-text-muted);
+  }
+
+  .founder-bio__handoff a {
+    color: var(--color-action);
+    font-weight: 600;
+    text-underline-offset: 4px;
+  }
+
+  /* Story ---------------------------------------------------------- */
+  .story {
+    display: grid;
+    gap: 48px;
+  }
+
+  .story__thesis {
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: clamp(1.25rem, 0.8vw + 1rem, 1.5rem);
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    color: var(--color-heading);
+  }
+
+  /* One reading column with a hairline spine: the story is a path from the
+     moment a founder hits the ceiling to what the engagement leaves behind,
+     so the first and last nodes are filled. */
+  .story__arc {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .story__beat {
+    position: relative;
+    display: grid;
+    gap: 10px;
+    max-width: calc(var(--measure) + 40px);
+    padding: 0 0 44px 40px;
+  }
+
+  .story__beat::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    bottom: -6px;
+    left: 6px;
+    width: 1px;
+    background: var(--color-rule);
+  }
+
+  .story__beat:last-child {
+    padding-bottom: 0;
+  }
+
+  .story__beat:last-child::before {
+    display: none;
+  }
+
+  .story__beat::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 13px;
+    height: 13px;
+    box-sizing: border-box;
+    border: 2px solid var(--color-action);
+    border-radius: 50%;
+    background: var(--color-canvas);
+  }
+
+  .story__beat:first-child::after,
+  .story__beat:last-child::after {
+    background: var(--color-action);
+  }
+
+  .story__label {
+    font-size: 1.1875rem;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+  }
+
+  .story__beat-body {
+    display: grid;
+    gap: 14px;
+  }
+
+  .story__close {
+    max-width: var(--measure);
+    padding-top: 32px;
+    border-top: 1px solid var(--color-rule);
+    font-size: clamp(1.0625rem, 0.3vw + 1rem, 1.1875rem);
+    line-height: 1.6;
+    font-weight: 500;
+    color: var(--color-heading);
+  }
+
+  /* Growth + market ----------------------------------------------- */
+  .growth {
+    display: grid;
+    gap: 24px;
+  }
+
+  .growth__text {
+    display: grid;
+    gap: 16px;
+    max-width: var(--measure);
+  }
+
+  .market {
+    display: grid;
+    gap: 40px;
+  }
+
+  .market__subhead {
+    font-size: 1.1875rem;
+    line-height: 1.3;
+  }
+
+  /* 2026 data bento: six-column grid, one dark lead tile, India on Mist
+     (home base), bars only where a number carries a comparison. */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .stat {
+    display: grid;
+    align-content: start;
+    gap: 14px;
+    padding: clamp(24px, 3vw, 32px);
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius);
+  }
+
+  .stat__figure {
+    font-size: clamp(2.25rem, 1.6vw + 1.6rem, 3rem);
+    line-height: 1;
+  }
+
+  .stat--lead {
+    grid-column: span 4;
+    align-content: end;
+    min-height: 280px;
+    background: var(--color-dark);
+    border-color: var(--color-dark);
+  }
+
+  .stat--lead .stat__figure {
+    font-size: clamp(4rem, 5vw + 1.5rem, 6rem);
+    letter-spacing: -0.04em;
+  }
+
+  .stat--lead p {
+    max-width: 26rem;
+    font-size: clamp(1.0625rem, 0.3vw + 1rem, 1.1875rem);
+    line-height: 1.5;
+  }
+
+  .stat--india {
+    grid-column: span 2;
+    align-content: end;
+    background: var(--color-panel);
+    border-color: var(--color-panel);
+    color: var(--color-text-on-panel);
+  }
+
+  .stat--us,
+  .stat--gartner {
+    grid-column: span 3;
+  }
+
+  .stat--wide {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: end;
+    gap: 24px 48px;
+  }
+
+  .stat__main {
+    display: grid;
+    gap: 14px;
+  }
+
+  .stat__bars {
+    display: grid;
+    gap: 10px;
+    margin-top: 6px;
+  }
+
+  .stat__bar-row {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr) 2.75rem;
+    gap: 12px;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .stat__track,
+  .stat__share-track {
+    display: block;
+    height: 10px;
+    background: var(--color-canvas);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+  }
+
+  .stat__bar {
+    display: block;
+    width: calc(var(--v) / 40 * 100%);
+    height: 100%;
+    background: var(--color-rule);
+    border-radius: var(--radius-pill);
+  }
+
+  .stat__bar--lead {
+    background: var(--color-action);
+  }
+
+  .stat__bar-value {
+    font-size: 0.9375rem;
+    text-align: right;
+  }
+
+  .stat__share {
+    display: grid;
+    gap: 12px;
+  }
+
+  .stat__share-track {
+    height: 14px;
+    background: var(--color-rule);
+  }
+
+  .stat__share-part {
+    display: block;
+    width: calc(var(--v) / var(--of) * 100%);
+    height: 100%;
+    background: var(--color-action);
+  }
+
+  .stat__share-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .stat__share-legend > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .stat__key {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-rule);
+  }
+
+  .stat__key--india {
+    background: var(--color-action);
+  }
+
+  /* Footprint ------------------------------------------------------ */
+  .footprint {
+    display: grid;
+    gap: 48px;
+  }
+
+  .footprint__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    gap: 16px;
+  }
+
+  .footprint__home {
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 14px;
+    min-height: 460px;
+    padding: 32px;
+  }
+
+  .footprint__badge {
+    align-self: flex-start;
+    padding: 4px 12px;
+    background: var(--color-prestige);
+    border-radius: var(--radius-sm);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text-on-panel);
+  }
+
+  .footprint__region {
+    display: grid;
+    align-content: start;
+    gap: 12px;
+    padding: 28px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius);
+  }
+
+  .footprint__name {
+    font-size: clamp(1.375rem, 0.8vw + 1.1rem, 1.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .footprint__rest {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 16px;
+  }
+
+  /* Values --------------------------------------------------------- */
+  .values {
+    display: grid;
+    gap: 40px;
+  }
+
+  @media (max-width: 1023px) {
+    .about {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .footprint__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footprint__home {
+      grid-column: 1 / -1;
+      grid-row: auto;
+      min-height: 380px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .founder-bio__head {
+      gap: 16px;
+    }
+
+    .founder-bio__photo {
+      width: 88px;
+      height: 88px;
+    }
+
+    .recognition ul {
+      grid-template-columns: 1fr;
+    }
+
+    .footprint__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stats {
+      grid-template-columns: 1fr;
+    }
+
+    .stat--lead,
+    .stat--india,
+    .stat--us,
+    .stat--gartner {
+      grid-column: auto;
+    }
+
+    .stat--lead {
+      min-height: 0;
+    }
+
+    .stat--wide {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

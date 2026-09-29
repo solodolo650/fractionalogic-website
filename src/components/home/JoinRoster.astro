@@ -1,0 +1,47 @@
+---
+import { routes } from '../../data/site';
+---
+
+<section class="roster container section split" aria-labelledby="roster-title">
+  <h2 id="roster-title" class="h3 roster__title">Are you a senior leader building a fractional practice?</h2>
+  <div class="roster__body">
+    <p>
+      Fractionalogic grows by adding complementary senior leaders — CROs, CFOs, CTOs, COOs, and specialist
+      marketers — who twin with an FCMO engagement around one shared client outcome, working to shared KPIs and
+      unified reporting.
+    </p>
+    <a class="btn btn-secondary" href={routes.joinRoster}>Join the roster</a>
+  </div>
+</section>
+
+<style>
+  /* The panel's padding would shift the shared split inward; offsetting the
+     first column puts the right column on the page's split line anyway. */
+  .roster {
+    --pad: clamp(32px, 5vw, 56px);
+    --gap: clamp(40px, 6vw, 80px);
+    grid-template-columns: calc((100% + 2 * var(--pad) - var(--gap)) * 5 / 12 - var(--pad)) minmax(0, 1fr);
+    column-gap: var(--gap);
+    row-gap: 20px;
+    padding: var(--pad);
+    background: var(--color-panel);
+    border-radius: var(--radius);
+  }
+
+  .roster__title {
+    max-width: 12em;
+  }
+
+  .roster__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  @media (max-width: 900px) {
+    .roster {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

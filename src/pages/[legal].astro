@@ -1,0 +1,39 @@
+---
+/* Legal pages share one template until their final text is supplied. */
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import EmailLink from '../components/ui/EmailLink.astro';
+import { contact } from '../data/site';
+
+export function getStaticPaths() {
+  return [
+    { params: { legal: 'disclaimer' }, props: { title: 'Disclaimer' } },
+    { params: { legal: 'terms-of-use' }, props: { title: 'Terms of Use' } },
+    { params: { legal: 'privacy-policy' }, props: { title: 'Privacy Policy' } },
+  ];
+}
+
+const { title } = Astro.props;
+---
+
+<Base title={`${title} | Fractionalogic`} description={`Fractionalogic ${title}.`}>
+  <meta slot="head" name="robots" content="noindex" />
+  <PageHeader title={title} lede="This page is being finalised." />
+  <div class="container section">
+    <p class="legal">
+      For any question about how Fractionalogic handles your information or the use of this site, email{' '}
+      <EmailLink address={contact.email} />.
+    </p>
+  </div>
+</Base>
+
+<style>
+  .legal {
+    max-width: var(--measure);
+  }
+
+  .legal :global(a) {
+    color: var(--color-action);
+    font-weight: 600;
+  }
+</style>

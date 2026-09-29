@@ -1,0 +1,523 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/ui/PageHeader.astro';
+import CtaBand from '../../components/ui/CtaBand.astro';
+import PartnerCard from '../../components/ui/PartnerCard.astro';
+import coast from '../../assets/images/card-twinning-coast.png';
+import { routes } from '../../data/site';
+import { roster } from '../../data/partners';
+
+const pairings = [
+  {
+    name: 'Identical Twinning',
+    a: 'CMO',
+    b: 'CMO',
+    text: 'Two executives mirror the same role to add capacity and redundancy, such as two Fractional CMOs splitting brand and demand generation.',
+  },
+  {
+    name: 'Non-identical Twinning',
+    a: 'CMO',
+    b: 'CRO',
+    text: 'Two executives fill complementary skill gaps, such as CMO plus CRO, or CFO plus COO.',
+  },
+];
+
+const functionsCovered = ['Finance', 'Technology', 'Operations', 'HR', 'Revenue'];
+
+const complements = [
+  {
+    label: 'Reduced single-point dependency',
+    // "71 months vs 42 months" is under verification with the client; keep it out of display type until confirmed.
+    text: 'Knowledge and continuity persist even if one twin steps away; average fractional engagement length runs 71 months against 42 months for full-time CMOs.',
+    tone: 'dark',
+  },
+  { label: 'Faster execution', text: 'One twin builds strategy while the other operationalizes it in parallel.', tone: 'teal' },
+  { label: 'Higher decision quality', text: 'Diverse viewpoints strengthen diagnosis in ambiguous, fast-moving markets.', tone: 'mist' },
+];
+
+// Figures stay in the statement text as supplied; `figure` pulls the headline number for the tile.
+const functionRoi = [
+  {
+    fn: 'CMO / Marketing',
+    note: 'The foundation function',
+    figure: '29%',
+    text: 'Average revenue growth, against 19% without senior marketing leadership.',
+    tone: 'dark',
+  },
+  {
+    fn: 'CFO / Finance',
+    note: 'A common twin pairing',
+    figure: 'Up to 71%',
+    text: 'Savings versus a full-time hire in markets like the UK.',
+    tone: 'teal',
+  },
+  {
+    fn: 'CTO / Technology',
+    figure: '55–75%',
+    text: 'Less than a full-time hire, with stalled decisions resolving in about 3 weeks versus 11.',
+    tone: 'mist',
+  },
+  {
+    fn: 'COO / Operations',
+    text: 'The fastest-growing Twinning function in manufacturing and healthcare.',
+    tone: 'surface',
+  },
+];
+
+const teaser = roster.slice(0, 3);
+---
+
+<Base
+  title="Fractional Twinning | Two Fractional Executives, One Leadership System"
+  description="Fractional Twinning pairs two part-time senior executives with joint accountability, shared KPIs, and unified reporting — the natural extension of the Fractional CMO practice."
+>
+  <PageHeader
+    title="Fractional Twinning"
+    crumbs={[{ label: 'Services' }]}
+    lede="From one fractional leader to a fractional leadership system."
+  >
+    <Fragment slot="actions">
+      <a class="btn btn-primary" href={routes.bookConversation}>Scope a Twinning pairing</a>
+    </Fragment>
+    <figure slot="aside" class="system panel">
+      <ul class="system__terms">
+        <li>Joint accountability</li>
+        <li>Shared KPIs</li>
+        <li>Unified reporting</li>
+      </ul>
+      <figcaption>Two fractional executives, presented to the organization as a single leadership system.</figcaption>
+    </figure>
+  </PageHeader>
+
+  <section class="what container section" aria-labelledby="what-title">
+    <div class="split what__head">
+      <h2 id="what-title" class="h2">What Twinning is</h2>
+      <div class="what__text">
+        <p>
+          Fractional Twinning pairs two part-time senior executives — most commonly a Fractional CMO and CRO, or a CFO and COO —
+          to jointly deliver the scope of a single full-time leadership role, with joint accountability, shared KPIs, and
+          unified reporting rather than parallel silos.
+        </p>
+        <p>
+          The same principles that make a Fractional CMO effective — objectivity, speed, cost discipline, and outcome
+          accountability — apply when two fractional leaders are twinned to cover a fuller commercial or operational lifecycle.
+          It’s the natural extension as complexity grows beyond a single function.
+        </p>
+      </div>
+    </div>
+
+    <ul class="pairings">
+      {
+        pairings.map((p) => (
+          <li class="pairing">
+            <div class="pairing__diagram" aria-hidden="true">
+              <span class="pairing__node">{p.a}</span>
+              <span class="pairing__link">
+                <span>Shared KPIs</span>
+              </span>
+              <span class:list={['pairing__node', { 'pairing__node--alt': p.a !== p.b }]}>{p.b}</span>
+            </div>
+            <h3 class="pairing__name">{p.name}</h3>
+            <p>{p.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="functions container section" aria-labelledby="functions-title">
+    <div class="split functions__head">
+      <h2 id="functions-title" class="h2">Functions covered</h2>
+      <p>Across SaaS, healthcare, manufacturing, professional services, and retail.</p>
+    </div>
+    <ul class="functions__grid">
+      {functionsCovered.map((f) => <li>{f}</li>)}
+    </ul>
+  </section>
+
+  <section class="complements container section" aria-labelledby="complements-title">
+    <div class="section-head">
+      <h2 id="complements-title" class="h2">How Twinning complements a single hire</h2>
+    </div>
+    <ul class="complements__grid">
+      {
+        complements.map((c) => (
+          <li class:list={['tile', `tile--${c.tone}`, { 'on-dark': c.tone === 'dark' || c.tone === 'teal' }]}>
+            <h3 class="tile__title">{c.label}</h3>
+            <p class="tile__text">{c.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="roi container section" aria-labelledby="roi-title">
+    <div class="split roi__head">
+      <h2 id="roi-title" class="h2">Twinning ROI by function</h2>
+      <p>
+        Direct cost avoidance versus a full-time hire, and value creation through faster decisions and improved outcomes —
+        across every function.
+      </p>
+    </div>
+
+    <ul class="roi__grid">
+      {
+        functionRoi.map((f) => (
+          <li class:list={['tile', `tile--${f.tone}`, { 'on-dark': f.tone === 'dark' || f.tone === 'teal' }]}>
+            <p class="tile__label">
+              {f.fn}
+              {f.note && <span class="tile__note">{f.note}</span>}
+            </p>
+            {f.figure ? (
+              <p class="num tile__figure">{f.figure}</p>
+            ) : (
+              <p class="tile__statement">{f.text}</p>
+            )}
+            {f.figure && <p class="tile__text">{f.text}</p>}
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="engage">
+      <p>
+        If your needs span more than one function, we’ll scope a Fractional Twinning pairing as part of the same engagement.
+      </p>
+      <a class="btn btn-primary" href={routes.bookConversation}>Scope a Twinning pairing</a>
+    </div>
+  </section>
+
+  <section class="network container section split" aria-labelledby="network-title">
+    <div class="network__text">
+      <h2 id="network-title" class="h2">Who you can twin with</h2>
+      <p>
+        Twinning works because of who is available to twin with. Our network is a vetted roster of senior specialists —
+        fractional CMOs, CTOs, ERP and digital transformation leaders, and personal-branding strategists — who pair with the
+        FCMO practice or with each other to extend leadership coverage across functions.
+      </p>
+      <a class="text-link" href={routes.twinPartnerNetwork}>Meet the twin partner network <span aria-hidden="true">→</span></a>
+    </div>
+    <ul class="network__list">
+      {
+        teaser.map((partner) => (
+          <li>
+            <PartnerCard partner={partner} compact />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <CtaBand
+    title="Scope a Twinning pairing"
+    body="Every Twinning pairing starts from an FCMO engagement and one shared outcome. Start with a conversation about where your leadership coverage runs thin."
+    action={{ label: 'Start the conversation', href: routes.bookConversation }}
+    image={coast}
+  />
+</Base>
+
+<style>
+  /* Header aside --------------------------------------------------- */
+  .system {
+    display: grid;
+    gap: 22px;
+    margin: 0;
+  }
+
+  .system__terms {
+    display: grid;
+    border-top: 1px solid var(--color-rule-on-panel);
+  }
+
+  .system__terms li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-rule-on-panel);
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: clamp(1.25rem, 0.8vw + 1rem, 1.5rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-heading);
+  }
+
+  .system figcaption {
+    color: var(--color-text-on-panel);
+  }
+
+  /* Shared section rhythm: split head, 56px, then the grid. */
+  .what__head,
+  .functions__head,
+  .roi__head {
+    align-items: end;
+  }
+
+  .what__text,
+  .functions__head p,
+  .roi__head p {
+    display: grid;
+    gap: 16px;
+    max-width: var(--measure);
+  }
+
+  .pairings,
+  .functions__grid,
+  .roi__grid {
+    margin-top: 56px;
+  }
+
+  /* Pairings ------------------------------------------------------- */
+  .pairings {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .pairing {
+    display: grid;
+    align-content: start;
+    gap: 14px;
+    padding: clamp(24px, 3vw, 36px);
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius);
+  }
+
+  .pairing__diagram {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .pairing__node {
+    display: grid;
+    place-items: center;
+    width: 76px;
+    height: 76px;
+    background: var(--color-dark);
+    border-radius: 50%;
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-on-dark);
+  }
+
+  .pairing__node--alt {
+    background: var(--color-action);
+  }
+
+  .pairing__link {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 2px;
+    background: var(--color-action);
+  }
+
+  .pairing__link span {
+    padding: 4px 10px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-pill);
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--color-text);
+  }
+
+  .pairing__name {
+    font-size: 1.375rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  /* Functions: the FCMO Industries blocks, five across. -------------- */
+  .functions__grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .functions__grid li {
+    display: flex;
+    align-items: flex-end;
+    min-height: 128px;
+    padding: 20px 24px;
+    background: linear-gradient(160deg, var(--color-panel), color-mix(in srgb, var(--color-panel) 35%, var(--color-surface)));
+    border-radius: var(--radius);
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--color-heading);
+  }
+
+  /* Tiles: the FCMO Benefits & ROI vocabulary. ----------------------- */
+  .complements__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .section-head + .complements__grid {
+    margin-top: 56px;
+  }
+
+  /* Two by two, so range figures ("Up to 71%", "55–75%") hold one line. */
+  .roi__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .roi__grid .tile {
+    min-height: 240px;
+  }
+
+  .tile {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 260px;
+    padding: clamp(24px, 3vw, 32px);
+    border-radius: var(--radius);
+  }
+
+  .tile--dark {
+    background:
+      radial-gradient(70% 90% at 100% 0%, color-mix(in srgb, var(--color-action) 50%, transparent), transparent 70%),
+      linear-gradient(160deg, var(--color-dark) 40%, var(--color-brand));
+  }
+
+  .tile--teal {
+    background: linear-gradient(160deg, var(--color-brand), var(--color-action));
+  }
+
+  .tile--mist {
+    background: var(--color-panel);
+    color: var(--color-text-on-panel);
+  }
+
+  .tile--surface {
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+  }
+
+  .tile__title {
+    margin-bottom: auto;
+    font-size: clamp(1.375rem, 0.8vw + 1.1rem, 1.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .tile__text {
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+
+  .on-dark .tile__text {
+    color: var(--color-on-dark-muted);
+  }
+
+  .tile__label {
+    display: grid;
+    gap: 2px;
+    margin-bottom: auto;
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  .tile__note {
+    font-weight: 400;
+  }
+
+  .on-dark .tile__label {
+    color: var(--color-on-dark-muted);
+  }
+
+  .tile__figure {
+    margin-top: 32px;
+    font-size: clamp(2.5rem, 2vw + 1.75rem, 3.5rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+
+  .tile__statement {
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: clamp(1.25rem, 0.6vw + 1.05rem, 1.5rem);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: var(--color-heading);
+  }
+
+  /* Single action after the evidence, as on the FCMO page. */
+  .engage {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px 40px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .engage p {
+    max-width: var(--measure);
+    font-size: 1.0625rem;
+    color: var(--color-heading);
+  }
+
+  /* Network -------------------------------------------------------- */
+  .network__text {
+    display: grid;
+    justify-items: start;
+    gap: 16px;
+  }
+
+  .network__list {
+    display: grid;
+    gap: 12px;
+  }
+
+  @media (max-width: 900px) {
+    .pairings,
+    .complements__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .functions__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tile,
+    .roi__grid .tile {
+      min-height: 0;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .roi__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .functions__grid {
+      gap: 12px;
+    }
+
+    .functions__grid li {
+      min-height: 88px;
+      padding: 16px;
+      font-size: 1.125rem;
+    }
+
+    .engage .btn {
+      width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,187 @@
+---
+import EmailLink from './ui/EmailLink.astro';
+import { contact, footerAbout, partners, routes, services } from '../data/site';
+
+const columns = [
+  { heading: 'Services', links: services },
+  { heading: 'Partners', links: partners },
+  {
+    heading: 'Company',
+    links: [
+      { label: 'About', href: routes.about },
+      { label: 'Resources', href: routes.resources },
+      { label: 'Talk to Us', href: routes.talkToUs },
+    ],
+  },
+];
+
+const legal = [
+  { label: 'Disclaimer', href: routes.disclaimer },
+  { label: 'Terms of Use', href: routes.terms },
+  { label: 'Privacy Policy', href: routes.privacy },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer on-dark">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <a class="footer__logo" href={routes.home}>fractionalogic</a>
+      <p class="footer__about">{footerAbout}</p>
+      <EmailLink address={contact.email} class="footer__email" />
+      <a class="footer__social" href={contact.linkedin} rel="noopener">LinkedIn</a>
+    </div>
+
+    <nav class="footer__cols" aria-label="Footer">
+      {
+        columns.map((col) => (
+          <div>
+            <h2 class="footer__heading">{col.heading}</h2>
+            <ul class="footer__list">
+              {col.links.map((link) => (
+                <li>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </nav>
+  </div>
+
+  <div class="container footer__bottom">
+    <p>Copyright © {year} Muralidharan Erumbala. Fractional CMO, Branding &amp; Marketing Strategist.</p>
+    <ul class="footer__legal">
+      {
+        legal.map((link) => (
+          <li>
+            <a href={link.href}>{link.label}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    margin-top: var(--section-gap);
+    padding-top: 80px;
+    padding-bottom: 40px;
+    background: var(--color-dark);
+  }
+
+  .footer__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 327px) 1fr;
+    gap: 64px;
+  }
+
+  .footer__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  .footer__about,
+  .footer__list a,
+  .footer__bottom,
+  .footer__legal a {
+    color: var(--color-on-dark-muted);
+  }
+
+  .footer :global(.footer__email) {
+    color: var(--color-on-dark-muted);
+    text-decoration: none;
+  }
+
+  .footer__social {
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .footer :global(.footer__email:hover),
+  .footer__social:hover,
+  .footer__list a:hover,
+  .footer__legal a:hover {
+    color: var(--color-on-dark);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .footer__cols {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 180px));
+    justify-content: end;
+    gap: 40px;
+  }
+
+  /* Executive Brass on Teal 950 = 5.06:1 — the footer's one prestige accent. */
+  .footer__heading {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.5;
+    color: var(--color-prestige);
+  }
+
+  .footer__list {
+    display: grid;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .footer__list a {
+    text-decoration: none;
+  }
+
+  .footer__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px 32px;
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid color-mix(in srgb, var(--color-on-dark-muted) 20%, transparent);
+    font-size: 0.875rem;
+  }
+
+  .footer__legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+  }
+
+  .footer__legal a {
+    text-decoration: none;
+  }
+
+  @media (max-width: 900px) {
+    .footer {
+      padding-top: 56px;
+    }
+    .footer__inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .footer__cols {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      justify-content: start;
+    }
+    .footer__bottom {
+      margin-top: 56px;
+    }
+  }
+</style>

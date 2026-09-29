@@ -1,0 +1,248 @@
+---
+/*
+ * Posts to one third-party form endpoint (Formspree, Web3Forms, Basin, Getform…) so the site
+ * stays static and host-agnostic. Configure PUBLIC_FORM_ENDPOINT, and PUBLIC_FORM_ACCESS_KEY
+ * when the provider needs a key in the payload (see .env.example).
+ */
+import EmailLink from '../ui/EmailLink.astro';
+import { contact } from '../../data/site';
+
+interface Props {
+  id: string;
+  subject: string;
+  submitLabel: string;
+  successTitle: string;
+  successBody: string;
+}
+
+const { id, subject, submitLabel, successTitle, successBody } = Astro.props;
+const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT;
+const accessKey = import.meta.env.PUBLIC_FORM_ACCESS_KEY;
+---
+
+<div class="form-shell">
+  <form id={id} class="form" method="post" action={endpoint} novalidate data-form>
+    <div class="form__summary" tabindex="-1" hidden data-summary>
+      <p class="form__summary-title">Check the highlighted fields</p>
+      <ul data-summary-list></ul>
+    </div>
+
+    <input type="hidden" name="subject" value={subject} />
+    <input type="hidden" name="form" value={id} />
+    {accessKey && <input type="hidden" name="access_key" value={accessKey} />}
+    <div class="form__trap" aria-hidden="true">
+      <label for={`${id}-website`}>Leave this empty</label>
+      <input id={`${id}-website`} name="website" type="text" tabindex="-1" autocomplete="off" data-trap />
+    </div>
+
+    <div class="form__fields">
+      <slot />
+    </div>
+
+    <div class="form__footer">
+      <button class="btn btn-primary form__submit" type="submit" data-submit>
+        <span data-submit-label>{submitLabel}</span>
+      </button>
+      <p class="form__error" role="alert" data-error hidden>
+        Your message didn't send. Check your connection and try again, or email <EmailLink address={contact.email} /> directly.
+      </p>
+    </div>
+  </form>
+
+  <div class="form__success" tabindex="-1" hidden data-success>
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
+      <circle cx="14" cy="14" r="13" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+      <path d="m8.5 14.5 3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    <h3 class="form__success-title">{successTitle}</h3>
+    <p>{successBody}</p>
+  </div>
+</div>
+
+<style>
+  .form {
+    display: grid;
+    gap: 28px;
+  }
+
+  .form__fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 20px;
+  }
+
+  .form__trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .form__summary {
+    padding: 18px 20px;
+    background: var(--color-error-surface);
+    border: 1px solid var(--color-error);
+    border-radius: var(--radius);
+    color: var(--color-text-on-panel);
+  }
+
+  .form__summary-title {
+    font-weight: 600;
+  }
+
+  .form__summary ul {
+    margin-top: 8px;
+    padding-left: 20px;
+    list-style: disc;
+  }
+
+  .form__summary a {
+    color: var(--color-error);
+    text-underline-offset: 3px;
+  }
+
+  .form__footer {
+    display: grid;
+    justify-items: start;
+    gap: 16px;
+  }
+
+  .form__submit[aria-busy='true'] {
+    cursor: progress;
+    opacity: 0.75;
+  }
+
+  .form__error {
+    max-width: var(--measure);
+    font-size: 0.9375rem;
+    color: var(--color-error);
+  }
+
+  .form__error :global(a) {
+    color: inherit;
+    font-weight: 600;
+  }
+
+  .form__success {
+    display: grid;
+    gap: 12px;
+    justify-items: start;
+    padding: clamp(28px, 4vw, 40px);
+    background: var(--color-panel);
+    border-radius: var(--radius);
+    color: var(--color-text-on-panel);
+  }
+
+  .form__success svg {
+    color: var(--color-action);
+  }
+
+  .form__success-title {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  @media (max-width: 560px) {
+    .form__fields {
+      grid-template-columns: 1fr;
+    }
+    .form__submit {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  const messageFor = (field: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) => {
+    const label = (field.dataset.label ?? 'this field').toLowerCase();
+    if (field.validity.valueMissing) return field instanceof HTMLSelectElement ? `Choose your ${label}` : `Enter your ${label}`;
+    if (field.validity.typeMismatch && field.type === 'email') return 'Enter an email address like name@company.com';
+    if (field.validity.typeMismatch && field.type === 'url') return 'Enter a full link, starting with https://';
+    return field.validationMessage;
+  };
+
+  document.querySelectorAll<HTMLFormElement>('form[data-form]').forEach((form) => {
+    const shell = form.parentElement!;
+    const summary = form.querySelector<HTMLElement>('[data-summary]')!;
+    const summaryList = form.querySelector<HTMLElement>('[data-summary-list]')!;
+    const errorBox = form.querySelector<HTMLElement>('[data-error]')!;
+    const submit = form.querySelector<HTMLButtonElement>('[data-submit]')!;
+    const submitLabel = form.querySelector<HTMLElement>('[data-submit-label]')!;
+    const success = shell.querySelector<HTMLElement>('[data-success]')!;
+    const fields = [...form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('[data-label]')];
+    const idleLabel = submitLabel.textContent;
+
+    const showFieldError = (field: (typeof fields)[number], message: string) => {
+      const error = document.getElementById(`${field.id}-error`);
+      if (error) error.textContent = message;
+      field.setAttribute('aria-invalid', message ? 'true' : 'false');
+    };
+
+    fields.forEach((field) =>
+      field.addEventListener('blur', () => {
+        if (field.getAttribute('aria-invalid') === 'true' || field.value) showFieldError(field, field.checkValidity() ? '' : messageFor(field));
+      }),
+    );
+
+    const finish = () => {
+      form.hidden = true;
+      success.hidden = false;
+      success.focus();
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      errorBox.hidden = true;
+
+      const invalid = fields.filter((field) => !field.checkValidity());
+      fields.forEach((field) => showFieldError(field, field.checkValidity() ? '' : messageFor(field)));
+      if (invalid.length) {
+        summaryList.replaceChildren(
+          ...invalid.map((field) => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = `#${field.id}`;
+            a.textContent = messageFor(field);
+            a.addEventListener('click', (e) => {
+              e.preventDefault();
+              field.focus();
+            });
+            li.append(a);
+            return li;
+          }),
+        );
+        summary.hidden = false;
+        summary.focus();
+        return;
+      }
+      summary.hidden = true;
+
+      const trap = form.querySelector<HTMLInputElement>('[data-trap]');
+      if (trap?.value) return finish();
+
+      if (!form.getAttribute('action')) {
+        errorBox.hidden = false;
+        return;
+      }
+
+      const data = new FormData(form);
+      data.delete('website');
+      submit.setAttribute('aria-busy', 'true');
+      submit.disabled = true;
+      submitLabel.textContent = 'Sending…';
+
+      try {
+        const response = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (!response.ok) throw new Error(String(response.status));
+        finish();
+      } catch {
+        errorBox.hidden = false;
+      } finally {
+        submit.removeAttribute('aria-busy');
+        submit.disabled = false;
+        submitLabel.textContent = idleLabel;
+      }
+    });
+  });
+</script>

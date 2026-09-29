@@ -1,0 +1,838 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/ui/PageHeader.astro';
+import CtaBand from '../../components/ui/CtaBand.astro';
+import mountain from '../../assets/images/card-fcmo-mountain.png';
+import { routes } from '../../data/site';
+
+const steps = [
+  { name: 'Diagnose', text: 'Establish where the business stands: ICP and market definition, positioning, and the growth constraint that matters most.' },
+  { name: 'Decide', text: 'Convert the diagnosis into a go-to-market roadmap with named priorities, owners, and KPIs.' },
+  { name: 'Build', text: 'Stand up demand generation, sales alignment, content, and MarTech as one connected system.' },
+  { name: 'Sustain', text: 'Run the operating rhythm, coach the internal team, and hand over capability that outlives the engagement.' },
+];
+
+// Bento order and tone are set here; the grid places tiles by their `span` class.
+const coverage = [
+  { area: 'Strategic Foundation', detail: 'ICP and market definition, brand positioning, and go-to-market roadmaps.', tone: 'dark', span: 'wide' },
+  { area: 'C-Suite Strategic Advisory', detail: 'A sounding board on growth, fundraising readiness, and market expansion.', tone: 'mist', span: 'narrow' },
+  {
+    area: 'Demand Generation & Pipeline',
+    detail: 'Full-funnel demand across SEO, content, email, paid, and ABM; funnel architecture; MQL/SQL definitions.',
+    tone: 'teal',
+    span: 'half',
+  },
+  { area: 'Sales & Revenue Alignment', detail: 'Sales enablement, pipeline velocity, and CRM configuration.', tone: 'surface', span: 'half' },
+  { area: 'Brand & Content Leadership', detail: 'Content playbooks, product launches, and lifecycle marketing.', tone: 'surface', span: 'third' },
+  {
+    area: 'MarTech & Performance Management',
+    detail: 'KPI/OKR frameworks, stack selection, attribution, and budget allocation.',
+    tone: 'mist',
+    span: 'third',
+  },
+  { area: 'Team & Vendor Leadership', detail: 'Hiring, agency management, and coaching teams to self-sufficiency.', tone: 'surface', span: 'third' },
+];
+
+const stages = [
+  {
+    label: 'Early-stage startup',
+    text: 'At a growth inflection point, needing brand visibility and a credible go-to-market plan. The FCMO establishes the ICP, positioning, and the first repeatable demand motion before committing headcount.',
+  },
+  {
+    label: 'Established SME',
+    text: 'Needs high-level marketing direction without full-time staff overhead. The FCMO brings structure, KPI discipline, and MarTech decisions, and coaches the existing team to run the system.',
+  },
+  {
+    label: 'Larger business or business in transition',
+    text: 'Rebranding, merger, pivot, or operating without dedicated marketing leadership. The FCMO supplies objective senior judgment, and — where complexity spans functions — becomes the anchor for a Twinning pairing.',
+  },
+];
+
+const industries = [
+  'SaaS, software and technology',
+  'Professional services',
+  'IT and ITES',
+  'FinTech and financial services',
+  'Manufacturing and industrial',
+  'Retail and e-commerce',
+  'FMCG and food service',
+  'Consumer durables',
+  'Education and EdTech',
+  'Healthcare and life sciences',
+  'Trade associations',
+  'Social services and nonprofits',
+];
+---
+
+<Base
+  title="Fractional CMO for Growth-Stage B2B SaaS | Fractionalogic"
+  description="Senior, revenue-accountable marketing leadership — embedded in your team, part-time in hours, full-time in ownership. How a Fractionalogic FCMO engagement works."
+>
+  <PageHeader
+    title="Fractional CMO"
+    crumbs={[{ label: 'Services' }]}
+    lede="Senior, revenue-accountable marketing leadership — embedded in your team, part-time in hours, full-time in ownership."
+  >
+    <Fragment slot="actions">
+      <a class="btn btn-primary" href={routes.bookConversation}>Book an FCMO Conversation</a>
+    </Fragment>
+    <figure slot="aside" class="compare" aria-labelledby="compare-caption">
+      <figcaption id="compare-caption" class="compare__caption">Average revenue growth</figcaption>
+      <div class="compare__row">
+        <span class="compare__label">With a Fractional CMO</span>
+        <span class="compare__track"><span class="compare__bar compare__bar--lead" style="--v: 29"></span></span>
+        <span class="num compare__value">29%</span>
+      </div>
+      <div class="compare__row">
+        <span class="compare__label">Without senior marketing leadership</span>
+        <span class="compare__track"><span class="compare__bar" style="--v: 19"></span></span>
+        <span class="num compare__value">19%</span>
+      </div>
+    </figure>
+  </PageHeader>
+
+  <!-- How it works: pinned horizontal sequence on large screens; a stacked list otherwise. -->
+  <section class="how section" aria-labelledby="how-title" data-how>
+    <div class="how__pin">
+      <div class="container how__head split">
+        <h2 id="how-title" class="h2">How it works</h2>
+        <p>
+          Every engagement runs the same four stages: from an honest read of what is holding growth back, to a system your own
+          team can run.
+        </p>
+      </div>
+
+      <ol class="container how__rail" aria-hidden="true">
+        {
+          steps.map((step, i) => (
+            <li class="how__rail-step" style={`--i: ${i}`}>
+              <span class="how__rail-label">
+                <span class="num">{i + 1}</span> {step.name}
+              </span>
+              <span class="how__rail-track">
+                <span class="how__rail-fill" />
+              </span>
+            </li>
+          ))
+        }
+      </ol>
+
+      <div class="how__viewport">
+        <ol class="how__track">
+          {
+            steps.map((step, i) => (
+              <li class={`how__card how__card--${i + 1}`}>
+                <h3 class="how__card-name">
+                  <span class="visually-hidden">Step {i + 1}: </span>
+                  {step.name}
+                </h3>
+                <p class="how__card-text">{step.text}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="coverage container section" aria-labelledby="coverage-title">
+    <div class="section-head">
+      <h2 id="coverage-title" class="h2">What’s covered</h2>
+    </div>
+    <ul class="bento">
+      {
+        coverage.map((c) => (
+          <li class:list={['bento__tile', `bento__tile--${c.tone}`, `bento__tile--${c.span}`, { 'on-dark': c.tone === 'dark' || c.tone === 'teal' }]}>
+            <h3 class="bento__title">{c.area}</h3>
+            <p class="bento__text">{c.detail}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="serve container section" aria-labelledby="serve-title">
+    <div class="serve__block">
+      <div class="serve__intro">
+        <h2 id="serve-title" class="h2">Who we serve</h2>
+        <p>
+          One persona: a founder or CEO who owns the growth number and has outgrown founder-led marketing. The stage changes, not
+          the person.
+        </p>
+      </div>
+      <ul class="serve__stages">
+        {
+          stages.map((stage) => (
+            <li>
+              <h3 class="serve__stage-name">{stage.label}</h3>
+              <p>{stage.text}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="value container section" aria-labelledby="value-title">
+    <div class="split value__head">
+      <h2 id="value-title" class="h2">Benefits &amp; ROI</h2>
+      <p>
+        Most growing businesses face the same paradox: they need experienced marketing leadership to compete, but can’t justify
+        a full-time CMO. A Fractional CMO resolves it — senior, revenue-accountable leadership, part-time but embedded, with the
+        objectivity of an outsider and a cost structure your growth stage can carry.
+      </p>
+    </div>
+
+    <ul class="value__grid">
+      <li class="value__tile value__tile--dark on-dark">
+        <p class="value__label">Cost-effectiveness</p>
+        <p class="num value__figure">67%</p>
+        <p>Lower total cost than a full-time hire, once recruitment, benefits, and overhead are counted.</p>
+      </li>
+      <li class="value__tile value__tile--teal on-dark">
+        <p class="value__label">Speed</p>
+        <p class="num value__figure">40<span class="value__dash">–</span>60%</p>
+        <p>Faster to measurable results than a newly hired full-time executive.</p>
+      </li>
+      <li class="value__tile value__tile--mist">
+        <p class="value__label">Performance</p>
+        <p class="num value__figure">91%</p>
+        <p>Of client companies rate performance as exceeding expectations.</p>
+      </li>
+      <li class="value__tile value__tile--text">
+        <h3 class="value__title">Reduced risk</h3>
+        <p>Evaluate a leader’s impact before committing to a full-time hire.</p>
+      </li>
+      <li class="value__tile value__tile--text">
+        <h3 class="value__title">Capability that outlives the engagement</h3>
+        <p>Internal team skills built during the engagement, not rented for its duration.</p>
+      </li>
+    </ul>
+
+    <div class="value__engage">
+      <p>
+        Engagements are retained or project-based, typically two to four days a month. Reach out to understand how you can
+        engage with us.
+      </p>
+      <a class="btn btn-primary" href={routes.bookConversation}>Engage with us</a>
+    </div>
+  </section>
+
+  <section class="industries container section" aria-labelledby="industries-title">
+    <div class="section-head">
+      <h2 id="industries-title" class="h2">Industries we serve</h2>
+    </div>
+    <ul class="industries__grid">
+      {industries.map((name) => <li>{name}</li>)}
+    </ul>
+  </section>
+
+  <CtaBand
+    title="Start with a diagnostic conversation."
+    body="Every engagement starts with a diagnostic conversation on your current marketing leadership gap, growth stage, and go-to-market priorities."
+    action={{ label: 'Book an FCMO Conversation', href: routes.bookConversation }}
+    image={mountain}
+  />
+</Base>
+
+<style>
+  .section-head + * {
+    margin-top: 40px;
+  }
+
+  /* Hero aside ------------------------------------------------------ */
+  .compare {
+    display: grid;
+    gap: 18px;
+    margin: 0;
+    padding: clamp(24px, 3vw, 36px);
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius);
+  }
+
+  .compare__caption {
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+
+  .compare__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 16px;
+    align-items: center;
+  }
+
+  .compare__label {
+    grid-column: 1 / -1;
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+  }
+
+  .compare__track {
+    display: block;
+    height: 14px;
+    background: var(--color-canvas);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+  }
+
+  .compare__bar {
+    display: block;
+    width: calc(var(--v) / 70 * 100%);
+    height: 100%;
+    background: var(--color-rule);
+    border-radius: var(--radius-pill);
+  }
+
+  .compare__bar--lead {
+    background: var(--color-action);
+  }
+
+  .compare__value {
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+
+  /* How it works ---------------------------------------------------- */
+  /* The engagement deepens as it runs, so the cards darken step by step:
+     Mist at diagnosis through to Teal 950 once the system sustains itself. */
+  .how {
+    --how-progress: 0;
+    overflow-x: clip;
+  }
+
+  .how__pin {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .how__head {
+    align-items: end;
+  }
+
+  .how__head p {
+    max-width: var(--measure);
+  }
+
+  .how__rail {
+    display: none;
+  }
+
+  .how__viewport {
+    width: min(1060px, 100% - 2 * var(--gutter));
+    margin-inline: auto;
+  }
+
+  .how__track {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .how__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 48px;
+    min-height: 280px;
+    padding: clamp(28px, 3vw, 40px);
+    border-radius: var(--radius);
+    color: var(--color-text-on-panel);
+  }
+
+  .how__card--1 {
+    background: var(--color-panel);
+  }
+
+  .how__card--2 {
+    background: linear-gradient(150deg, var(--color-panel), color-mix(in srgb, var(--color-panel) 55%, var(--color-action)));
+  }
+
+  .how__card--3 {
+    background: linear-gradient(150deg, var(--color-action), var(--color-brand));
+  }
+
+  .how__card--4 {
+    background: linear-gradient(150deg, var(--color-brand), var(--color-dark));
+  }
+
+  .how__card--3,
+  .how__card--4 {
+    --color-heading: var(--color-on-dark);
+    color: var(--color-on-dark);
+  }
+
+  .how__card-name {
+    font-size: clamp(2.25rem, 2.4vw + 1.25rem, 3.5rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+
+  .how__card-text {
+    max-width: 26rem;
+    font-size: 1.125rem;
+    line-height: 1.55;
+  }
+
+  /* Pinned mode (set by the script on large, tall screens without reduced
+     motion): the frame sticks under the nav and the track slides sideways
+     as the page scrolls; the rail fills 1 → 4 in step. */
+  .how--pinned .how__pin {
+    position: sticky;
+    top: 96px;
+    height: calc(100vh - 112px);
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .how--pinned .how__rail {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-block: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .how__rail-step {
+    --fill: clamp(0, calc(var(--how-progress) * 4 - var(--i)), 1);
+    display: grid;
+    gap: 10px;
+  }
+
+  .how__rail-label {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    transition: color 200ms ease;
+  }
+
+  .how__rail-label .num {
+    margin-right: 6px;
+    font-size: 0.9375rem;
+    color: inherit;
+  }
+
+  .how__rail-step.is-reached .how__rail-label {
+    color: var(--color-heading);
+    font-weight: 600;
+  }
+
+  .how__rail-track {
+    display: block;
+    height: 3px;
+    background: var(--color-rule);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+  }
+
+  .how__rail-fill {
+    display: block;
+    height: 100%;
+    background: var(--color-action);
+    transform: scaleX(var(--fill));
+    transform-origin: left;
+  }
+
+  .how--pinned .how__viewport {
+    width: auto;
+    margin: 0;
+    padding-left: max(var(--gutter), (100vw - 1060px) / 2);
+  }
+
+  .how--pinned .how__track {
+    display: flex;
+    width: max-content;
+    gap: 20px;
+    padding-right: max(var(--gutter), (100vw - 1060px) / 2);
+    transform: translate3d(calc(var(--how-shift, 0px) * -1), 0, 0);
+    will-change: transform;
+  }
+
+  /* Cards take the frame's remaining height so the pinned view is full. */
+  .how--pinned .how__viewport {
+    flex: 0 1 520px;
+    min-height: 0;
+  }
+
+  .how--pinned .how__track {
+    height: 100%;
+  }
+
+  .how--pinned .how__card {
+    flex: none;
+    width: clamp(380px, 40vw, 560px);
+    height: 100%;
+    min-height: 0;
+  }
+
+  /* Coverage bento -------------------------------------------------- */
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .bento__tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+    min-height: 240px;
+    padding: clamp(24px, 3vw, 32px);
+    border-radius: var(--radius);
+    color: var(--color-text-on-panel);
+  }
+
+  .bento__tile--wide {
+    grid-column: span 4;
+    min-height: 300px;
+  }
+
+  .bento__tile--narrow {
+    grid-column: span 2;
+    min-height: 300px;
+  }
+
+  .bento__tile--half {
+    grid-column: span 3;
+  }
+
+  .bento__tile--third {
+    grid-column: span 2;
+  }
+
+  .bento__tile--dark {
+    color: var(--color-on-dark);
+  }
+
+  .bento__tile--teal {
+    background: linear-gradient(135deg, var(--color-brand), var(--color-action));
+    color: var(--color-on-dark);
+  }
+
+  .bento__tile--mist {
+    background: var(--color-panel);
+  }
+
+  .bento__tile--surface {
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+  }
+
+  .bento__title {
+    max-width: 14em;
+    font-size: clamp(1.375rem, 0.8vw + 1.1rem, 1.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .bento__tile--wide .bento__title {
+    font-size: clamp(1.75rem, 1.4vw + 1.25rem, 2.25rem);
+  }
+
+  .bento__text {
+    max-width: 34rem;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+
+  .on-dark .bento__text {
+    color: var(--color-on-dark-muted);
+  }
+
+  /* A soft glow keeps the dark lead tile from reading flat. */
+  .bento__tile--dark {
+    background:
+      radial-gradient(70% 90% at 100% 0%, color-mix(in srgb, var(--color-action) 55%, transparent), transparent 70%),
+      linear-gradient(135deg, var(--color-dark) 30%, var(--color-brand));
+  }
+
+  /* Who we serve ---------------------------------------------------- */
+  .serve__block {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 32px clamp(40px, 6vw, 80px);
+    padding: clamp(28px, 4vw, 56px);
+    background: var(--color-panel);
+    border-radius: var(--radius);
+    color: var(--color-text-on-panel);
+  }
+
+  .serve__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .serve__stages {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--color-rule-on-panel);
+  }
+
+  .serve__stages li {
+    display: grid;
+    gap: 8px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--color-rule-on-panel);
+  }
+
+  .serve__stages li:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .serve__stage-name {
+    font-size: 1.1875rem;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+  }
+
+  /* Benefits & ROI -------------------------------------------------- */
+  .value__head {
+    align-items: end;
+  }
+
+  .value__head p {
+    max-width: var(--measure);
+  }
+
+  .value__grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
+    margin: 56px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .value__tile {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: clamp(24px, 3vw, 32px);
+    border-radius: var(--radius);
+  }
+
+  .value__tile--dark,
+  .value__tile--teal,
+  .value__tile--mist {
+    grid-column: span 2;
+    min-height: 280px;
+  }
+
+  .value__tile--dark {
+    background: linear-gradient(160deg, var(--color-dark) 40%, var(--color-brand));
+  }
+
+  .value__tile--teal {
+    background: linear-gradient(160deg, var(--color-brand), var(--color-action));
+  }
+
+  .value__tile--mist {
+    background: var(--color-panel);
+    color: var(--color-text-on-panel);
+  }
+
+  .value__tile--text {
+    grid-column: span 3;
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+  }
+
+  .value__label {
+    margin-bottom: auto;
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  .on-dark .value__label {
+    color: var(--color-on-dark-muted);
+  }
+
+  .value__figure {
+    margin-top: 32px;
+    font-size: clamp(3rem, 2.4vw + 2rem, 4.25rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+
+  /* The range dash needs air at display size. */
+  .value__dash {
+    margin-inline: 0.08em;
+    font-weight: 400;
+  }
+
+  .value__title {
+    font-size: 1.1875rem;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+  }
+
+  .value__engage {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px 40px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .value__engage p {
+    max-width: var(--measure);
+    font-size: 1.0625rem;
+    color: var(--color-heading);
+  }
+
+  /* Industries ------------------------------------------------------ */
+  /* Spaced blocks on the page's 16px rhythm, each with a Mist wash. */
+  .industries__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .industries__grid li {
+    display: flex;
+    align-items: flex-end;
+    min-height: 128px;
+    padding: 20px 24px;
+    background: linear-gradient(160deg, var(--color-panel), color-mix(in srgb, var(--color-panel) 35%, var(--color-surface)));
+    border-radius: var(--radius);
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: 1.1875rem;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--color-heading);
+  }
+
+  @media (max-width: 900px) {
+    .how__track {
+      grid-template-columns: 1fr;
+    }
+
+    .bento,
+    .value__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .bento__tile--wide,
+    .bento__tile--narrow,
+    .bento__tile--half,
+    .bento__tile--third,
+    .value__tile--dark,
+    .value__tile--teal,
+    .value__tile--mist,
+    .value__tile--text {
+      grid-column: span 1;
+      min-height: 0;
+    }
+
+    .bento__tile--wide,
+    .value__tile--dark {
+      grid-column: 1 / -1;
+    }
+
+    .serve__block {
+      grid-template-columns: 1fr;
+    }
+
+    .industries__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 560px) {
+    .bento,
+    .value__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .how__card {
+      min-height: 0;
+    }
+
+    .industries__grid {
+      gap: 12px;
+    }
+
+    .industries__grid li {
+      min-height: 88px;
+      padding: 16px;
+      font-size: 1.0625rem;
+    }
+
+    .value__engage .btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  // Pins "How it works" and converts vertical scroll into horizontal travel.
+  // Only on wide, tall screens without reduced motion; everywhere else the
+  // steps stay a plain stacked list and nothing here runs.
+  const section = document.querySelector<HTMLElement>('[data-how]');
+  const pin = section?.querySelector<HTMLElement>('.how__pin');
+  const track = section?.querySelector<HTMLElement>('.how__track');
+  const railSteps = section ? [...section.querySelectorAll<HTMLElement>('.how__rail-step')] : [];
+  const query = window.matchMedia('(min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)');
+
+  let distance = 0;
+  let frame = 0;
+
+  const update = () => {
+    frame = 0;
+    if (!section || !pin) return;
+    const pinTop = parseFloat(getComputedStyle(pin).top) || 0;
+    const travel = section.offsetHeight - pin.offsetHeight;
+    const progress = travel > 0 ? Math.min(1, Math.max(0, (pinTop - section.getBoundingClientRect().top) / travel)) : 0;
+    section.style.setProperty('--how-progress', progress.toFixed(4));
+    section.style.setProperty('--how-shift', `${(progress * distance).toFixed(1)}px`);
+    railSteps.forEach((step, i) => step.classList.toggle('is-reached', progress * 4 >= i + 0.02 || i === 0));
+  };
+
+  const measure = () => {
+    if (!section || !pin || !track) return;
+    const pinned = query.matches;
+    section.classList.toggle('how--pinned', pinned);
+    if (!pinned) {
+      section.style.height = '';
+      section.style.removeProperty('--how-shift');
+      return;
+    }
+    distance = Math.max(0, track.scrollWidth - document.documentElement.clientWidth);
+    // Vertical scroll spent inside the pin equals the horizontal travel, plus a
+    // short hold on the last card before the page moves on.
+    section.style.height = `${pin.offsetHeight + distance + window.innerHeight * 0.25}px`;
+    update();
+  };
+
+  if (section && pin && track) {
+    measure();
+    window.addEventListener('resize', measure);
+    query.addEventListener('change', measure);
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (query.matches && !frame) frame = requestAnimationFrame(update);
+      },
+      { passive: true },
+    );
+  }
+</script>

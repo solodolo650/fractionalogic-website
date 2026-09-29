@@ -1,0 +1,178 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import EmailLink from '../components/ui/EmailLink.astro';
+import Form from '../components/forms/Form.astro';
+import Field from '../components/forms/Field.astro';
+import { contact, routes } from '../data/site';
+
+const challenges = [
+  'No senior marketing leadership',
+  'Growth has stalled',
+  'Positioning or messaging unclear',
+  'Sales and marketing misaligned',
+  'Preparing to raise or expand',
+  'Need leadership across more than one function',
+  'Other',
+];
+
+const regions = ['India', 'APAC', 'Middle East', 'United Kingdom', 'United States', 'Other'];
+const telHref = `tel:${contact.phone.replace(/\s+/g, '')}`;
+---
+
+<Base
+  title="Talk to Us | Book an FCMO Conversation | Fractionalogic"
+  description="Every engagement starts with a Fractional CMO conversation — a diagnostic session on your marketing leadership gap, growth stage, and go-to-market priorities."
+>
+  <PageHeader
+    title="Start the conversation."
+    current="Talk to Us"
+    lede="Every engagement starts with a Fractional CMO conversation — a diagnostic session on your current marketing leadership gap, growth stage, and go-to-market priorities."
+  />
+
+  <div class="talk container">
+    <div class="talk__side">
+      <p class="talk__promise">
+        No pitch deck, no proposal at the first meeting — just an honest read on whether there’s a leadership problem worth
+        solving, and whether we’re the right people to solve it.
+      </p>
+      <p>If your needs span more than one function, we’ll scope a Fractional Twinning pairing as part of the same engagement.</p>
+
+      <div class="talk__contact">
+        <h2 class="talk__contact-title">Other ways to reach us</h2>
+        <dl>
+          <div>
+            <dt>Email</dt>
+            <dd><EmailLink address={contact.email} /></dd>
+          </div>
+          <div>
+            <dt>Phone</dt>
+            <dd><a href={telHref}>{contact.phone}</a></dd>
+          </div>
+          <div>
+            <dt>Based in</dt>
+            <dd>{contact.location}</dd>
+          </div>
+        </dl>
+      </div>
+
+      <p class="talk__roster">
+        Aspiring fractional leader applying to the twin partner network?{' '}
+        <a href={routes.joinRoster}>Use the Join the Roster route</a> on the Partners page.
+      </p>
+    </div>
+
+    <section id="start" class="talk__form surface" aria-labelledby="start-title">
+      <h2 id="start-title" class="h3">Book an FCMO conversation</h2>
+      <Form
+        id="fcmo-conversation"
+        subject="FCMO conversation request"
+        submitLabel="Book an FCMO Conversation"
+        successTitle="Request received"
+        successBody="Thank you. We’ll be in touch to arrange your diagnostic FCMO conversation."
+      >
+        <Field label="Name" name="name" required autocomplete="name" />
+        <Field label="Email" name="email" type="email" required autocomplete="email" />
+        <Field label="Company" name="company" required autocomplete="organization" hint="Company or organization name" />
+        <Field label="Role" name="role" required autocomplete="organization-title" hint="Founder, CEO, board member, functional head" />
+        <Field label="Primary challenge" name="challenge" as="select" options={challenges} required />
+        <Field label="Preferred region" name="region" as="select" options={regions} required />
+        <Field
+          label="Message"
+          name="message"
+          as="textarea"
+          wide
+          hint="What is happening, and what you want to change."
+        />
+      </Form>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .talk {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr);
+    gap: clamp(32px, 5vw, 64px);
+    align-items: start;
+    margin-top: clamp(48px, 6vw, 72px);
+  }
+
+  .talk__side {
+    display: grid;
+    gap: 20px;
+    position: sticky;
+    top: 128px;
+  }
+
+  .talk__promise {
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: clamp(1.25rem, 0.8vw + 1.05rem, 1.5rem);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.015em;
+    color: var(--color-heading);
+  }
+
+  .talk__contact {
+    display: grid;
+    gap: 14px;
+    margin-top: 12px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .talk__contact-title {
+    font-size: 1.1875rem;
+  }
+
+  .talk__contact dl {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+  }
+
+  .talk__contact dl div {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .talk__contact dt {
+    color: var(--color-text-muted);
+  }
+
+  .talk__contact dd {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .talk__contact a,
+  .talk__roster a {
+    color: var(--color-action);
+    font-weight: 600;
+    text-underline-offset: 4px;
+  }
+
+  .talk__roster {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+  }
+
+  .talk__form {
+    display: grid;
+    gap: 24px;
+    scroll-margin-top: 128px;
+  }
+
+  @media (max-width: 900px) {
+    .talk {
+      grid-template-columns: 1fr;
+    }
+
+    .talk__side {
+      position: static;
+    }
+  }
+</style>
