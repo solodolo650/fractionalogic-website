@@ -81,6 +81,6 @@ export function resourceThumbnail(r: Resource) {
 
 /** Where the piece opens, shown on the card. */
 export function resourceSource(r: Resource) {
-  if (r.data.kind === 'report') return r.data.file ? 'PDF download' : 'PDF coming soon';
+  if (r.data.kind === 'report') return r.data.file ? 'PDF download' : r.data.companion?.button ? 'Free read' : 'PDF coming soon';
   return isExternal(r) ? `On ${r.data.publisher ?? 'the web'}` : 'On this site';
 }

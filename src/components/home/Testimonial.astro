@@ -1,25 +1,33 @@
 ---
 import { initials } from '../../data/partners';
 
-// Quote text reproduced exactly as supplied in the Figma file; confirm wording with the client before launch.
-const karthik = {
-  quote:
-    'Murali is his ability to listen deeply and provide thoughtful, precise, and impactful inputs exactly when they matter most. He has a unique talent for working with founding teams, offering the right guardrails while helping shape clear, compelling, and unified narratives that strengthen brand positioning in the marketplace.',
-  name: 'Karthik Murugian',
-  role: 'Co-founder & CEO',
-  company: 'OptiSol Business Solutions',
-};
-
-// PLACEHOLDER: one real testimonial repeated to hold the three-card layout.
-// Replace cards two and three with the other client testimonials before launch.
-const testimonials = [karthik, karthik, karthik];
+const testimonials = [
+  {
+    quote: [
+      'Working with Murali over the past two years has been both enriching and exploratory. We collaborated closely on go-to-market strategies for several mission-critical initiatives.',
+      'He has a unique ability to guide founding teams with the right guardrails while shaping clear, compelling narratives that strengthen market positioning. A highlight was defining the UnicusAI brand — a rewarding journey in which Murali played a pivotal role in bringing clarity and coherence.',
+    ],
+    name: 'Karthik Murugian',
+    role: 'Co-founder & Chief Executive Officer',
+    company: 'OptiSol Business Solutions Pvt. Ltd',
+  },
+  {
+    quote: [
+      'Murali has given OptiSol strategic clarity and marketing discipline. He shifted our focus from technical capabilities to clear market positioning and business value, backed by a structured brand playbook. He strengthened our go-to-market strategy by aligning marketing, sales, and leadership, improving our founder and corporate brands, and refining product positioning.',
+      'I highly recommend Murali to founder-led tech companies that need a Fractional CMO for strategic direction, innovative thinking, and sustainable marketing capabilities.',
+    ],
+    name: 'Prem Kumar',
+    role: 'Co-founder & Head of Growth',
+    company: 'OptiSol Business Solutions Pvt. Ltd',
+  },
+];
 ---
 
 <section class="testimonial container section" aria-labelledby="testimonial-title">
   <header class="split">
     <div class="split__head">
-      <p class="eyebrow">Testimonials</p>
-      <h2 id="testimonial-title" class="h2">Trusted by ambitious leaders</h2>
+      <p class="eyebrow">Testimonials | Fraternity speak</p>
+      <h2 id="testimonial-title" class="h2">Leadership trust</h2>
     </div>
   </header>
 
@@ -29,7 +37,13 @@ const testimonials = [karthik, karthik, karthik];
         <li class="testimonial__card">
           <figure>
             <blockquote>
-              <p>“{t.quote}”</p>
+              {t.quote.map((para, i) => (
+                <p>
+                  {i === 0 && '“'}
+                  {para}
+                  {i === t.quote.length - 1 && '”'}
+                </p>
+              ))}
             </blockquote>
             <figcaption class="testimonial__byline">
               <span class="testimonial__mark" aria-hidden="true">
@@ -38,7 +52,9 @@ const testimonials = [karthik, karthik, karthik];
               <span class="testimonial__who">
                 <span class="testimonial__name">{t.name}</span>
                 <span class="testimonial__role">
-                  {t.role}, {t.company}
+                  {t.role}
+                  <br />
+                  {t.company}
                 </span>
               </span>
             </figcaption>
@@ -58,7 +74,7 @@ const testimonials = [karthik, karthik, karthik];
 
   .testimonial__grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
     margin-top: 56px;
   }
@@ -76,6 +92,11 @@ const testimonials = [karthik, karthik, karthik];
     flex-direction: column;
     gap: 28px;
     margin: 0;
+  }
+
+  .testimonial__card blockquote {
+    display: grid;
+    gap: 14px;
   }
 
   .testimonial__card blockquote p {

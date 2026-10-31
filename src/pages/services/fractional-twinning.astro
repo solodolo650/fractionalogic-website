@@ -26,40 +26,46 @@ const functionsCovered = ['Finance', 'Technology', 'Operations', 'HR', 'Revenue'
 
 const complements = [
   {
-    label: 'Reduced single-point dependency',
-    // "71 months vs 42 months" is under verification with the client; keep it out of display type until confirmed.
-    text: 'Knowledge and continuity persist even if one twin steps away; average fractional engagement length runs 71 months against 42 months for full-time CMOs.',
+    label: 'Reduces key-person dependency.',
+    text: 'Twin leadership nurtures strategic context, ensures continuity, and strengthens succession resilience.',
     tone: 'dark',
   },
-  { label: 'Faster execution', text: 'One twin builds strategy while the other operationalizes it in parallel.', tone: 'teal' },
-  { label: 'Higher decision quality', text: 'Diverse viewpoints strengthen diagnosis in ambiguous, fast-moving markets.', tone: 'mist' },
+  {
+    label: 'Capability coverage & faster execution.',
+    text: 'One twin builds strategy, the other operationalizes it; together they span a full function’s lifecycle.',
+    tone: 'teal',
+  },
+  {
+    label: 'Higher decision quality.',
+    text: 'Diverse viewpoints strengthen diagnosis and option generation in ambiguous, fast-moving markets.',
+    tone: 'mist',
+  },
 ];
 
-// Figures stay in the statement text as supplied; `figure` pulls the headline number for the tile.
+// Each function's role in a twin pairing; tone steps from the foundation outward.
 const functionRoi = [
   {
     fn: 'CMO / Marketing',
-    note: 'The foundation function',
-    figure: '29%',
-    text: 'Average revenue growth, against 19% without senior marketing leadership.',
+    role: 'The foundation function',
+    text: 'CMO is a natural foundation function for Twinning because growth decisions intersect with revenue operations, finance, product, data and technology.',
     tone: 'dark',
   },
   {
     fn: 'CFO / Finance',
-    note: 'A common twin pairing',
-    figure: 'Up to 71%',
-    text: 'Savings versus a full-time hire in markets like the UK.',
+    role: 'The governance function',
+    text: 'CFO is the common governance twin because the role converts operating choices into cash, margin, risk and capital outcomes.',
     tone: 'teal',
   },
   {
     fn: 'CTO / Technology',
-    figure: '55–75%',
-    text: 'Less than a full-time hire, with stalled decisions resolving in about 3 weeks versus 11.',
+    role: 'The diligence function',
+    text: 'CTO is the disciplined twin, turning technical uncertainty into executive decisions, compliance, defensibility, and enterprise trust.',
     tone: 'mist',
   },
   {
     fn: 'COO / Operations',
-    text: 'The fastest-growing Twinning function in manufacturing and healthcare.',
+    role: 'The discipline function',
+    text: 'COO Twinning builds the operating system for accountable execution and scale readiness.',
     tone: 'surface',
   },
 ];
@@ -155,8 +161,8 @@ const teaser = roster.slice(0, 3);
     <div class="split roi__head">
       <h2 id="roi-title" class="h2">Twinning ROI by function</h2>
       <p>
-        Direct cost avoidance versus a full-time hire, and value creation through faster decisions and improved outcomes —
-        across every function.
+        Twinning ROI has two clear dimensions: cost avoidance versus a full-time hire, and value creation through faster
+        decisions, fewer errors, and stronger commercial outcomes — across every function.
       </p>
     </div>
 
@@ -164,16 +170,9 @@ const teaser = roster.slice(0, 3);
       {
         functionRoi.map((f) => (
           <li class:list={['tile', `tile--${f.tone}`, { 'on-dark': f.tone === 'dark' || f.tone === 'teal' }]}>
-            <p class="tile__label">
-              {f.fn}
-              {f.note && <span class="tile__note">{f.note}</span>}
-            </p>
-            {f.figure ? (
-              <p class="num tile__figure">{f.figure}</p>
-            ) : (
-              <p class="tile__statement">{f.text}</p>
-            )}
-            {f.figure && <p class="tile__text">{f.text}</p>}
+            <p class="tile__label">{f.fn}</p>
+            <h3 class="tile__title">{f.role}</h3>
+            <p class="tile__text">{f.text}</p>
           </li>
         ))
       }
@@ -191,9 +190,9 @@ const teaser = roster.slice(0, 3);
     <div class="network__text">
       <h2 id="network-title" class="h2">Who you can twin with</h2>
       <p>
-        Twinning works because of who is available to twin with. Our network is a vetted roster of senior specialists —
-        fractional CMOs, CTOs, ERP and digital transformation leaders, and personal-branding strategists — who pair with the
-        FCMO practice or with each other to extend leadership coverage across functions.
+        Twinning is powered by exceptional leaders. Our network brings together senior specialists — from fractional CMOs and
+        CTOs to ERP experts and brand strategists — who collaborate to strengthen every critical function. The result:
+        consistent quality, deeper expertise, and meaningful impact.
       </p>
       <a class="text-link" href={routes.twinPartnerNetwork}>Meet the twin partner network <span aria-hidden="true">→</span></a>
     </div>
@@ -377,6 +376,11 @@ const teaser = roster.slice(0, 3);
     min-height: 240px;
   }
 
+  .roi__grid .tile__title {
+    margin-bottom: auto;
+    padding-bottom: 24px;
+  }
+
   .tile {
     display: flex;
     flex-direction: column;
@@ -425,7 +429,6 @@ const teaser = roster.slice(0, 3);
   .tile__label {
     display: grid;
     gap: 2px;
-    margin-bottom: auto;
     font-size: 0.9375rem;
     font-weight: 600;
   }

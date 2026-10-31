@@ -14,9 +14,14 @@ export const faqs: Faq[] = [
       'FCMOs deliver cost savings, flexibility, objectivity, specialized expertise, immediate impact, and access to resources — particularly valuable for companies with limited budgets or specific marketing needs.',
   },
   {
+    question: 'What does a Fractional CMO lead?',
+    answer:
+      'Your Fractional CMO joins the leadership team and leads customer targeting, positioning, go-to-market strategy, demand generation, sales alignment, marketing technology and team development.',
+  },
+  {
     question: 'What is Fractional Twinning, and how is it different from a single FCMO engagement?',
     answer:
-      'Twinning pairs two fractional executives — for example, a CMO and a CRO — to jointly own a broader leadership scope with shared KPIs. It extends the same fractional principles across functions rather than replacing the FCMO model.',
+      'Fractional Twinning pairs your Fractional CMO with complementary senior leadership in finance, technology or operations — without hiring full-time executives. It extends the same fractional principles across functions rather than replacing the FCMO model.',
   },
   {
     question: 'Is Twinning only for marketing and sales?',
@@ -26,12 +31,37 @@ export const faqs: Faq[] = [
   {
     question: 'When should a business consider Fractional Twinning instead of a single FCMO?',
     answer:
-      'When commercial complexity spans both upstream strategy and downstream execution, or when two functions need joint accountability — typically at Series B or equivalent scale.',
+      'When commercial complexity spans both upstream strategy and downstream execution — positioning and conversion, for example — or when two functions need joint accountability. Typically, at Series B or equivalent scale.',
   },
   {
-    question: "What is Magic Pencils' Huddle, and how does it complement an FCMO engagement?",
+    question: 'What is Fractionalogic?',
     answer:
-      'Huddle is a collective-intelligence platform from our partner Magic Pencils Consulting that helps organizations turn employee input into clear, actionable decisions. It complements FCMO-led marketing and brand transformation by surfacing frontline insights and converting shared thinking into committed action. Magic Pencils also offers Momentum Zone (organizational-readiness assessment) and Skill Forge (capability indexing).',
+      'Fractionalogic provides embedded fractional C-suite marketing leadership for growth-stage B2B tech businesses, helping them achieve cohesive growth without relying on the founder. Our Fractional CMO model delivers clarity, accountability, and a repeatable approach to commercial growth without the cost and disruption of a full-time hire.',
+  },
+  {
+    question: 'What does Fractionalogic do and how does it help growth-stage B2B technology businesses?',
+    answer:
+      'We provide embedded Fractional CMO leadership for growth-stage B2B SaaS, AI, enterprise technology and tech-enabled businesses. Our Fractional Twinning model connects marketing leadership with senior leaders in finance, technology, or operations, providing a pathway to broader fractional leadership. We support growth-focused businesses across India, APAC, the Middle East, the UK, and the US.',
+  },
+  {
+    question: 'What is Magic Pencils?',
+    answer:
+      'Magic Pencils makes organizational readiness, alignment, and capability visible. Magic Pencils is a measurement-first transformation practice. Its instruments show where the organization stands, surface the commitments people will own, and test whether the required capability exists. The client keeps the software, data, baseline, and the ability to re-run the reading.',
+  },
+  {
+    question: 'What is Momentum Zone?',
+    answer:
+      'A structured, multi-respondent readiness assessment that shows where the organization actually stands and where Sales, Product, Marketing, Delivery, and leadership disagree. It creates a baseline before a campaign, reorganization, or transformation program begins.',
+  },
+  {
+    question: 'What is Huddle?',
+    answer:
+      "A facilitated process that gives participants an equal voice, distills collective intelligence, and converts the room's evidence into a decision with named owners. It is designed to produce commitment during the session — not a list of actions that loses force afterward.",
+  },
+  {
+    question: 'What is Skill Forge?',
+    answer:
+      'A capability platform that evaluates real work against the competencies the plan requires. It keeps business performance and team capability visible as separate measures, so leadership can see when results and readiness diverge.',
   },
   {
     question: 'Which regions do you serve?',

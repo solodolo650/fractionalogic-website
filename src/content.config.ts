@@ -11,6 +11,16 @@ const resources = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/resources' }),
   schema: ({ image }) => z.object({
     title: z.string(),
+    /** Page heading when it should differ from the card title (cards and breadcrumbs keep `title`). */
+    headline: z.string().optional(),
+    /** One closing line under the summary, inviting the read. */
+    invite: z.string().optional(),
+    /** Report pages: what the piece measures, shown as a ruled row of terms. */
+    measures: z.array(z.string()).optional(),
+    /** Report pages: a short emphasised principle; the first sentence is set bold. */
+    principle: z.string().optional(),
+    /** Report pages: a second action beside the read/download action. */
+    secondaryAction: z.object({ label: z.string(), href: z.string() }).optional(),
     kind: z.enum(['report', 'pov', 'case-study', 'series', 'writing']),
     summary: z.string().optional(),
     audience: z.string().optional(),
@@ -26,7 +36,7 @@ const resources = defineCollection({
     /** Articles hosted elsewhere. Reports, and entries with no url but a Markdown body, get their own page. */
     url: z.url().optional(),
     publisher: z.enum(['LinkedIn', 'WordPress']).optional(),
-    companion: z.object({ label: z.string(), url: z.url() }).optional(),
+    companion: z.object({ label: z.string(), url: z.url(), button: z.string().optional() }).optional(),
     /** Report audience: buyers see these first; roster-facing reports sit apart. */
     forRoster: z.boolean().default(false),
     featured: z.boolean().default(false),

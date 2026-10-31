@@ -6,31 +6,31 @@ import mountain from '../../assets/images/card-fcmo-mountain.png';
 import { routes } from '../../data/site';
 
 const steps = [
-  { name: 'Diagnose', text: 'Establish where the business stands: ICP and market definition, positioning, and the growth constraint that matters most.' },
+  { name: 'Diagnose', text: 'Establish where the business actually stands: ICP and market definition, positioning, and the growth constraint that matters most.' },
   { name: 'Decide', text: 'Convert the diagnosis into a go-to-market roadmap with named priorities, owners, and KPIs.' },
-  { name: 'Build', text: 'Stand up demand generation, sales alignment, content, and MarTech as one connected system.' },
+  { name: 'Build', text: 'Stand up demand generation, sales alignment, content, and MarTech as one connected system, not isolated activities.' },
   { name: 'Sustain', text: 'Run the operating rhythm, coach the internal team, and hand over capability that outlives the engagement.' },
 ];
 
 // Bento order and tone are set here; the grid places tiles by their `span` class.
 const coverage = [
-  { area: 'Strategic Foundation', detail: 'ICP and market definition, brand positioning, and go-to-market roadmaps.', tone: 'dark', span: 'wide' },
-  { area: 'C-Suite Strategic Advisory', detail: 'A sounding board on growth, fundraising readiness, and market expansion.', tone: 'mist', span: 'narrow' },
+  { area: 'Strategic Foundation', detail: 'ICP and market definition, brand positioning and messaging frameworks, go-to-market roadmaps.', tone: 'dark', span: 'wide' },
+  { area: 'C-Suite Strategic Advisory', detail: 'A sounding board for founders and CEOs on growth, fundraising readiness, and market expansion.', tone: 'mist', span: 'narrow' },
   {
     area: 'Demand Generation & Pipeline',
-    detail: 'Full-funnel demand across SEO, content, email, paid, and ABM; funnel architecture; MQL/SQL definitions.',
+    detail: 'Full-funnel demand generation across SEO, content, email, paid, and ABM; lead funnel architecture; MQL and SQL definitions; growth experiments.',
     tone: 'teal',
     span: 'half',
   },
-  { area: 'Sales & Revenue Alignment', detail: 'Sales enablement, pipeline velocity, and CRM configuration.', tone: 'surface', span: 'half' },
-  { area: 'Brand & Content Leadership', detail: 'Content playbooks, product launches, and lifecycle marketing.', tone: 'surface', span: 'third' },
+  { area: 'Sales & Revenue Alignment', detail: 'Sales enablement assets, pipeline velocity optimization, CRM configuration.', tone: 'surface', span: 'half' },
+  { area: 'Brand & Content Leadership', detail: 'Content playbooks, product launches, customer lifecycle marketing.', tone: 'surface', span: 'third' },
   {
     area: 'MarTech & Performance Management',
-    detail: 'KPI/OKR frameworks, stack selection, attribution, and budget allocation.',
+    detail: 'KPI and OKR frameworks, MarTech stack selection, attribution and reporting, budget allocation.',
     tone: 'mist',
     span: 'third',
   },
-  { area: 'Team & Vendor Leadership', detail: 'Hiring, agency management, and coaching teams to self-sufficiency.', tone: 'surface', span: 'third' },
+  { area: 'Team & Vendor Leadership', detail: 'Hiring, agency management, and coaching internal teams to self-sufficiency.', tone: 'surface', span: 'third' },
 ];
 
 const stages = [
@@ -44,13 +44,11 @@ const stages = [
   },
   {
     label: 'Larger business or business in transition',
-    text: 'Rebranding, merger, pivot, or operating without dedicated marketing leadership. The FCMO supplies objective senior judgment, and — where complexity spans functions — becomes the anchor for a Twinning pairing.',
+    text: 'Rebranding, merger, pivot, or operating without dedicated marketing leadership. The FCMO supplies objective senior judgment unaffected by internal politics or legacy thinking, and — where complexity spans functions — becomes the anchor for a Twinning pairing.',
   },
 ];
 
 const industries = [
-  'SaaS, software and technology',
-  'Professional services',
   'IT and ITES',
   'FinTech and financial services',
   'Manufacturing and industrial',
@@ -62,6 +60,23 @@ const industries = [
   'Trade associations',
   'Social services and nonprofits',
 ];
+
+// Hero proof: the services companies rank highest in an FCMO engagement.
+const topServices = [
+  { name: 'Strategic planning', value: 92.67 },
+  { name: 'Marketing strategy development', value: 88.67 },
+  { name: 'Content strategy', value: 82.67 },
+];
+
+const benefits = [
+  { name: 'Strategic Clarity', text: 'Align goals, priorities and positioning in one accountable roadmap.' },
+  { name: 'Lower Overhead', text: 'Access CMO-level expertise without the cost of a full-time hire.' },
+  { name: 'Objective Perspective', text: 'Challenge assumptions, uncover blind spots and make better decisions.' },
+  { name: 'Flexible Leadership', text: 'Scale leadership involvement as your business needs change.' },
+  { name: 'Proven Thinking', text: 'Apply cross-market insights to build your team’s knowledge.' },
+  { name: 'Faster Execution', text: 'Move from scattered activity to focused decisions and action.' },
+  { name: 'Lasting Capability', text: 'Strengthen your team, systems and operating rhythms for the future.' },
+];
 ---
 
 <Base
@@ -69,70 +84,49 @@ const industries = [
   description="Senior, revenue-accountable marketing leadership — embedded in your team, part-time in hours, full-time in ownership. How a Fractionalogic FCMO engagement works."
 >
   <PageHeader
-    title="Fractional CMO"
+    title="Fractional CMO."
+    current="Fractional CMO"
     crumbs={[{ label: 'Services' }]}
-    lede="Senior, revenue-accountable marketing leadership — embedded in your team, part-time in hours, full-time in ownership."
+    lede="Fractional CMO is our core practice. We align marketing strategy, investment, and execution with your business priorities, balancing short-term needs with long-term brand strength. Get your senior marketing leadership without the cost and commitment of a full-time hire."
   >
     <Fragment slot="actions">
-      <a class="btn btn-primary" href={routes.bookConversation}>Book an FCMO Conversation</a>
+      <a class="btn btn-primary" href={routes.bookConversation}>Talk to your FCMO</a>
     </Fragment>
     <figure slot="aside" class="compare" aria-labelledby="compare-caption">
-      <figcaption id="compare-caption" class="compare__caption">Average revenue growth</figcaption>
-      <div class="compare__row">
-        <span class="compare__label">With a Fractional CMO</span>
-        <span class="compare__track"><span class="compare__bar compare__bar--lead" style="--v: 29"></span></span>
-        <span class="num compare__value">29%</span>
-      </div>
-      <div class="compare__row">
-        <span class="compare__label">Without senior marketing leadership</span>
-        <span class="compare__track"><span class="compare__bar" style="--v: 19"></span></span>
-        <span class="num compare__value">19%</span>
-      </div>
+      <figcaption id="compare-caption" class="compare__caption">Top-ranked FCMO services</figcaption>
+      {
+        topServices.map((svc) => (
+          <div class="compare__row">
+            <span class="compare__label">{svc.name}</span>
+            <span class="compare__track">
+              <span class="compare__bar compare__bar--lead compare__bar--pct" style={`--v: ${svc.value}`} />
+            </span>
+            <span class="num compare__value">{svc.value}%</span>
+          </div>
+        ))
+      }
     </figure>
   </PageHeader>
 
-  <!-- How it works: pinned horizontal sequence on large screens; a stacked list otherwise. -->
-  <section class="how section" aria-labelledby="how-title" data-how>
-    <div class="how__pin">
-      <div class="container how__head split">
-        <h2 id="how-title" class="h2">How it works</h2>
-        <p>
-          Every engagement runs the same four stages: from an honest read of what is holding growth back, to a system your own
-          team can run.
-        </p>
-      </div>
-
-      <ol class="container how__rail" aria-hidden="true">
-        {
-          steps.map((step, i) => (
-            <li class="how__rail-step" style={`--i: ${i}`}>
-              <span class="how__rail-label">
-                <span class="num">{i + 1}</span> {step.name}
-              </span>
-              <span class="how__rail-track">
-                <span class="how__rail-fill" />
-              </span>
-            </li>
-          ))
-        }
-      </ol>
-
-      <div class="how__viewport">
-        <ol class="how__track">
-          {
-            steps.map((step, i) => (
-              <li class={`how__card how__card--${i + 1}`}>
-                <h3 class="how__card-name">
-                  <span class="visually-hidden">Step {i + 1}: </span>
-                  {step.name}
-                </h3>
-                <p class="how__card-text">{step.text}</p>
-              </li>
-            ))
-          }
-        </ol>
-      </div>
+  <section class="how container section" aria-labelledby="how-title">
+    <div class="split how__head">
+      <h2 id="how-title" class="h2">How it works</h2>
+      <p>
+        Every engagement runs the same four stages: from an honest read of what is holding growth back to a system your own team
+        can run. The engagement builds through connected layers, in sequence:
+      </p>
     </div>
+    <ol class="flow">
+      {
+        steps.map((step, i) => (
+          <li class="flow__step">
+            <span class="flow__marker num" aria-hidden="true">{i + 1}</span>
+            <h3 class="flow__name">{step.name}</h3>
+            <p>{step.text}</p>
+          </li>
+        ))
+      }
+    </ol>
   </section>
 
   <section class="coverage container section" aria-labelledby="coverage-title">
@@ -177,43 +171,44 @@ const industries = [
     <div class="split value__head">
       <h2 id="value-title" class="h2">Benefits &amp; ROI</h2>
       <p>
-        Most growing businesses face the same paradox: they need experienced marketing leadership to compete, but can’t justify
-        a full-time CMO. A Fractional CMO resolves it — senior, revenue-accountable leadership, part-time but embedded, with the
-        objectivity of an outsider and a cost structure your growth stage can carry.
+        Gain the strategic direction, operating discipline, and team leadership your business needs — without the permanent
+        overhead of a full-time CMO. Embedded in your business and accountable for revenue, a Fractional CMO brings seasoned
+        executive judgment and an objective perspective, with involvement and a cost structure aligned with your stage of
+        growth.
       </p>
     </div>
 
     <ul class="value__grid">
       <li class="value__tile value__tile--dark on-dark">
-        <p class="value__label">Cost-effectiveness</p>
-        <p class="num value__figure">67%</p>
-        <p>Lower total cost than a full-time hire, once recruitment, benefits, and overhead are counted.</p>
+        <p class="value__label">Savings</p>
+        <p class="num value__figure">~50%</p>
+        <p>A 2026 dataset: a 10-hour-a-week fractional executive costs about 50% less than a fully loaded full-time hire.</p>
       </li>
       <li class="value__tile value__tile--teal on-dark">
-        <p class="value__label">Speed</p>
-        <p class="num value__figure">40<span class="value__dash">–</span>60%</p>
-        <p>Faster to measurable results than a newly hired full-time executive.</p>
+        <p class="value__label">Objectivity</p>
+        <p class="num value__figure">63%</p>
+        <p>Of companies cite objective insight as a reason they use fractional talent.</p>
       </li>
       <li class="value__tile value__tile--mist">
-        <p class="value__label">Performance</p>
-        <p class="num value__figure">91%</p>
-        <p>Of client companies rate performance as exceeding expectations.</p>
-      </li>
-      <li class="value__tile value__tile--text">
-        <h3 class="value__title">Reduced risk</h3>
-        <p>Evaluate a leader’s impact before committing to a full-time hire.</p>
-      </li>
-      <li class="value__tile value__tile--text">
-        <h3 class="value__title">Capability that outlives the engagement</h3>
-        <p>Internal team skills built during the engagement, not rented for its duration.</p>
+        <p class="value__label">Flexibility</p>
+        <p class="num value__figure">83%</p>
+        <p>Of businesses chose fractional leadership for flexibility and autonomy.</p>
       </li>
     </ul>
 
+    <ul class="benefits">
+      {
+        benefits.map((b) => (
+          <li>
+            <h3 class="benefits__name">{b.name}</h3>
+            <p>{b.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+
     <div class="value__engage">
-      <p>
-        Engagements are retained or project-based, typically two to four days a month. Reach out to understand how you can
-        engage with us.
-      </p>
+      <p>Choose your model of engagement. Get clarity. Get going.</p>
       <a class="btn btn-primary" href={routes.bookConversation}>Engage with us</a>
     </div>
   </section>
@@ -285,6 +280,10 @@ const industries = [
     border-radius: var(--radius-pill);
   }
 
+  .compare__bar--pct {
+    width: calc(var(--v) * 1%);
+  }
+
   .compare__bar--lead {
     background: var(--color-action);
   }
@@ -295,19 +294,8 @@ const industries = [
   }
 
   /* How it works ---------------------------------------------------- */
-  /* The engagement deepens as it runs, so the cards darken step by step:
-     Mist at diagnosis through to Teal 950 once the system sustains itself. */
-  .how {
-    --how-progress: 0;
-    overflow-x: clip;
-  }
-
-  .how__pin {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-  }
-
+  /* One row, four stages, read left to right in a glance: a numbered marker
+     on a single connecting rule, the stage name, one sentence. */
   .how__head {
     align-items: end;
   }
@@ -316,159 +304,55 @@ const industries = [
     max-width: var(--measure);
   }
 
-  .how__rail {
-    display: none;
-  }
-
-  .how__viewport {
-    width: min(1060px, 100% - 2 * var(--gutter));
-    margin-inline: auto;
-  }
-
-  .how__track {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .how__card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 48px;
-    min-height: 280px;
-    padding: clamp(28px, 3vw, 40px);
-    border-radius: var(--radius);
-    color: var(--color-text-on-panel);
-  }
-
-  .how__card--1 {
-    background: var(--color-panel);
-  }
-
-  .how__card--2 {
-    background: linear-gradient(150deg, var(--color-panel), color-mix(in srgb, var(--color-panel) 55%, var(--color-action)));
-  }
-
-  .how__card--3 {
-    background: linear-gradient(150deg, var(--color-action), var(--color-brand));
-  }
-
-  .how__card--4 {
-    background: linear-gradient(150deg, var(--color-brand), var(--color-dark));
-  }
-
-  .how__card--3,
-  .how__card--4 {
-    --color-heading: var(--color-on-dark);
-    color: var(--color-on-dark);
-  }
-
-  .how__card-name {
-    font-size: clamp(2.25rem, 2.4vw + 1.25rem, 3.5rem);
-    line-height: 1;
-    letter-spacing: -0.035em;
-  }
-
-  .how__card-text {
-    max-width: 26rem;
-    font-size: 1.125rem;
-    line-height: 1.55;
-  }
-
-  /* Pinned mode (set by the script on large, tall screens without reduced
-     motion): the frame sticks under the nav and the track slides sideways
-     as the page scrolls; the rail fills 1 → 4 in step. */
-  .how--pinned .how__pin {
-    position: sticky;
-    top: 96px;
-    height: calc(100vh - 112px);
-    justify-content: center;
-    gap: 32px;
-  }
-
-  .how--pinned .how__rail {
+  .flow {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-    margin-block: 0;
+    gap: 32px;
+    margin: 56px 0 0;
     padding: 0;
     list-style: none;
   }
 
-  .how__rail-step {
-    --fill: clamp(0, calc(var(--how-progress) * 4 - var(--i)), 1);
+  .flow::before {
+    content: '';
+    position: absolute;
+    top: 21px;
+    left: 22px;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-action), var(--color-panel));
+  }
+
+  .flow__step {
+    position: relative;
     display: grid;
+    align-content: start;
     gap: 10px;
   }
 
-  .how__rail-label {
-    font-size: 0.9375rem;
-    font-weight: 500;
-    color: var(--color-text-muted);
-    transition: color 200ms ease;
+  .flow__marker {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 14px;
+    background: var(--color-canvas);
+    border: 2px solid var(--color-action);
+    border-radius: 50%;
+    font-size: 1.0625rem;
+    color: var(--color-action);
   }
 
-  .how__rail-label .num {
-    margin-right: 6px;
-    font-size: 0.9375rem;
-    color: inherit;
-  }
-
-  .how__rail-step.is-reached .how__rail-label {
-    color: var(--color-heading);
-    font-weight: 600;
-  }
-
-  .how__rail-track {
-    display: block;
-    height: 3px;
-    background: var(--color-rule);
-    border-radius: var(--radius-pill);
-    overflow: hidden;
-  }
-
-  .how__rail-fill {
-    display: block;
-    height: 100%;
+  .flow__step:first-child .flow__marker {
     background: var(--color-action);
-    transform: scaleX(var(--fill));
-    transform-origin: left;
+    color: var(--color-on-dark);
   }
 
-  .how--pinned .how__viewport {
-    width: auto;
-    margin: 0;
-    padding-left: max(var(--gutter), (100vw - 1060px) / 2);
-  }
-
-  .how--pinned .how__track {
-    display: flex;
-    width: max-content;
-    gap: 20px;
-    padding-right: max(var(--gutter), (100vw - 1060px) / 2);
-    transform: translate3d(calc(var(--how-shift, 0px) * -1), 0, 0);
-    will-change: transform;
-  }
-
-  /* Cards take the frame's remaining height so the pinned view is full. */
-  .how--pinned .how__viewport {
-    flex: 0 1 520px;
-    min-height: 0;
-  }
-
-  .how--pinned .how__track {
-    height: 100%;
-  }
-
-  .how--pinned .how__card {
-    flex: none;
-    width: clamp(380px, 40vw, 560px);
-    height: 100%;
-    min-height: 0;
+  .flow__name {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
   }
 
   /* Coverage bento -------------------------------------------------- */
@@ -677,6 +561,36 @@ const industries = [
     letter-spacing: -0.015em;
   }
 
+  /* Seven benefits as one ruled strip: four across, wrapping to three. */
+  .benefits {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0 32px;
+    margin: 40px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .benefits li {
+    display: grid;
+    align-content: start;
+    gap: 6px;
+    padding: 20px 0 24px;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .benefits__name {
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  .benefits p {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+
   .value__engage {
     display: flex;
     flex-wrap: wrap;
@@ -722,8 +636,17 @@ const industries = [
   }
 
   @media (max-width: 900px) {
-    .how__track {
-      grid-template-columns: 1fr;
+    .flow {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 40px;
+    }
+
+    .flow::before {
+      display: none;
+    }
+
+    .benefits {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .bento,
@@ -763,8 +686,9 @@ const industries = [
       grid-template-columns: 1fr;
     }
 
-    .how__card {
-      min-height: 0;
+    .flow,
+    .benefits {
+      grid-template-columns: 1fr;
     }
 
     .industries__grid {
@@ -782,57 +706,3 @@ const industries = [
     }
   }
 </style>
-
-<script>
-  // Pins "How it works" and converts vertical scroll into horizontal travel.
-  // Only on wide, tall screens without reduced motion; everywhere else the
-  // steps stay a plain stacked list and nothing here runs.
-  const section = document.querySelector<HTMLElement>('[data-how]');
-  const pin = section?.querySelector<HTMLElement>('.how__pin');
-  const track = section?.querySelector<HTMLElement>('.how__track');
-  const railSteps = section ? [...section.querySelectorAll<HTMLElement>('.how__rail-step')] : [];
-  const query = window.matchMedia('(min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)');
-
-  let distance = 0;
-  let frame = 0;
-
-  const update = () => {
-    frame = 0;
-    if (!section || !pin) return;
-    const pinTop = parseFloat(getComputedStyle(pin).top) || 0;
-    const travel = section.offsetHeight - pin.offsetHeight;
-    const progress = travel > 0 ? Math.min(1, Math.max(0, (pinTop - section.getBoundingClientRect().top) / travel)) : 0;
-    section.style.setProperty('--how-progress', progress.toFixed(4));
-    section.style.setProperty('--how-shift', `${(progress * distance).toFixed(1)}px`);
-    railSteps.forEach((step, i) => step.classList.toggle('is-reached', progress * 4 >= i + 0.02 || i === 0));
-  };
-
-  const measure = () => {
-    if (!section || !pin || !track) return;
-    const pinned = query.matches;
-    section.classList.toggle('how--pinned', pinned);
-    if (!pinned) {
-      section.style.height = '';
-      section.style.removeProperty('--how-shift');
-      return;
-    }
-    distance = Math.max(0, track.scrollWidth - document.documentElement.clientWidth);
-    // Vertical scroll spent inside the pin equals the horizontal travel, plus a
-    // short hold on the last card before the page moves on.
-    section.style.height = `${pin.offsetHeight + distance + window.innerHeight * 0.25}px`;
-    update();
-  };
-
-  if (section && pin && track) {
-    measure();
-    window.addEventListener('resize', measure);
-    query.addEventListener('change', measure);
-    window.addEventListener(
-      'scroll',
-      () => {
-        if (query.matches && !frame) frame = requestAnimationFrame(update);
-      },
-      { passive: true },
-    );
-  }
-</script>

@@ -18,13 +18,29 @@ interface Props {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, summary, kind, audience, file, downloadLabel, companion, date } = entry.data;
+const { title, headline, invite, measures, principle, secondaryAction, summary, kind, audience, file, downloadLabel, companion, date } = entry.data;
+const [principleLead, ...principleRest] = (principle ?? '').split(/(?<=\.)\s+/);
 const hasBody = Boolean(entry.body?.trim());
 const related = (await getResources()).filter((r) => r.data.kind === kind && r.id !== entry.id).slice(0, 3);
 ---
 
 <Base title={`${title} | Fractionalogic Resources`} description={summary ?? title}>
-  <PageHeader title={title} crumbs={[{ label: 'Resources', href: routes.resources }]} lede={summary}>
+  <PageHeader title={headline ?? title} current={title} crumbs={[{ label: 'Resources', href: routes.resources }]} lede={summary}>
+    {invite && <p class="detail__invite">{invite}</p>}
+    {
+      measures && (
+        <ul class="detail__measures" aria-label="What the case measures">
+          {measures.map((m) => <li>{m}</li>)}
+        </ul>
+      )
+    }
+    {
+      principle && (
+        <p class="detail__principle">
+          <strong>{principleLead}</strong> {principleRest.join(' ')}
+        </p>
+      )
+    }
     <p class="detail__meta">
       <span>{kindLabels[kind]}</span>
       {date && <time datetime={date.toISOString()}>{date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time>}
@@ -36,10 +52,19 @@ const related = (await getResources()).filter((r) => r.data.kind === kind && r.i
             <a class="btn btn-primary" href={file} download>
               {downloadLabel ?? `Download ${title}`}
             </a>
+          ) : companion?.button ? (
+            <a class="btn btn-primary" href={companion.url} rel="noopener">
+              {companion.button}
+            </a>
           ) : (
             <p class="detail__pending">PDF coming soon</p>
           )}
-          {companion && (
+          {secondaryAction && (
+            <a class="btn btn-secondary" href={secondaryAction.href}>
+              {secondaryAction.label}
+            </a>
+          )}
+          {companion && (file || !companion.button) && (
             <a class="text-link detail__companion" href={companion.url} rel="noopener">
               Free to read: {companion.label}
             </a>
@@ -102,6 +127,41 @@ const related = (await getResources()).filter((r) => r.data.kind === kind && r.i
     align-items: center;
     gap: 16px 28px;
     margin-top: 8px;
+  }
+
+  .detail__invite {
+    max-width: var(--measure);
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+
+  .detail__measures {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 40rem;
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .detail__measures li {
+    padding: 6px 14px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-pill);
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  .detail__principle {
+    max-width: var(--measure);
+    padding-left: 16px;
+    border-left: 1px solid var(--color-action);
+  }
+
+  .detail__principle strong {
+    color: var(--color-heading);
   }
 
   .detail__pending {
