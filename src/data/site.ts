@@ -59,5 +59,3 @@ export const contact = {
   linkedin: 'https://www.linkedin.com/in/muralidharan-e-9296743',
 };
 
-export const footerAbout =
-  'Fractionalogic gives growth-stage B2B SaaS founders embedded, revenue-accountable marketing leadership — and a path to a broader fractional leadership system through Fractional Twinning. Based in India, serving growth-focused businesses across APAC, the Middle East, the UK, and the US.';

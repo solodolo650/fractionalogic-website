@@ -7,7 +7,8 @@ import { routes } from '../../data/site';
 import { getReport, reportDownloadHref } from '../../lib/resources';
 
 const deepDive = await getReport('partner-methodology-deep-dive');
-const deepDiveHref = deepDive ? reportDownloadHref(deepDive) : routes.resources;
+// Deep-dive actions show only once the report is published (see isPublishable).
+const deepDiveHref = deepDive ? reportDownloadHref(deepDive) : undefined;
 const deepDiveFile = Boolean(deepDive?.data.file);
 
 // The partnership's three principles: each pair reads "this, before that".
@@ -56,7 +57,7 @@ const frameworks = [
   >
     <Fragment slot="actions">
       <a class="btn btn-primary" href={routes.bookConversation}>Talk to the partners</a>
-      <a class="btn btn-secondary" href={deepDiveHref} download={deepDiveFile || undefined}>Take the deep dive</a>
+      {deepDiveHref && <a class="btn btn-secondary" href={deepDiveHref} download={deepDiveFile || undefined}>Take the deep dive</a>}
     </Fragment>
     <figure slot="aside" class="pact panel">
       <figcaption class="pact__title">
@@ -172,12 +173,14 @@ const frameworks = [
       }
     </ul>
 
+    {deepDiveHref && (
     <div class="instruments__more">
       <p>Full mechanics for each instrument, and the C3 and R4 frameworks, are in the Partner Methodology Deep Dive.</p>
       <a class="btn btn-secondary" href={deepDiveHref} download={deepDiveFile || undefined}>
         {deepDiveFile ? 'Download the partner methodology deep dive' : 'See the partner methodology deep dive'}
       </a>
     </div>
+    )}
   </section>
 
   <CtaBand

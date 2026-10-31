@@ -38,8 +38,15 @@ const fallbackCovers: Record<ResourceKind, { image: ImageMetadata; position: str
 
 const byOrder = (a: Resource, b: Resource) => a.data.order - b.data.order;
 
+/**
+ * A report with nothing to read yet (no PDF, no readable companion article) stays
+ * off the site entirely — library, cards, links and its own page — and appears
+ * automatically once its `file` is added.
+ */
+export const isPublishable = (r: Resource) => r.data.kind !== 'report' || Boolean(r.data.file || r.data.companion?.button);
+
 export async function getResources() {
-  return (await getCollection('resources')).sort(byOrder);
+  return (await getCollection('resources')).filter(isPublishable).sort(byOrder);
 }
 
 export async function getReport(id: string) {
