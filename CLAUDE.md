@@ -1,22 +1,18 @@
 ## Development
 
-When starting the dev server, use background mode:
+Next.js 16 (App Router). Payload CMS is being added on this branch (`nextjs-payload`).
 
-```
-astro dev --background
-```
+- Dev server: `npm run dev` (port 4323). Production check: `npm run build && npm run start`.
+- Type-check: `npm run lint`.
 
-Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+## Structure
 
-## Documentation
+- `src/app/(frontend)/` — public pages. Each page wraps itself in `<Shell path="...">` so the nav marks the current section on the server.
+- `src/components/` — server components, each with a sibling global CSS file (class names are BEM-prefixed per component).
+- `src/client/` — progressive-enhancement scripts (menus, filters, tabs, forms), started once by `SiteScripts`. Links are plain `<a>` (full page loads).
+- `src/data/`, `src/content/resources/` — content that moves into Payload in phase 2.
+- `src/lib/resources.ts` — the single place resources are read; swap its loader for a Payload query.
 
-Full documentation: https://docs.astro.build
+## Environment
 
-Consult these guides before working on related tasks:
-
-- [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
-- [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
-- [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
-- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
-- [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
-- [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+`.env` (not committed): `PUBLIC_FORM_ENDPOINT`, `PUBLIC_FORM_ACCESS_KEY`. Search indexing stays off until `SITE_URL` is set.

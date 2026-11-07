@@ -1,6 +1,6 @@
-import type { ImageMetadata } from 'astro';
-import venkatPhoto from '../assets/images/partner-venkat-manthripragada.jpg';
-import raviPhoto from '../assets/images/partner-ravi-pratap-singh.jpg';
+import type { StaticImageData as ImageMetadata } from 'next/image';
+import venkatPhoto from '@/assets/images/partner-venkat-manthripragada.jpg';
+import raviPhoto from '@/assets/images/partner-ravi-pratap-singh.jpg';
 
 export type PartnerFunction = 'Marketing' | 'Technology & AI' | 'Transformation' | 'Leadership' | 'Personal branding';
 

@@ -1,0 +1,77 @@
+fl-tabs {
+    display: grid;
+    gap: 32px;
+  }
+
+  .tabs__list {
+    display: none;
+  }
+
+  fl-tabs[data-enhanced] .tabs__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tabs__tab {
+    min-height: 44px;
+    padding: 8px 18px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-pill);
+    font: inherit;
+    font-weight: 500;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+  }
+
+  .tabs__tab:hover {
+    border-color: var(--color-action);
+  }
+
+  .tabs__tab[aria-selected='true'] {
+    background: var(--color-selected);
+    border-color: var(--color-selected);
+    color: var(--color-on-selected);
+  }
+
+  /* On phones the tabs stack as a full-width segmented selector instead of a ragged pill cloud. */
+  @media (max-width: 560px) {
+    fl-tabs[data-enhanced] .tabs__list {
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--color-rule);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .tabs__tab {
+      width: 100%;
+      border: 0;
+      border-radius: 0;
+      text-align: left;
+    }
+
+    .tabs__tab + .tabs__tab {
+      border-top: 1px solid var(--color-rule);
+    }
+  }
+
+  .tabs__panels {
+    display: grid;
+    gap: 40px;
+  }
+
+  fl-tabs[data-enhanced] .tab-heading {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  fl-tabs[data-enhanced] [data-tab-panel]:focus-visible {
+    outline-offset: 6px;
+  }

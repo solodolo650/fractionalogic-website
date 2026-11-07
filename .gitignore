@@ -25,3 +25,8 @@ pnpm-debug.log*
 
 # local design-review captures
 .impeccable/review/
+
+# next.js
+.next/
+next-env.d.ts
+*.tsbuildinfo

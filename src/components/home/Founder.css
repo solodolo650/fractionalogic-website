@@ -1,0 +1,48 @@
+/* Left column: heading on the section's top line, portrait settled to its
+     bottom. Right column: the ruled quote, whose byline and link settle to
+     the same bottom line, so both columns start and end together. */
+  .founder {
+    align-items: stretch;
+  }
+
+  .founder__aside {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* The portrait is shot 4:3 with headroom, so it shows uncropped. */
+  .founder__frame {
+    margin-top: auto;
+  }
+
+  .founder__photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .founder__byline {
+    margin-top: auto;
+  }
+
+  /* Graphite on Executive Brass (6.08:1): the page's prestige accent, reserved for the award. */
+  .founder__award {
+    align-self: flex-start;
+    margin-top: 12px;
+    max-width: 48ch;
+    padding: 6px 12px;
+    background: var(--color-prestige);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--color-text-on-panel);
+  }
+
+  @media (max-width: 900px) {
+    .founder__frame {
+      max-width: 400px;
+    }
+  }

@@ -1,0 +1,337 @@
+/* Magic Pencils -------------------------------------------------- */
+  .mp__intro {
+    display: grid;
+    gap: 16px;
+    max-width: var(--measure);
+  }
+
+  /* Hero panel: the two partners joined, then the shared principles as a
+     ruled ledger. Text on Mist stays Graphite / Teal 950. */
+  .pact {
+    display: grid;
+    gap: 24px;
+    margin: 0;
+    color: var(--color-text-on-panel);
+  }
+
+  .pact__title {
+    display: grid;
+    gap: 4px;
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: clamp(1.5rem, 1vw + 1.15rem, 1.875rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--color-heading);
+  }
+
+  .pact__title strong {
+    font-weight: 600;
+  }
+
+  .pact__sub {
+    font-family: var(--font-body, inherit);
+    font-variation-settings: normal;
+    font-size: 0.9375rem;
+    letter-spacing: 0;
+    color: var(--color-text-on-panel);
+  }
+
+  .pact__pair {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .pact__side {
+    display: grid;
+    gap: 2px;
+    padding: 14px 16px;
+    background: var(--color-surface);
+    border-radius: var(--radius);
+  }
+
+  .pact__side--logic {
+    background: var(--color-dark);
+    color: var(--color-on-dark);
+  }
+
+  .pact__name {
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+
+  .pact__role {
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: 1.375rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-heading);
+  }
+
+  .pact__side--logic .pact__role {
+    color: var(--color-on-dark);
+  }
+
+  .pact__join {
+    align-self: center;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-action);
+  }
+
+  .pact__principles {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--color-rule-on-panel);
+  }
+
+  .pact__principles li {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-rule-on-panel);
+  }
+
+  .pact__principles strong {
+    min-width: 6.5em;
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: 1.1875rem;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+
+
+  /* Seams ---------------------------------------------------------- */
+  .seams {
+    display: grid;
+    gap: 40px;
+  }
+
+  .seam-map {
+    display: grid;
+    grid-template-columns: 13rem minmax(0, 1fr);
+    gap: 12px 24px;
+    align-items: center;
+    padding: clamp(24px, 3vw, 40px);
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius);
+  }
+
+  .seam-map__owner {
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+
+  .seam-map__track {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .seam-map__track li {
+    position: relative;
+    padding: 14px 16px;
+    background: var(--color-panel);
+    font-weight: 500;
+    color: var(--color-text-on-panel);
+  }
+
+  .seam-map__track li:first-child {
+    border-radius: 6px 0 0 6px;
+  }
+
+  .seam-map__track li:last-child {
+    border-radius: 0 6px 6px 0;
+  }
+
+  /* The seam: a hairline gap between stages, marked where each reading hands over. */
+  .seam-map__track li + li {
+    border-left: 2px dashed var(--color-highlight);
+  }
+
+  .seam-map__track--fcmo li {
+    background: var(--color-dark);
+    color: var(--color-on-dark);
+  }
+
+  .seam-map__track--fcmo li + li {
+    border-left-color: var(--color-on-dark-muted);
+  }
+
+  .outcomes {
+    display: grid;
+    grid-template-columns: 13rem minmax(0, 1fr);
+    gap: 16px 24px;
+    margin-top: 32px;
+  }
+
+  .outcomes__title {
+    font-size: 1.1875rem;
+    line-height: 1.3;
+  }
+
+  .outcomes__list {
+    display: grid;
+    gap: 12px;
+    max-width: var(--measure);
+  }
+
+  .outcomes__list li {
+    position: relative;
+    padding-left: 28px;
+  }
+
+  .outcomes__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 14px;
+    height: 8px;
+    border-left: 2px solid var(--color-action);
+    border-bottom: 2px solid var(--color-action);
+    transform: rotate(-45deg);
+  }
+
+  /* Founder -------------------------------------------------------- */
+  .founder {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+  }
+
+  .founder__mark {
+    display: grid;
+    place-items: center;
+    width: 88px;
+    height: 88px;
+    background: var(--color-dark);
+    border-radius: 50%;
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-on-dark-muted);
+  }
+
+  .founder__text {
+    display: grid;
+    gap: 8px;
+    max-width: var(--measure);
+  }
+
+  .founder__role {
+    font-weight: 600;
+    color: var(--color-action);
+  }
+
+  /* Instruments ---------------------------------------------------- */
+  .instruments {
+    display: grid;
+    gap: 40px;
+  }
+
+  .frameworks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .framework {
+    display: grid;
+    align-content: start;
+    gap: 14px;
+  }
+
+  .framework__name {
+    font-size: 2rem;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .framework__steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .framework__steps li {
+    padding: 6px 12px;
+    background: var(--color-panel);
+    border-radius: var(--radius-pill);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-on-panel);
+  }
+
+  .instruments__more {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 20px 40px;
+    align-items: center;
+    padding-top: 28px;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  @media (max-width: 900px) {
+    .frameworks,
+    .instruments__more {
+      grid-template-columns: 1fr;
+    }
+
+    .seam-map,
+    .outcomes {
+      grid-template-columns: 1fr;
+    }
+
+    .seam-map__owner--fcmo {
+      margin-top: 12px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .pact__role {
+      font-size: 1.1875rem;
+    }
+
+    .seam-map__track {
+      grid-template-columns: 1fr;
+    }
+
+    .seam-map__track li:first-child {
+      border-radius: 6px 6px 0 0;
+    }
+
+    .seam-map__track li:last-child {
+      border-radius: 0 0 6px 6px;
+    }
+
+    .seam-map__track li + li {
+      border-left: 0;
+      border-top: 2px dashed var(--color-highlight);
+    }
+
+    .seam-map__track--fcmo li + li {
+      border-top-color: var(--color-on-dark-muted);
+    }
+
+    .founder {
+      grid-template-columns: 1fr;
+    }
+  }

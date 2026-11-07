@@ -18,10 +18,10 @@ secondaryAction:
   href: /talk-to-us#start
 audience: Founders, CEOs, and boards evaluating a first fractional engagement.
 downloadLabel: Download the FCMO Business Case
-thumbnail: ../../assets/images/resources/fcmo-business-case.png
-thumbnailAlt: A glowing marketing funnel turning signals into revenue
 companion:
   label: The business case, in short form, on LinkedIn
   button: "Free read: The Business Case"
   url: https://www.linkedin.com/pulse/business-case-benefits-costs-real-roi-fractional-cmo-erumpala-qowic
+thumbnail: ../../assets/images/resources/fcmo-business-case.jpg
+thumbnailAlt: "A glass funnel channelling brass discs on a deep teal surface"
 ---
