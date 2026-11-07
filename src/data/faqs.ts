@@ -16,17 +16,17 @@ export const faqs: Faq[] = [
   {
     question: 'What does a Fractional CMO lead?',
     answer:
-      'Your Fractional CMO joins the leadership team and leads customer targeting, positioning, go-to-market strategy, demand generation, sales alignment, marketing technology and team development.',
+      'Your Fractional CMO joins the leadership team and leads customer targeting, positioning, go-to-market strategy, demand generation, sales alignment, marketing technology, and team development.',
   },
   {
     question: 'What is Fractional Twinning, and how is it different from a single FCMO engagement?',
     answer:
-      'Fractional Twinning pairs your Fractional CMO with complementary senior leadership in finance, technology or operations — without hiring full-time executives. It extends the same fractional principles across functions rather than replacing the FCMO model.',
+      'Fractional Twinning pairs your Fractional CMO with complementary senior leadership in finance, technology, or operations — without hiring full-time executives. It extends the same fractional principles across functions rather than replacing the FCMO model.',
   },
   {
     question: 'Is Twinning only for marketing and sales?',
     answer:
-      'No. Twinning applies across finance, technology, operations and HR, and spans industries including SaaS, healthcare, manufacturing, professional services and retail.',
+      'No. Twinning applies across finance, technology, operations, and HR, and spans industries including SaaS, healthcare, manufacturing, professional services, and retail.',
   },
   {
     question: 'When should a business consider Fractional Twinning instead of a single FCMO?',
@@ -41,7 +41,7 @@ export const faqs: Faq[] = [
   {
     question: 'What does Fractionalogic do and how does it help growth-stage B2B technology businesses?',
     answer:
-      'We provide embedded Fractional CMO leadership for growth-stage B2B SaaS, AI, enterprise technology and tech-enabled businesses. Our Fractional Twinning model connects marketing leadership with senior leaders in finance, technology, or operations, providing a pathway to broader fractional leadership. We support growth-focused businesses across India, APAC, the Middle East, the UK, and the US.',
+      'We provide embedded Fractional CMO leadership for growth-stage B2B SaaS, AI, enterprise technology, and tech-enabled businesses. Our Fractional Twinning model connects marketing leadership with senior leaders in finance, technology, or operations, providing a pathway to broader fractional leadership. We support growth-focused businesses across India, APAC, the Middle East, the UK, and the US.',
   },
   {
     question: 'What is Magic Pencils?',
@@ -56,7 +56,7 @@ export const faqs: Faq[] = [
   {
     question: 'What is Huddle?',
     answer:
-      "A facilitated process that gives participants an equal voice, distills collective intelligence, and converts the room's evidence into a decision with named owners. It is designed to produce commitment during the session — not a list of actions that loses force afterward.",
+      "A facilitated process that gives participants an equal voice, distills collective intelligence, and converts the room’s evidence into a decision with named owners. It is designed to produce commitment during the session — not a list of actions that loses force afterward.",
   },
   {
     question: 'What is Skill Forge?',
@@ -66,7 +66,7 @@ export const faqs: Faq[] = [
   {
     question: 'Which regions do you serve?',
     answer:
-      'India is our primary base. We serve APAC, the Middle East, the United Kingdom, and the United States through our twin partner network.',
+      'India is our primary base. We serve APAC, the Middle East, the United Kingdom, and the United States through our Twin Partner Network.',
     link: { label: 'Full regional detail on About', href: routes.footprint },
   },
   {

@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import OnThisPage from '../components/ui/OnThisPage.astro';
 import CtaBand from '../components/ui/CtaBand.astro';
-import portrait from '../assets/images/founder-muralidharan-erumbala.png';
+import portrait from '../assets/images/founder-muralidharan-erumbala-portrait.jpg';
 import mountain from '../assets/images/card-fcmo-mountain.png';
 import { routes } from '../data/site';
 
@@ -18,7 +18,7 @@ const toc = [
 ];
 
 const recognition = [
-  { title: 'Top 100 Most Innovative MarTech Leaders', by: 'World Marketing Congress, 2019' },
+  { title: 'Top 100 Most Innovative Marketing Technology Leader', by: 'World Marketing Congress, 2019' },
   { title: 'Member, Global Advisory Council', by: 'World Brand Congress' },
 ];
 
@@ -114,14 +114,16 @@ const values = [
     <div class="about__body">
       <section id="founder" class="founder-bio" aria-labelledby="founder-title">
         <header class="founder-bio__head">
-          <Image
-            class="founder-bio__photo"
-            src={portrait}
-            alt="Portrait of Muralidharan Erumbala"
-            width={128}
-            densities={[1, 2]}
-            loading="eager"
-          />
+          <span class="portrait-frame founder-bio__frame">
+            <Image
+              class="founder-bio__photo"
+              src={portrait}
+              alt="Portrait of Muralidharan Erumbala"
+              width={128}
+              densities={[1, 2, 3]}
+              loading="eager"
+            />
+          </span>
           <div class="founder-bio__id">
             <h2 id="founder-title" class="h2">Muralidharan Erumbala</h2>
             <p class="founder-bio__role">Founder &amp; Fractional CMO</p>
@@ -138,7 +140,7 @@ const values = [
           <p>
             That conviction became Fractionalogic — the brand he built to turn fractional marketing leadership into a
             disciplined, scalable growth model. Having led teams at Ivy Mobility, Sheenlac, Datri, Future Telecom, OptiSol
-            Business Solutions, Newwton, WiWA and Wordedge, he built a cross-industry command of brand, demand, revenue and
+            Business Solutions, Newwton, WiWA, and Wordedge, he built a cross-industry command of brand, demand, revenue, and
             execution. As a Fractional CMO and founder, he designs ICP-led strategy, full-funnel demand generation, sharper
             sales-marketing alignment, and MarTech advisory.
           </p>
@@ -373,13 +375,16 @@ const values = [
     gap: 24px;
   }
 
-  .founder-bio__photo {
+  .founder-bio__frame {
     flex: none;
+  }
+
+  /* Square crop of the 4:3 portrait trims only the sides; the full head stays. */
+  .founder-bio__photo {
     width: 128px;
     height: 128px;
     object-fit: cover;
-    object-position: 50% 20%;
-    border-radius: var(--radius);
+    object-position: 50% 50%;
   }
 
   .founder-bio__id {

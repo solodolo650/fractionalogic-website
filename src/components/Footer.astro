@@ -1,4 +1,5 @@
 ---
+import Logo from './ui/Logo.astro';
 import { contact, partners, routes, services } from '../data/site';
 
 const columns = [
@@ -28,7 +29,7 @@ const year = new Date().getFullYear();
 <footer class="footer">
   <div class="container footer__inner">
     <div class="footer__brand">
-      <a class="footer__logo" href={routes.home}>fractionalogic</a>
+      <a class="footer__logo" href={routes.home} aria-label="Fractionalogic home"><Logo /></a>
       <p class="footer__line">
         Senior leadership logic,
         <span>applied fractionally.</span>
@@ -60,7 +61,7 @@ const year = new Date().getFullYear();
   </div>
 
   <div class="container footer__bottom">
-    <p>© {year} Muralidharan Erumbala</p>
+    <p>© {year} Fractionalogic</p>
     <ul class="footer__legal">
       {
         legal.map((link) => (
@@ -95,12 +96,19 @@ const year = new Date().getFullYear();
 
   .footer__logo {
     justify-self: start;
+    display: block;
     color: var(--color-brand);
     font-size: 1.125rem;
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.015em;
     text-decoration: none;
+  }
+
+  .footer__logo :global(svg) {
+    display: block;
+    width: 168px;
+    height: auto;
   }
 
   .footer__line {

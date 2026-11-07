@@ -5,7 +5,7 @@
  * when the provider needs a key in the payload (see .env.example).
  */
 import EmailLink from '../ui/EmailLink.astro';
-import { contact } from '../../data/site';
+import { contact, routes } from '../../data/site';
 
 interface Props {
   id: string;
@@ -29,10 +29,11 @@ const accessKey = import.meta.env.PUBLIC_FORM_ACCESS_KEY;
 
     <input type="hidden" name="subject" value={subject} />
     <input type="hidden" name="form" value={id} />
+    <input type="hidden" name="from_name" value="Fractionalogic website" />
     {accessKey && <input type="hidden" name="access_key" value={accessKey} />}
     <div class="form__trap" aria-hidden="true">
       <label for={`${id}-website`}>Leave this empty</label>
-      <input id={`${id}-website`} name="website" type="text" tabindex="-1" autocomplete="off" data-trap />
+      <input id={`${id}-website`} name="botcheck" type="text" tabindex="-1" autocomplete="off" data-trap />
     </div>
 
     <div class="form__fields">
@@ -43,8 +44,12 @@ const accessKey = import.meta.env.PUBLIC_FORM_ACCESS_KEY;
       <button class="btn btn-primary form__submit" type="submit" data-submit>
         <span data-submit-label>{submitLabel}</span>
       </button>
+      <p class="form__privacy">
+        We use the details you share only to respond to your enquiry. We don’t sell them or add you to marketing lists
+        without asking. See our <a href={routes.privacy}>Privacy Policy</a>.
+      </p>
       <p class="form__error" role="alert" data-error hidden>
-        Your message didn't send. Check your connection and try again, or email <EmailLink address={contact.email} /> directly.
+        Your message didn’t send. Check your connection and try again, or email <EmailLink address={contact.email} /> directly.
       </p>
     </div>
   </form>
@@ -69,6 +74,23 @@ const accessKey = import.meta.env.PUBLIC_FORM_ACCESS_KEY;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px 20px;
+  }
+
+  .form__privacy {
+    max-width: var(--measure);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+
+  .form__privacy a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .form__privacy a:hover {
+    color: var(--color-action);
   }
 
   .form__trap {

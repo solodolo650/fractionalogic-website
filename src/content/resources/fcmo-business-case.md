@@ -12,11 +12,11 @@ measures:
   - Customer value
   - Operating strength
   - Durability
-principle: "Prove the mandate, not the title. Don't measure an FCMO by the volume of deliverables. Not every measure belongs in every engagement."
+principle: "Prove the mandate, not the title. Don’t measure an FCMO by the volume of deliverables. Not every measure belongs in every engagement."
 secondaryAction:
   label: Get your ROI evaluation
   href: /talk-to-us#start
-audience: Founders, CEOs and boards evaluating a first fractional engagement.
+audience: Founders, CEOs, and boards evaluating a first fractional engagement.
 downloadLabel: Download the FCMO Business Case
 thumbnail: ../../assets/images/resources/fcmo-business-case.png
 thumbnailAlt: A glowing marketing funnel turning signals into revenue

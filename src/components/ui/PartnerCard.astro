@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { initials, type Partner } from '../../data/partners';
 
 interface Props {
@@ -10,7 +11,13 @@ const { partner, compact = false } = Astro.props;
 ---
 
 <article class:list={['partner', { 'partner--compact': compact }]}>
-  <span class="partner__mark" aria-hidden="true">{initials(partner.name)}</span>
+  {
+    partner.photo ? (
+      <Image class="partner__mark" src={partner.photo} alt={`Portrait of ${partner.name}`} densities={[1, 2, 3]} width={56} height={56} />
+    ) : (
+      <span class="partner__mark" aria-hidden="true">{initials(partner.name)}</span>
+    )
+  }
   <div class="partner__text">
     <h3 class="partner__name">{partner.name}</h3>
     <p class="partner__role">{partner.role}</p>
@@ -42,6 +49,7 @@ const { partner, compact = false } = Astro.props;
     place-items: center;
     width: 56px;
     height: 56px;
+    object-fit: cover;
     background: var(--color-dark);
     border-radius: 50%;
     font-family: var(--font-display);

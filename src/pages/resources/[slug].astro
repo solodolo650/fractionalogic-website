@@ -164,6 +164,24 @@ const related = (await getResources()).filter((r) => r.data.kind === kind && r.i
     color: var(--color-heading);
   }
 
+  /* Header items sit on the dark hero band. */
+  .detail__meta {
+    color: var(--color-on-dark-muted);
+  }
+
+  .detail__measures li {
+    color: var(--color-text-on-panel);
+  }
+
+  .detail__principle {
+    border-left-color: color-mix(in srgb, var(--color-on-dark) 45%, transparent);
+    color: var(--color-on-dark-muted);
+  }
+
+  .detail__invite {
+    color: var(--color-on-dark);
+  }
+
   .detail__pending {
     display: inline-flex;
     align-items: center;

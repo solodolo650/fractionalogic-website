@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import portrait from '../../assets/images/founder-muralidharan-erumbala.png';
+import portrait from '../../assets/images/founder-muralidharan-erumbala-portrait.jpg';
 import { routes } from '../../data/site';
 ---
 
@@ -10,13 +10,15 @@ import { routes } from '../../data/site';
       <p class="eyebrow">Our story</p>
       <h2 id="founder-title" class="h2">A note from the founder</h2>
     </div>
-    <Image
-      class="founder__photo"
-      src={portrait}
-      alt="Portrait of Muralidharan Erumbala"
-      widths={[408, 594]}
-      sizes="(min-width: 900px) 410px, 100vw"
-    />
+    <span class="portrait-frame founder__frame">
+      <Image
+        class="founder__photo"
+        src={portrait}
+        alt="Portrait of Muralidharan Erumbala"
+        widths={[420, 820, 1200]}
+        sizes="(min-width: 900px) 410px, 100vw"
+      />
+    </span>
   </div>
 
   <figure class="founder__note ruled-quote">
@@ -24,12 +26,12 @@ import { routes } from '../../data/site';
       <p>
         “After four decades in marketing leadership across IT, FMCG, manufacturing, retail, financial services, and
         telecom, I built Fractionalogic on one conviction: senior leadership should be flexible without losing
-        structure. That's the practice I run today.”
+        structure. That’s the practice I run today.”
       </p>
     </blockquote>
     <figcaption class="founder__byline">
       <span class="ruled-quote__name">Muralidharan Erumbala</span>
-      <span>Founder Fractionalogic &amp; Fractional CMO</span>
+      <span>Founder, Fractionalogic &amp; Fractional CMO</span>
       <span class="founder__award">
         World Marketing Congress Top 100 Most Innovative Marketing Technology Leader, 2019
       </span>
@@ -52,14 +54,16 @@ import { routes } from '../../data/site';
     gap: 32px;
   }
 
-  .founder__photo {
+  /* The portrait is shot 4:3 with headroom, so it shows uncropped. */
+  .founder__frame {
     margin-top: auto;
+  }
+
+  .founder__photo {
     width: 100%;
     height: auto;
     aspect-ratio: 4 / 3;
     object-fit: cover;
-    object-position: 50% 28%;
-    border-radius: var(--radius);
   }
 
   .founder__byline {
@@ -81,7 +85,7 @@ import { routes } from '../../data/site';
   }
 
   @media (max-width: 900px) {
-    .founder__photo {
+    .founder__frame {
       max-width: 400px;
     }
   }

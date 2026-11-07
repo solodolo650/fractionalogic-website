@@ -200,6 +200,65 @@ ul {
 
 /* Homepage two-column rhythm: head on the left 5/12, content on the right
    7/12. Every split section breaks on the same vertical line. */
+/* Portrait frame: a 1px gradient hairline in a light tinge of Teal 650,
+   drawn by padding over a gradient so it follows the 8px radius. */
+.portrait-frame {
+  display: block;
+  padding: 1px;
+  border-radius: var(--radius);
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--color-action) 45%, transparent),
+    color-mix(in srgb, var(--color-action) 10%, transparent) 55%,
+    color-mix(in srgb, var(--color-action) 30%, transparent)
+  );
+}
+
+.portrait-frame img {
+  display: block;
+  border-radius: calc(var(--radius) - 1px);
+}
+
+/* Hero band: the top of every page sits in one rounded dark-teal block,
+   as wide as the floating nav so the two frame the page together. */
+.band {
+  width: min(1104px, 100% - 2 * var(--gutter));
+  margin-inline: auto;
+  padding: clamp(36px, 5vw, 64px);
+  border-radius: calc(var(--radius) * 2);
+  background:
+    radial-gradient(70% 90% at 100% 0%, color-mix(in srgb, var(--color-action) 55%, transparent), transparent 70%),
+    linear-gradient(135deg, var(--color-dark) 35%, var(--color-brand));
+}
+
+/* Actions on the band are always filled: the primary in white, the secondary in
+   Teal 650. Hover deepens each by one step. */
+.band .btn-primary {
+  background: var(--color-on-dark);
+  border-color: var(--color-on-dark);
+  color: var(--color-brand);
+}
+
+.band .btn-primary:hover {
+  background: var(--color-panel);
+  border-color: var(--color-panel);
+}
+
+.band .btn-secondary {
+  background: var(--color-action);
+  border-color: var(--color-action);
+  color: var(--color-on-dark);
+}
+
+.band .btn-secondary:hover {
+  background: var(--color-brand);
+  border-color: var(--color-brand);
+}
+
+.band .lede {
+  color: var(--color-on-dark-muted);
+}
+
 .split {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);

@@ -1,5 +1,5 @@
 ---
-title: "The Fractional CMO: what we learned, what's coming next"
+title: "The Fractional CMO: what we learned, what’s coming next"
 kind: series
 order: 22
 publisher: LinkedIn

@@ -53,7 +53,7 @@ export const primaryNav: NavItem[] = [
 ];
 
 export const contact = {
-  email: 'muralid1960@gmail.com',
+  email: 'murali.e@fractionalogic.com',
   phone: '+91 98405 42240',
   location: 'Chennai, India',
   linkedin: 'https://www.linkedin.com/in/muralidharan-e-9296743',

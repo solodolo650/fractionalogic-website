@@ -1,4 +1,5 @@
 ---
+import Logo from './ui/Logo.astro';
 import { primaryNav, routes, type NavItem } from '../data/site';
 
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -8,7 +9,7 @@ const groupIsCurrent = (item: NavItem) => 'children' in item && item.children.so
 
 <div class="nav-shell">
   <header class="nav">
-    <a class="nav__logo" href={routes.home} aria-label="Fractionalogic home">fractionalogic</a>
+    <a class="nav__logo" href={routes.home} aria-label="Fractionalogic home"><Logo class="nav__mark" /></a>
 
     <nav class="nav__links" aria-label="Primary">
       <ul class="nav__list">
@@ -123,12 +124,22 @@ const groupIsCurrent = (item: NavItem) => 'children' in item && item.children.so
   }
 
   .nav__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     color: var(--color-brand);
     font-size: 1.125rem;
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.015em;
     text-decoration: none;
+  }
+
+  .nav__logo :global(.nav__mark) {
+    display: block;
+    width: 144px;
+    height: auto;
+    overflow: visible;
   }
 
   .nav__list {
@@ -161,14 +172,10 @@ const groupIsCurrent = (item: NavItem) => 'children' in item && item.children.so
     color: var(--color-heading);
   }
 
+  /* Current section: a subtle text colour shift only, the same for links and dropdown groups. */
   .nav__item[aria-current='page'],
   .nav__item.is-current {
-    color: var(--color-heading);
-    font-weight: 600;
-  }
-
-  .nav__item[aria-current='page'] {
-    background: var(--color-panel);
+    color: var(--color-action);
   }
 
   .nav__chevron {

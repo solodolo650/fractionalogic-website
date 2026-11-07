@@ -5,7 +5,7 @@ import FilterGroup from '../../components/ui/FilterGroup.astro';
 import PartnerCard from '../../components/ui/PartnerCard.astro';
 import Form from '../../components/forms/Form.astro';
 import Field from '../../components/forms/Field.astro';
-import { initials, partnerFunctions, roster } from '../../data/partners';
+import { partnerFunctions, roster } from '../../data/partners';
 
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
@@ -20,10 +20,6 @@ const functionOptions = [
   'Personal branding',
   'Other',
 ];
-
-const functionSummary = new Intl.ListFormat('en', { type: 'conjunction' }).format(
-  partnerFunctions.map((f) => f.toLowerCase().replace('ai', 'AI')),
-);
 
 const regionOptions = ['India', 'APAC', 'Middle East', 'United Kingdom', 'United States', 'Other'];
 ---
@@ -40,13 +36,6 @@ const regionOptions = ['India', 'APAC', 'Middle East', 'United Kingdom', 'United
     <Fragment slot="actions">
       <a class="btn btn-secondary" href="#apply">Apply to join the roster</a>
     </Fragment>
-    <div slot="aside" class="glance panel">
-      <ul class="glance__marks" aria-hidden="true">
-        {roster.map((p) => <li>{initials(p.name)}</li>)}
-      </ul>
-      <p class="glance__count"><span class="num">{roster.length}</span> vetted specialists</p>
-      <p>Across {functionSummary}.</p>
-    </div>
   </PageHeader>
 
   <section class="roster container section" aria-labelledby="roster-title">
@@ -104,50 +93,6 @@ const regionOptions = ['India', 'APAC', 'Middle East', 'United Kingdom', 'United
 </Base>
 
 <style>
-  .glance {
-    display: grid;
-    gap: 14px;
-    color: var(--color-text-on-panel);
-  }
-
-  .glance__marks {
-    display: flex;
-    margin-bottom: 8px;
-  }
-
-  .glance__marks li {
-    display: grid;
-    place-items: center;
-    width: 56px;
-    height: 56px;
-    margin-left: -10px;
-    background: var(--color-dark);
-    border: 3px solid var(--color-panel);
-    border-radius: 50%;
-    font-family: var(--font-display);
-    font-variation-settings: 'opsz' 32;
-    font-weight: 600;
-    color: var(--color-on-dark-muted);
-  }
-
-  .glance__marks li:first-child {
-    margin-left: 0;
-  }
-
-  .glance__marks li:nth-child(even) {
-    background: var(--color-action);
-    color: var(--color-on-dark);
-  }
-
-  .glance__count {
-    font-family: var(--font-display);
-    font-variation-settings: 'opsz' 32;
-    font-size: clamp(1.5rem, 1.2vw + 1.1rem, 2rem);
-    font-weight: 600;
-    letter-spacing: -0.025em;
-    color: var(--color-heading);
-  }
-
   .roster {
     display: grid;
     gap: 32px;

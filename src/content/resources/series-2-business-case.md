@@ -1,5 +1,5 @@
 ---
-title: "Part 2 — The business case: benefits, costs and the real ROI of a Fractional CMO"
+title: "Part 2 — The business case: benefits, costs, and the real ROI of a Fractional CMO"
 kind: series
 order: 21
 publisher: LinkedIn

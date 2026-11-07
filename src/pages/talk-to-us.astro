@@ -6,15 +6,7 @@ import Form from '../components/forms/Form.astro';
 import Field from '../components/forms/Field.astro';
 import { contact, routes } from '../data/site';
 
-const challenges = [
-  'No senior marketing leadership',
-  'Growth has stalled',
-  'Positioning or messaging unclear',
-  'Sales and marketing misaligned',
-  'Preparing to raise or expand',
-  'Need leadership across more than one function',
-  'Other',
-];
+const sources = ['LinkedIn', 'Search engine', 'Referral or word of mouth', 'Event or talk', 'Article or publication', 'Other'];
 
 const regions = ['India', 'APAC', 'Middle East', 'United Kingdom', 'United States', 'Other'];
 const telHref = `tel:${contact.phone.replace(/\s+/g, '')}`;
@@ -57,8 +49,8 @@ const telHref = `tel:${contact.phone.replace(/\s+/g, '')}`;
       </div>
 
       <p class="talk__roster">
-        Aspiring fractional leader applying to the twin partner network?{' '}
-        <a href={routes.joinRoster}>Use the Join the Roster route</a> on the Partners page.
+        Are you a fractional leader looking to join our network?{' '}
+        <a href={routes.joinRoster}>Apply to the Twin Partner Network</a> instead.
       </p>
     </div>
 
@@ -73,17 +65,12 @@ const telHref = `tel:${contact.phone.replace(/\s+/g, '')}`;
       >
         <Field label="Name" name="name" required autocomplete="name" />
         <Field label="Email" name="email" type="email" required autocomplete="email" />
-        <Field label="Company" name="company" required autocomplete="organization" hint="Company or organization name" />
-        <Field label="Role" name="role" required autocomplete="organization-title" hint="Founder, CEO, board member, functional head" />
-        <Field label="Primary challenge" name="challenge" as="select" options={challenges} required />
+        <Field label="Company" name="company" required autocomplete="organization" />
+        <Field label="Role" name="role" required autocomplete="organization-title" />
+        <Field label="Country" name="country" required autocomplete="country-name" />
         <Field label="Preferred region" name="region" as="select" options={regions} required />
-        <Field
-          label="Message"
-          name="message"
-          as="textarea"
-          wide
-          hint="What is happening, and what you want to change."
-        />
+        <Field label="How can we help?" name="message" as="textarea" wide required />
+        <Field label="How did you find us?" name="source" as="select" options={sources} />
       </Form>
     </section>
   </div>
