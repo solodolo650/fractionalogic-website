@@ -1,0 +1,25 @@
+.cta-band {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    padding: clamp(40px, 6vw, 72px);
+  }
+
+  .cta-band__text {
+    display: grid;
+    gap: 16px;
+    max-width: 34rem;
+  }
+
+  .cta-band__action {
+    flex-shrink: 0;
+    border-color: var(--color-on-dark);
+  }
+
+  @media (max-width: 900px) {
+    .cta-band {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }

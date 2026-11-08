@@ -1,0 +1,69 @@
+/* The host sticks, not the nav: the host's parent is the stretched grid
+     cell, which gives it room to travel the full length of the page. */
+  fl-toc {
+    display: block;
+    position: sticky;
+    top: 128px;
+  }
+
+  .toc__title {
+    margin-bottom: 12px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .toc__list {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-left: 1px solid var(--color-rule);
+  }
+
+  .toc__list a {
+    display: block;
+    margin-left: -1px;
+    padding: 8px 0 8px 16px;
+    border-left: 2px solid transparent;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 160ms ease, border-color 160ms ease;
+  }
+
+  .toc__list a:hover {
+    color: var(--color-heading);
+  }
+
+  .toc__list a[aria-current='true'] {
+    border-left-color: var(--color-action);
+    color: var(--color-heading);
+    font-weight: 600;
+  }
+
+  @media (max-width: 1023px) {
+    fl-toc {
+      position: static;
+    }
+
+    .toc__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-left: 0;
+    }
+
+    .toc__list a {
+      margin: 0;
+      padding: 6px 14px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-rule);
+      border-radius: var(--radius-pill);
+      color: var(--color-text);
+      font-size: 0.9375rem;
+    }
+
+    .toc__list a[aria-current='true'] {
+      border-color: var(--color-action);
+    }
+  }

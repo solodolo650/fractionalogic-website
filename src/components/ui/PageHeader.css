@@ -1,0 +1,104 @@
+.page-header {
+    display: grid;
+    gap: 48px;
+    padding-top: clamp(72px, 8vw, 112px);
+  }
+
+  .page-header--split {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(40px, 5vw, 72px);
+  }
+
+  .page-header__main {
+    display: grid;
+    justify-items: start;
+    gap: 20px;
+  }
+
+  .page-header .page-title {
+    max-width: 16em;
+  }
+
+  .breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+  }
+
+  .breadcrumb li + li::before {
+    content: '/';
+    padding-inline: 10px;
+    color: var(--color-rule);
+  }
+
+  .breadcrumb a {
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-action);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .breadcrumb [aria-current] {
+    color: var(--color-text);
+  }
+
+  .page-header__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  /* Band: the whole header becomes one rounded dark-teal block. The deep end sits
+     behind the title for contrast; a soft Teal 650 glow lifts the far corner. */
+  /* Restated here: the header's own padding and .container width outrank the global .band. */
+  .page-header--band {
+    width: min(1104px, 100% - 2 * var(--gutter));
+    margin-top: clamp(32px, 4vw, 48px);
+    padding: clamp(36px, 5vw, 64px);
+  }
+
+  /* Light panels and cards set beside the title keep dark ink. */
+  .page-header--band .page-header__aside {
+    --color-heading: var(--color-dark);
+    --color-text: var(--color-text-on-panel);
+    color: var(--color-text-on-panel);
+  }
+
+  .page-header--band .breadcrumb ol {
+    color: var(--color-on-dark-muted);
+  }
+
+  .page-header--band .breadcrumb li + li::before {
+    color: color-mix(in srgb, var(--color-on-dark-muted) 45%, transparent);
+  }
+
+  .page-header--band .breadcrumb a:hover {
+    color: var(--color-on-dark);
+  }
+
+  .page-header--band .breadcrumb [aria-current] {
+    color: var(--color-on-dark);
+  }
+
+  @media (max-width: 900px) {
+    .page-header--split {
+      grid-template-columns: minmax(0, 1fr); /* stay within narrow screens even when the aside panel is wide */
+    }
+  }
+
+  @media (max-width: 560px) {
+    .page-header__actions {
+      width: 100%;
+      flex-direction: column;
+    }
+  }

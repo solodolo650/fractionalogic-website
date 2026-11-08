@@ -1,0 +1,497 @@
+.about {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 64px;
+    margin-top: clamp(56px, 7vw, 96px);
+  }
+
+  .about__body {
+    display: grid;
+    gap: var(--section-gap);
+    min-width: 0;
+  }
+
+  /* Founder ------------------------------------------------------- */
+  .founder-bio {
+    display: grid;
+    gap: 32px;
+  }
+
+  .founder-bio__head {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .founder-bio__frame {
+    flex: none;
+  }
+
+  /* Square crop of the 4:3 portrait trims only the sides; the full head stays. */
+  .founder-bio__photo {
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  .founder-bio__id {
+    display: grid;
+    gap: 4px;
+  }
+
+  .founder-bio__id .h2 {
+    margin-bottom: 4px;
+  }
+
+  .founder-bio__role {
+    font-weight: 600;
+    color: var(--color-action);
+  }
+
+  .founder-bio__tag {
+    color: var(--color-text-muted);
+  }
+
+  .founder-bio__text {
+    display: grid;
+    gap: 16px;
+    max-width: var(--measure);
+  }
+
+  .recognition {
+    display: grid;
+    gap: 16px;
+    padding-top: 28px;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .recognition__title {
+    font-size: 1.1875rem;
+    line-height: 1.3;
+  }
+
+  .recognition ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 32px;
+  }
+
+  .recognition li {
+    display: grid;
+    gap: 2px;
+    padding-left: 16px;
+    border-left: 1px solid var(--color-prestige);
+  }
+
+  .recognition__name {
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+
+  .recognition__by {
+    color: var(--color-text-muted);
+  }
+
+  .founder-bio__handoff {
+    max-width: var(--measure);
+    color: var(--color-text-muted);
+  }
+
+  .founder-bio__handoff a {
+    color: var(--color-action);
+    font-weight: 600;
+    text-underline-offset: 4px;
+  }
+
+  /* Story ---------------------------------------------------------- */
+  .story {
+    display: grid;
+    gap: 48px;
+  }
+
+  .story__thesis {
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: clamp(1.25rem, 0.8vw + 1rem, 1.5rem);
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    color: var(--color-heading);
+  }
+
+  /* One reading column with a hairline spine: the story is a path from the
+     moment a founder hits the ceiling to what the engagement leaves behind,
+     so the first and last nodes are filled. */
+  .story__arc {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .story__beat {
+    position: relative;
+    display: grid;
+    gap: 10px;
+    max-width: calc(var(--measure) + 40px);
+    padding: 0 0 44px 40px;
+  }
+
+  .story__beat::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    bottom: -6px;
+    left: 6px;
+    width: 1px;
+    background: var(--color-rule);
+  }
+
+  .story__beat:last-child {
+    padding-bottom: 0;
+  }
+
+  .story__beat:last-child::before {
+    display: none;
+  }
+
+  .story__beat::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 13px;
+    height: 13px;
+    box-sizing: border-box;
+    border: 2px solid var(--color-action);
+    border-radius: 50%;
+    background: var(--color-canvas);
+  }
+
+  .story__beat:first-child::after,
+  .story__beat:last-child::after {
+    background: var(--color-action);
+  }
+
+  .story__label {
+    font-size: 1.1875rem;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+  }
+
+  .story__beat-body {
+    display: grid;
+    gap: 14px;
+  }
+
+  .story__close {
+    max-width: var(--measure);
+    padding-top: 32px;
+    border-top: 1px solid var(--color-rule);
+    font-size: clamp(1.0625rem, 0.3vw + 1rem, 1.1875rem);
+    line-height: 1.6;
+    font-weight: 500;
+    color: var(--color-heading);
+  }
+
+  /* Growth + market ----------------------------------------------- */
+  .growth {
+    display: grid;
+    gap: 24px;
+  }
+
+  .growth__text {
+    display: grid;
+    gap: 16px;
+    max-width: var(--measure);
+  }
+
+  .market {
+    display: grid;
+    gap: 40px;
+  }
+
+  .market__subhead {
+    font-size: 1.1875rem;
+    line-height: 1.3;
+  }
+
+  /* 2026 data bento: six-column grid, one dark lead tile, India on Mist
+     (home base), bars only where a number carries a comparison. */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .stat {
+    display: grid;
+    align-content: start;
+    gap: 14px;
+    padding: clamp(24px, 3vw, 32px);
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius);
+  }
+
+  .stat__figure {
+    font-size: clamp(2.25rem, 1.6vw + 1.6rem, 3rem);
+    line-height: 1;
+  }
+
+  .stat--lead {
+    grid-column: span 4;
+    align-content: end;
+    min-height: 280px;
+    background: var(--color-dark);
+    border-color: var(--color-dark);
+  }
+
+  .stat--lead .stat__figure {
+    font-size: clamp(4rem, 5vw + 1.5rem, 6rem);
+    letter-spacing: -0.04em;
+  }
+
+  .stat--lead p {
+    max-width: 26rem;
+    font-size: clamp(1.0625rem, 0.3vw + 1rem, 1.1875rem);
+    line-height: 1.5;
+  }
+
+  .stat--india {
+    grid-column: span 2;
+    align-content: end;
+    background: var(--color-panel);
+    border-color: var(--color-panel);
+    color: var(--color-text-on-panel);
+  }
+
+  .stat--us,
+  .stat--gartner {
+    grid-column: span 3;
+  }
+
+  .stat--wide {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: end;
+    gap: 24px 48px;
+  }
+
+  .stat__main {
+    display: grid;
+    gap: 14px;
+  }
+
+  .stat__bars {
+    display: grid;
+    gap: 10px;
+    margin-top: 6px;
+  }
+
+  .stat__bar-row {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr) 2.75rem;
+    gap: 12px;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .stat__track,
+  .stat__share-track {
+    display: block;
+    height: 10px;
+    background: var(--color-canvas);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+  }
+
+  .stat__bar {
+    display: block;
+    width: calc(var(--v) / 40 * 100%);
+    height: 100%;
+    background: var(--color-rule);
+    border-radius: var(--radius-pill);
+  }
+
+  .stat__bar--lead {
+    background: var(--color-action);
+  }
+
+  .stat__bar-value {
+    font-size: 0.9375rem;
+    text-align: right;
+  }
+
+  .stat__growth {
+    display: grid;
+    gap: 10px;
+  }
+
+  .stat__share {
+    display: grid;
+    gap: 12px;
+  }
+
+  .stat__share-track {
+    height: 14px;
+    background: var(--color-rule);
+  }
+
+  .stat__share-part {
+    display: block;
+    width: calc(var(--v) / var(--of) * 100%);
+    height: 100%;
+    background: var(--color-action);
+  }
+
+  .stat__share-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .stat__share-legend > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .stat__key {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-rule);
+  }
+
+  .stat__key--india {
+    background: var(--color-action);
+  }
+
+  /* Footprint ------------------------------------------------------ */
+  .footprint {
+    display: grid;
+    gap: 48px;
+  }
+
+  /* India leads as a full-width row; the four regions follow two by two so
+     their longer, sourced copy keeps a readable line length. */
+  .footprint__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .footprint__home {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 14px;
+    min-height: 340px;
+    padding: 32px;
+  }
+
+  .footprint__home p {
+    max-width: var(--measure);
+  }
+
+  .footprint__badge {
+    align-self: flex-start;
+    padding: 4px 12px;
+    background: var(--color-prestige);
+    border-radius: var(--radius-sm);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text-on-panel);
+  }
+
+  .footprint__region {
+    display: grid;
+    align-content: start;
+    gap: 12px;
+    padding: 28px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius);
+  }
+
+  .footprint__name {
+    font-size: clamp(1.375rem, 0.8vw + 1.1rem, 1.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .footprint__rest {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 16px;
+  }
+
+  /* Values --------------------------------------------------------- */
+  .values {
+    display: grid;
+    gap: 40px;
+  }
+
+  @media (max-width: 1023px) {
+    .about {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .footprint__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footprint__home {
+      grid-column: 1 / -1;
+      grid-row: auto;
+      min-height: 380px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .founder-bio__head {
+      gap: 16px;
+    }
+
+    .founder-bio__photo {
+      width: 88px;
+      height: 88px;
+    }
+
+    .recognition ul {
+      grid-template-columns: 1fr;
+    }
+
+    .footprint__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stats {
+      grid-template-columns: 1fr;
+    }
+
+    .stat--lead,
+    .stat--india,
+    .stat--us,
+    .stat--gartner {
+      grid-column: auto;
+    }
+
+    .stat--lead {
+      min-height: 0;
+    }
+
+    .stat--wide {
+      grid-template-columns: 1fr;
+    }
+  }

@@ -1,0 +1,15 @@
+.missing {
+    display: grid;
+    justify-items: start;
+    gap: 24px;
+    padding-top: clamp(72px, 10vw, 140px);
+  }
+
+  .missing__link {
+    text-decoration: none;
+  }
+
+  .missing__link:hover {
+    border-color: var(--color-action);
+    color: var(--color-action);
+  }

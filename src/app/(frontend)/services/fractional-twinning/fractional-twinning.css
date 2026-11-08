@@ -1,0 +1,307 @@
+/* Header aside --------------------------------------------------- */
+  .system {
+    display: grid;
+    gap: 22px;
+    margin: 0;
+  }
+
+  .system__terms {
+    display: grid;
+    border-top: 1px solid var(--color-rule-on-panel);
+  }
+
+  .system__terms li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-rule-on-panel);
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: clamp(1.25rem, 0.8vw + 1rem, 1.5rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-heading);
+  }
+
+  .system figcaption {
+    color: var(--color-text-on-panel);
+  }
+
+  /* Shared section rhythm: split head, 56px, then the grid. */
+  .what__head,
+  .functions__head,
+  .roi__head {
+    align-items: end;
+  }
+
+  .what__text,
+  .functions__head p,
+  .roi__head p {
+    display: grid;
+    gap: 16px;
+    max-width: var(--measure);
+  }
+
+  .pairings,
+  .functions__grid,
+  .roi__grid {
+    margin-top: 56px;
+  }
+
+  /* Pairings ------------------------------------------------------- */
+  .pairings {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .pairing {
+    display: grid;
+    align-content: start;
+    gap: 14px;
+    padding: clamp(24px, 3vw, 36px);
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius);
+  }
+
+  .pairing__diagram {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .pairing__node {
+    display: grid;
+    place-items: center;
+    width: 76px;
+    height: 76px;
+    background: var(--color-dark);
+    border-radius: 50%;
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-on-dark);
+  }
+
+  .pairing__node--alt {
+    background: var(--color-action);
+  }
+
+  .pairing__link {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 2px;
+    background: var(--color-action);
+  }
+
+  .pairing__link span {
+    padding: 4px 10px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-pill);
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--color-text);
+  }
+
+  .pairing__name {
+    font-size: 1.375rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  /* Functions: the FCMO Industries blocks, five across. -------------- */
+  .functions__grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .functions__grid li {
+    display: flex;
+    align-items: flex-end;
+    min-height: 128px;
+    padding: 20px 24px;
+    background: linear-gradient(160deg, var(--color-panel), color-mix(in srgb, var(--color-panel) 35%, var(--color-surface)));
+    border-radius: var(--radius);
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--color-heading);
+  }
+
+  /* Tiles: the FCMO Benefits & ROI vocabulary. ----------------------- */
+  .complements__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .section-head + .complements__grid {
+    margin-top: 56px;
+  }
+
+  /* Two by two, so range figures ("Up to 71%", "55–75%") hold one line. */
+  .roi__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .roi__grid .tile {
+    min-height: 240px;
+  }
+
+  .roi__grid .tile__title {
+    margin-bottom: auto;
+    padding-bottom: 24px;
+  }
+
+  .tile {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 260px;
+    padding: clamp(24px, 3vw, 32px);
+    border-radius: var(--radius);
+  }
+
+  .tile--dark {
+    background:
+      radial-gradient(70% 90% at 100% 0%, color-mix(in srgb, var(--color-action) 50%, transparent), transparent 70%),
+      linear-gradient(160deg, var(--color-dark) 40%, var(--color-brand));
+  }
+
+  .tile--teal {
+    background: linear-gradient(160deg, var(--color-brand), var(--color-action));
+  }
+
+  .tile--mist {
+    background: var(--color-panel);
+    color: var(--color-text-on-panel);
+  }
+
+  .tile--surface {
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+  }
+
+  .tile__title {
+    margin-bottom: auto;
+    font-size: clamp(1.375rem, 0.8vw + 1.1rem, 1.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .tile__text {
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+
+  .on-dark .tile__text {
+    color: var(--color-on-dark-muted);
+  }
+
+  .tile__label {
+    display: grid;
+    gap: 2px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  .tile__note {
+    font-weight: 400;
+  }
+
+  .on-dark .tile__label {
+    color: var(--color-on-dark-muted);
+  }
+
+  .tile__figure {
+    margin-top: 32px;
+    font-size: clamp(2.5rem, 2vw + 1.75rem, 3.5rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+
+  .tile__statement {
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: clamp(1.25rem, 0.6vw + 1.05rem, 1.5rem);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: var(--color-heading);
+  }
+
+  /* Single action after the evidence, as on the FCMO page. */
+  .engage {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px 40px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .engage p {
+    max-width: var(--measure);
+    font-size: 1.0625rem;
+    color: var(--color-heading);
+  }
+
+  /* Network -------------------------------------------------------- */
+  .network__text {
+    display: grid;
+    justify-items: start;
+    gap: 16px;
+  }
+
+  .network__list {
+    display: grid;
+    gap: 12px;
+  }
+
+  @media (max-width: 900px) {
+    .pairings,
+    .complements__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .functions__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tile,
+    .roi__grid .tile {
+      min-height: 0;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .roi__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .functions__grid {
+      gap: 12px;
+    }
+
+    .functions__grid li {
+      min-height: 88px;
+      padding: 16px;
+      font-size: 1.125rem;
+    }
+
+    .engage .btn {
+      width: 100%;
+    }
+  }

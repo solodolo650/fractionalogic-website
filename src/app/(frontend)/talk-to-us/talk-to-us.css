@@ -1,0 +1,90 @@
+.talk {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr);
+    gap: clamp(32px, 5vw, 64px);
+    align-items: start;
+    margin-top: clamp(48px, 6vw, 72px);
+  }
+
+  .talk__side {
+    display: grid;
+    gap: 20px;
+    position: sticky;
+    top: 128px;
+  }
+
+  .talk__promise {
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 32;
+    font-size: clamp(1.25rem, 0.8vw + 1.05rem, 1.5rem);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.015em;
+    color: var(--color-heading);
+  }
+
+  .talk__contact {
+    display: grid;
+    gap: 14px;
+    margin-top: 12px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .talk__contact-title {
+    font-size: 1.1875rem;
+  }
+
+  .talk__contact dl {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+  }
+
+  .talk__contact dl div {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .talk__contact dt {
+    color: var(--color-text-muted);
+  }
+
+  .talk__contact dd {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .talk__contact a,
+  .talk__roster a {
+    color: var(--color-action);
+    font-weight: 600;
+    text-underline-offset: 4px;
+  }
+
+  .talk__roster {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+  }
+
+  .talk__form {
+    display: grid;
+    gap: 24px;
+    scroll-margin-top: 128px;
+  }
+
+  @media (max-width: 900px) {
+    .talk {
+      grid-template-columns: 1fr;
+    }
+
+    .talk__side {
+      position: static;
+    }
+  }
+
+/* Long email addresses break onto a new line on the smallest phones. */
+.talk__contact dd {
+  overflow-wrap: anywhere;
+}

@@ -1,0 +1,20 @@
+fl-filter {
+    display: grid;
+    gap: 28px;
+  }
+
+  .filter__bar {
+    display: none;
+  }
+
+  fl-filter[data-enhanced] .filter__bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .chip__count {
+    margin-left: 8px;
+    font-variant-numeric: tabular-nums;
+    opacity: 0.7;
+  }
