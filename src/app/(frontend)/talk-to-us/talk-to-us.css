@@ -83,3 +83,8 @@
       position: static;
     }
   }
+
+/* Long email addresses break onto a new line on the smallest phones. */
+.talk__contact dd {
+  overflow-wrap: anywhere;
+}

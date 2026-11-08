@@ -10,6 +10,9 @@ import './slug.css';
 
 /* A page for every resource that isn't hosted elsewhere: reports, and articles published through the CMS. */
 
+/** “Case studies” → “case studies”, but keep acronyms like FCMO intact. */
+const lowerCategory = (k: keyof typeof kindCategories) => kindCategories[k].replace(/^([A-Z])([a-z])/, (_, a: string, b: string) => a.toLowerCase() + b);
+
 type Params = { params: Promise<{ slug: string }> };
 
 export const dynamicParams = false;
@@ -106,10 +109,10 @@ export default async function ResourcePage({ params }: Params) {
         <section className="container section related" aria-labelledby="related-title">
           <div className="related__head">
             <h2 id="related-title" className="h3">
-              More {kindCategories[kind].toLowerCase()}
+              More {lowerCategory(kind)}
             </h2>
             <a className="text-link" href={`${routes.resources}?type=${kind}`}>
-              All {kindCategories[kind].toLowerCase()} <span aria-hidden="true">→</span>
+              All {lowerCategory(kind)} <span aria-hidden="true">→</span>
             </a>
           </div>
           <ul className="related__grid">

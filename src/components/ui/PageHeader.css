@@ -92,7 +92,7 @@
 
   @media (max-width: 900px) {
     .page-header--split {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr); /* stay within narrow screens even when the aside panel is wide */
     }
   }
 

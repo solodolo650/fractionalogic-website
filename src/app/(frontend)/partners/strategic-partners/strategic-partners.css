@@ -335,3 +335,29 @@
       grid-template-columns: 1fr;
     }
   }
+
+/* Smallest phones (≤360px): stack the partnership instead of squeezing it side by side. */
+@media (max-width: 360px) {
+  .pact {
+    padding: 22px 18px;
+  }
+
+  .pact__pair {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .pact__join {
+    justify-self: center;
+    line-height: 1;
+  }
+
+  .pact__principles li {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .pact__principles strong {
+    min-width: 0;
+  }
+}
