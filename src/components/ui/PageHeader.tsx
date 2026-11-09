@@ -32,7 +32,7 @@ const hasAside = Boolean(aside);
     <nav className="breadcrumb" aria-label="Breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
-        {crumbs.map((crumb) => <li>{crumb.href ? <a href={crumb.href}>{crumb.label}</a> : <span>{crumb.label}</span>}</li>)}
+        {crumbs.map((crumb, __i) => <li key={__i}>{crumb.href ? <a href={crumb.href}>{crumb.label}</a> : <span>{crumb.label}</span>}</li>)}
         <li aria-current="page">{current ?? title}</li>
       </ol>
     </nav>

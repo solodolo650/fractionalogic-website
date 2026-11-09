@@ -21,7 +21,7 @@ const groupIsCurrent = (item: NavItem) => 'children' in item && item.children.so
         {
           primaryNav.map((item, i) =>
             'children' in item ? (
-              <li className="nav__group">
+              <li key={item.label} className="nav__group">
                 <button
                   className={cx(['nav__item', 'nav__trigger', { 'is-current': groupIsCurrent(item) }])}
                   type="button"
@@ -35,8 +35,8 @@ const groupIsCurrent = (item: NavItem) => 'children' in item && item.children.so
                 </button>
                 <div className="nav__menu" id={`nav-menu-${i}`}>
                   <ul>
-                    {item.children.map((child) => (
-                      <li>
+                    {item.children.map((child, __i) => (
+                      <li key={__i}>
                         <a className="nav__menu-link" href={child.href} aria-current={isCurrent(child.href) ? 'page' : undefined}>
                           <span className="nav__menu-title">{child.label}</span>
                           {child.description && <span className="nav__menu-desc">{child.description}</span>}
@@ -47,7 +47,7 @@ const groupIsCurrent = (item: NavItem) => 'children' in item && item.children.so
                 </div>
               </li>
             ) : (
-              <li>
+              <li key={item.label}>
                 <a className="nav__item" href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
                   {item.label}
                 </a>
@@ -71,11 +71,11 @@ const groupIsCurrent = (item: NavItem) => 'children' in item && item.children.so
         {
           primaryNav.map((item) =>
             'children' in item ? (
-              <li className="mobile-menu__group">
+              <li key={item.label} className="mobile-menu__group">
                 <p className="mobile-menu__heading">{item.label}</p>
                 <ul className="mobile-menu__sub">
-                  {item.children.map((child) => (
-                    <li>
+                  {item.children.map((child, __i) => (
+                    <li key={__i}>
                       <a href={child.href} aria-current={isCurrent(child.href) ? 'page' : undefined}>
                         {child.label}
                       </a>
@@ -84,7 +84,7 @@ const groupIsCurrent = (item: NavItem) => 'children' in item && item.children.so
                 </ul>
               </li>
             ) : (
-              <li>
+              <li key={item.label}>
                 <a className="mobile-menu__top" href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
                   {item.label}
                 </a>

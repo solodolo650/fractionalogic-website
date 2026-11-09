@@ -28,7 +28,7 @@ const uid = label.toLowerCase().replace(/[^a-z0-9]+/g, '-');
   <div className="tabs__list" role="tablist" aria-label={label}>
     {
       tabs.map((tab, i) => (
-        <button
+        <button key={i}
           className="tabs__tab"
           type="button"
           role="tab"

@@ -101,8 +101,8 @@ const benefits = [
     aside={<figure className="compare" aria-labelledby="compare-caption">
       <figcaption id="compare-caption" className="compare__caption">Top-ranked FCMO services</figcaption>
       {
-        topServices.map((svc) => (
-          <div className="compare__row">
+        topServices.map((svc, __i) => (
+          <div key={__i} className="compare__row">
             <span className="compare__label">{svc.name}</span>
             <span className="compare__track">
               <span className="compare__bar compare__bar--lead compare__bar--pct" style={{ '--v': svc.value }} />
@@ -125,7 +125,7 @@ const benefits = [
     <ol className="flow">
       {
         steps.map((step, i) => (
-          <li className="flow__step">
+          <li key={i} className="flow__step">
             <span className="flow__marker num" aria-hidden="true">{i + 1}</span>
             <h3 className="flow__name">{step.name}</h3>
             <p>{step.text}</p>
@@ -141,8 +141,8 @@ const benefits = [
     </div>
     <ul className="bento">
       {
-        coverage.map((c) => (
-          <li className={cx(['bento__tile', `bento__tile--${c.tone}`, `bento__tile--${c.span}`, { 'on-dark': c.tone === 'dark' || c.tone === 'teal' }])}>
+        coverage.map((c, __i) => (
+          <li key={__i} className={cx(['bento__tile', `bento__tile--${c.tone}`, `bento__tile--${c.span}`, { 'on-dark': c.tone === 'dark' || c.tone === 'teal' }])}>
             <h3 className="bento__title">{c.area}</h3>
             <p className="bento__text">{c.detail}</p>
           </li>
@@ -162,8 +162,8 @@ const benefits = [
       </div>
       <ul className="serve__stages">
         {
-          stages.map((stage) => (
-            <li>
+          stages.map((stage, __i) => (
+            <li key={__i}>
               <h3 className="serve__stage-name">{stage.label}</h3>
               <p>{stage.text}</p>
             </li>
@@ -204,8 +204,8 @@ const benefits = [
 
     <ul className="benefits">
       {
-        benefits.map((b) => (
-          <li>
+        benefits.map((b, __i) => (
+          <li key={__i}>
             <h3 className="benefits__name">{b.name}</h3>
             <p>{b.text}</p>
           </li>
@@ -224,7 +224,7 @@ const benefits = [
       <h2 id="industries-title" className="h2">Industries we serve</h2>
     </div>
     <ul className="industries__grid">
-      {industries.map((name) => <li>{name}</li>)}
+      {industries.map((name, __i) => <li key={__i}>{name}</li>)}
     </ul>
   </section>
 

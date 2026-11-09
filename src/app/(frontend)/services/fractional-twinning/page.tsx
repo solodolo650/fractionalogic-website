@@ -120,8 +120,8 @@ const teaser = roster.slice(0, 3);
 
     <ul className="pairings">
       {
-        pairings.map((p) => (
-          <li className="pairing">
+        pairings.map((p, __i) => (
+          <li key={__i} className="pairing">
             <div className="pairing__diagram" aria-hidden="true">
               <span className="pairing__node">{p.a}</span>
               <span className="pairing__link">
@@ -143,7 +143,7 @@ const teaser = roster.slice(0, 3);
       <p>Across SaaS, healthcare, manufacturing, professional services, and retail.</p>
     </div>
     <ul className="functions__grid">
-      {functionsCovered.map((f) => <li>{f}</li>)}
+      {functionsCovered.map((f, __i) => <li key={__i}>{f}</li>)}
     </ul>
   </section>
 
@@ -153,8 +153,8 @@ const teaser = roster.slice(0, 3);
     </div>
     <ul className="complements__grid">
       {
-        complements.map((c) => (
-          <li className={cx(['tile', `tile--${c.tone}`, { 'on-dark': c.tone === 'dark' || c.tone === 'teal' }])}>
+        complements.map((c, __i) => (
+          <li key={__i} className={cx(['tile', `tile--${c.tone}`, { 'on-dark': c.tone === 'dark' || c.tone === 'teal' }])}>
             <h3 className="tile__title">{c.label}</h3>
             <p className="tile__text">{c.text}</p>
           </li>
@@ -174,8 +174,8 @@ const teaser = roster.slice(0, 3);
 
     <ul className="roi__grid">
       {
-        functionRoi.map((f) => (
-          <li className={cx(['tile', `tile--${f.tone}`, { 'on-dark': f.tone === 'dark' || f.tone === 'teal' }])}>
+        functionRoi.map((f, __i) => (
+          <li key={__i} className={cx(['tile', `tile--${f.tone}`, { 'on-dark': f.tone === 'dark' || f.tone === 'teal' }])}>
             <p className="tile__label">{f.fn}</p>
             <h3 className="tile__title">{f.role}</h3>
             <p className="tile__text">{f.text}</p>
@@ -204,8 +204,8 @@ const teaser = roster.slice(0, 3);
     </div>
     <ul className="network__list">
       {
-        teaser.map((partner) => (
-          <li>
+        teaser.map((partner, __i) => (
+          <li key={__i}>
             <PartnerCard partner={partner} compact />
           </li>
         ))

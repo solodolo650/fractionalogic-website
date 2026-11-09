@@ -7,7 +7,9 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: '/services', destination: '/services/fcmo', permanent: false },
-      { source: '/partners', destination: '/partners/strategic-partners', permanent: false },
+      { source: '/partners', destination: '/partners/twin-partner-network', permanent: false },
+      // Draft until approved: the page is not built; send old links to the partner network.
+      { source: '/partners/strategic-partners', destination: '/partners/twin-partner-network', permanent: false },
     ];
   },
 };

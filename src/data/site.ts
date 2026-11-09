@@ -32,12 +32,8 @@ export const services: NavLink[] = [
   },
 ];
 
+/* Strategic Partners is a draft until approval (page kept in src/app/(frontend)/_drafts). */
 export const partners: NavLink[] = [
-  {
-    label: 'Strategic Partners',
-    href: routes.strategicPartners,
-    description: 'Readiness, collective-intelligence, and capability instruments.',
-  },
   {
     label: 'Twin Partner Network',
     href: routes.twinPartnerNetwork,
@@ -48,13 +44,12 @@ export const partners: NavLink[] = [
 export const primaryNav: NavItem[] = [
   { label: 'About', href: routes.about },
   { label: 'Services', children: services },
-  { label: 'Partners', children: partners },
+  { label: 'Partners', href: routes.twinPartnerNetwork },
   { label: 'Resources', href: routes.resources },
 ];
 
 export const contact = {
   email: 'murali.e@fractionalogic.com',
-  phone: '+91 98405 42240',
   location: 'Chennai, India',
   linkedin: 'https://www.linkedin.com/in/muralidharan-e-9296743',
 };

@@ -14,8 +14,8 @@ const { links } = props;
     <p className="toc__title">On this page</p>
     <ol className="toc__list">
       {
-        links.map((link) => (
-          <li>
+        links.map((link, __i) => (
+          <li key={__i}>
             <a href={`#${link.id}`} data-toc-link={link.id}>
               {link.label}
             </a>

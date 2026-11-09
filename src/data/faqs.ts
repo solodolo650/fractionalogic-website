@@ -49,21 +49,6 @@ export const faqs: Faq[] = [
       'Magic Pencils makes organizational readiness, alignment, and capability visible. Magic Pencils is a measurement-first transformation practice. Its instruments show where the organization stands, surface the commitments people will own, and test whether the required capability exists. The client keeps the software, data, baseline, and the ability to re-run the reading.',
   },
   {
-    question: 'What is Momentum Zone?',
-    answer:
-      'A structured, multi-respondent readiness assessment that shows where the organization actually stands and where Sales, Product, Marketing, Delivery, and leadership disagree. It creates a baseline before a campaign, reorganization, or transformation program begins.',
-  },
-  {
-    question: 'What is Huddle?',
-    answer:
-      "A facilitated process that gives participants an equal voice, distills collective intelligence, and converts the room’s evidence into a decision with named owners. It is designed to produce commitment during the session — not a list of actions that loses force afterward.",
-  },
-  {
-    question: 'What is Skill Forge?',
-    answer:
-      'A capability platform that evaluates real work against the competencies the plan requires. It keeps business performance and team capability visible as separate measures, so leadership can see when results and readiness diverge.',
-  },
-  {
     question: 'Which regions do you serve?',
     answer:
       'India is our primary base. We serve APAC, the Middle East, the United Kingdom, and the United States through our Twin Partner Network.',

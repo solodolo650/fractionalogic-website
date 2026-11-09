@@ -162,8 +162,8 @@ const values = [
           <h3 className="recognition__title">Recognition</h3>
           <ul>
             {
-              recognition.map((r) => (
-                <li>
+              recognition.map((r, __i) => (
+                <li key={__i}>
                   <span className="recognition__name">{r.title}</span>
                   <span className="recognition__by">{r.by}</span>
                 </li>
@@ -189,12 +189,12 @@ const values = [
 
         <ol className="story__arc">
           {
-            beats.map((beat) => (
-              <li className="story__beat">
+            beats.map((beat, __i) => (
+              <li key={__i} className="story__beat">
                 <h3 className="story__label">{beat.label}</h3>
                 <div className="story__beat-body">
-                  {beat.body.map((p) => (
-                    <p>{p}</p>
+                  {beat.body.map((p, __i) => (
+                    <p key={__i}>{p}</p>
                   ))}
                 </div>
               </li>
@@ -316,8 +316,8 @@ const values = [
         </p>
       </li>
       {
-        regions.map((r) => (
-          <li className="footprint__region">
+        regions.map((r, __i) => (
+          <li key={__i} className="footprint__region">
             <h3 className="footprint__name">{r.name}</h3>
             <p>{r.text}</p>
           </li>
@@ -335,8 +335,8 @@ const values = [
     <h2 id="values-title" className="h2">Values</h2>
     <ul className="rule-list">
       {
-        values.map((v) => (
-          <li>
+        values.map((v, __i) => (
+          <li key={__i}>
             <h3 className="rule-list__label">{v.label}</h3>
             <p>{v.text}</p>
           </li>

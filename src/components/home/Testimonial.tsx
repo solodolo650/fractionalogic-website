@@ -37,12 +37,12 @@ const testimonials = [
 
   <ul className="testimonial__grid">
     {
-      testimonials.map((t) => (
-        <li className="testimonial__card">
+      testimonials.map((t, __i) => (
+        <li key={__i} className="testimonial__card">
           <figure>
             <blockquote>
               {t.quote.map((para, i) => (
-                <p>
+                <p key={i}>
                   {i === 0 && '“'}
                   {para}
                   {i === t.quote.length - 1 && '”'}

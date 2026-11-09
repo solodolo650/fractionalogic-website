@@ -34,8 +34,8 @@ const { label, options, noun, param, total } = props;
       All{total !== undefined && <span className="chip__count">{total}</span>}
     </button>
     {
-      options.map((o) => (
-        <button className="chip" type="button" aria-pressed="false" data-filter={o.value}>
+      options.map((o, __i) => (
+        <button key={__i} className="chip" type="button" aria-pressed="false" data-filter={o.value}>
           {o.label}
           {o.count !== undefined && <span className="chip__count">{o.count}</span>}
         </button>

@@ -18,7 +18,6 @@ export default function TalkToUs(props: any) {
 const sources = ['LinkedIn', 'Search engine', 'Referral or word of mouth', 'Event or talk', 'Article or publication', 'Other'];
 
 const regions = ['India', 'APAC', 'Middle East', 'United Kingdom', 'United States', 'Other'];
-const telHref = `tel:${contact.phone.replace(/\s+/g, '')}`;
   return (
     <>
 <Shell path="/talk-to-us">
@@ -42,10 +41,6 @@ const telHref = `tel:${contact.phone.replace(/\s+/g, '')}`;
           <div>
             <dt>Email</dt>
             <dd><EmailLink address={contact.email} /></dd>
-          </div>
-          <div>
-            <dt>Phone</dt>
-            <dd><a href={telHref}>{contact.phone}</a></dd>
           </div>
           <div>
             <dt>Based in</dt>

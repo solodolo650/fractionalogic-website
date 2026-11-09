@@ -8,7 +8,7 @@ export type LegalBlock =
   | { ul: string[] }
   | { table: { head: string[]; rows: string[][] } };
 
-export const legalUpdated = { label: '7 November 2026', iso: '2026-11-07' };
+export const legalUpdated = { label: '9 November 2026', iso: '2026-11-09' };
 
 export const legal: Record<'disclaimer' | 'terms-of-use' | 'privacy-policy', { title: string; lede: string; blocks: LegalBlock[] }> = {
   "disclaimer": {
@@ -100,7 +100,7 @@ export const legal: Record<'disclaimer' | 'terms-of-use' | 'privacy-policy', { t
         "h": "10. Contact and corrections"
       },
       {
-        "p": "For questions, permissions, or a concern about a statement on this website, contact Fractionalogic at murali.e@fractionalogic.com or +91 98405 42240. Please identify the page and the issue so that we can review it."
+        "p": "For questions, permissions, or a concern about a statement on this website, contact Fractionalogic at murali.e@fractionalogic.com. Please identify the page and the issue so that we can review it."
       }
     ]
   },
@@ -266,7 +266,7 @@ export const legal: Record<'disclaimer' | 'terms-of-use' | 'privacy-policy', { t
         "p": "If a provision is invalid or unenforceable, it will be limited or removed to the minimum necessary without affecting the rest. Failure to enforce a term immediately is not a waiver. These Terms concern website use only and do not replace separately agreed commercial terms."
       },
       {
-        "p": "Legal operator: E. Muralidharan, trading as Fractionalogic. Location: Chennai, Tamil Nadu, India. Email: murali.e@fractionalogic.com. Telephone: +91 98405 42240."
+        "p": "Legal operator: E. Muralidharan, trading as Fractionalogic. Location: Chennai, Tamil Nadu, India. Email: murali.e@fractionalogic.com."
       }
     ]
   },
@@ -281,7 +281,7 @@ export const legal: Record<'disclaimer' | 'terms-of-use' | 'privacy-policy', { t
         "p": "Fractionalogic is a fractional leadership practice operated by E. Muralidharan, trading as Fractionalogic, based in Chennai, Tamil Nadu, India. For the website, business enquiries, partner applications, and our own business administration, that operator determines why and how personal information is used. It acts as controller or Data Fiduciary where those terms apply."
       },
       {
-        "p": "Privacy and grievance contact: Muralidharan Erumbala, Founder, Fractionalogic. Email: murali.e@fractionalogic.com, with the subject “Privacy request” or “Privacy grievance.” Telephone: +91 98405 42240."
+        "p": "Privacy and grievance contact: Muralidharan Erumbala, Founder, Fractionalogic. Email: murali.e@fractionalogic.com, with the subject “Privacy request” or “Privacy grievance.”"
       },
       {
         "p": "You do not need to be a client, create an account, or subscribe to marketing to ask a privacy question or exercise a right."
@@ -520,7 +520,7 @@ export const legal: Record<'disclaimer' | 'terms-of-use' | 'privacy-policy', { t
         "p": "Depending on applicable law and its commencement, you may request access to information, correction, completion or updating, deletion, restriction, portability, or an explanation of relevant processing. You may withdraw consent, object to permitted grounds of processing, and object to direct marketing. Some laws also provide nomination, authorized-agent, appeal, or other specific rights."
       },
       {
-        "p": "Email murali.e@fractionalogic.com with the request and enough context to locate your interaction, such as the email address used for an enquiry. You may also contact the published telephone number for assistance. Tell us which right you wish to exercise; legal terminology is not required. We may ask for proportionate verification or evidence of an agent’s authority, but will not request excessive identity documents or make you open an account."
+        "p": "Email murali.e@fractionalogic.com with the request and enough context to locate your interaction, such as the email address used for an enquiry. Tell us which right you wish to exercise; legal terminology is not required. We may ask for proportionate verification or evidence of an agent’s authority, but will not request excessive identity documents or make you open an account."
       },
       {
         "p": "We respond without undue delay and within the applicable legal period. For EU/UK requests, this is ordinarily one month, with a lawful extension where permitted and explained. For applicable US-state requests, the period is commonly 45 days, subject to the particular law and any permitted extension. For California requests to know, correct, or delete, where the CCPA applies, we confirm receipt within 10 business days and ordinarily give a substantive response within 45 calendar days, with any permitted extension explained. Different requests, including advertising opt-outs, can have shorter deadlines. We will explain any lawful refusal, limitation, fee, or extension and the available review or complaint route."

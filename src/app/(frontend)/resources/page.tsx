@@ -46,8 +46,8 @@ const faqSchema = {
     <FilterGroup label="Filter resources by type" options={categories} total={resources.length} noun={['resource', 'resources']} param="type">
       <ul className="library__grid">
         {
-          resources.map((r) => (
-            <li data-filter-tags={r.data.kind}>
+          resources.map((r, __i) => (
+            <li key={__i} data-filter-tags={r.data.kind}>
               <ResourceCard resource={r} headingLevel="h2" />
             </li>
           ))
@@ -60,8 +60,8 @@ const faqSchema = {
     <h2 id="faq-title" className="h2">Frequently asked questions</h2>
     <div className="faq__list">
       {
-        faqs.map((f) => (
-          <details className="faq__item">
+        faqs.map((f, __i) => (
+          <details key={__i} className="faq__item">
             <summary>
               <span>{f.question}</span>
               <svg className="faq__icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">

@@ -19,8 +19,8 @@ const picks = [...resources.filter((r) => r.data.featured), ...resources.filter(
 
   <ul className="resources__grid">
     {
-      picks.map((r) => (
-        <li>
+      picks.map((r, __i) => (
+        <li key={__i}>
           <ResourceCard resource={r} />
         </li>
       ))

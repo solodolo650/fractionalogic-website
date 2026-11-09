@@ -41,8 +41,8 @@ const describedBy = [hint && `${id}-hint`, `${id}-error`].filter(Boolean).join('
     as === 'select' ? (
       <select id={id} name={name} required={required} aria-describedby={describedBy} data-label={label}>
         <option value="">Choose one</option>
-        {options.map((o) => (
-          <option value={o}>{o}</option>
+        {options.map((o, __i) => (
+          <option key={__i} value={o}>{o}</option>
         ))}
       </select>
     ) : as === 'textarea' ? (

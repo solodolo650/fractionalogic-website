@@ -1,6 +1,7 @@
 import type { StaticImageData as ImageMetadata } from 'next/image';
 import venkatPhoto from '@/assets/images/partner-venkat-manthripragada.jpg';
 import raviPhoto from '@/assets/images/partner-ravi-pratap-singh.jpg';
+import senthilPhoto from '@/assets/images/partner-senthil-kumar-bellukutty.jpg';
 
 export type PartnerFunction = 'Marketing' | 'Technology & AI' | 'Transformation' | 'Leadership' | 'Personal branding';
 
@@ -20,8 +21,9 @@ export const roster: Partner[] = [
     name: 'Senthil Kumar Bellukutty',
     role: 'Transformation Consultant and Leadership Coach',
     practice:
-      '25+ years across technology, business consulting, and organizational transformation. Founder of Magic Pencils Consulting and creator of Huddle, Momentum Zone, and Skill Forge.',
+      '25+ years across technology, business consulting, and organizational transformation. Founder of Magic Pencils Consulting.',
     functions: ['Transformation'],
+    photo: senthilPhoto,
   },
   {
     name: 'Ravi Pratap Singh',

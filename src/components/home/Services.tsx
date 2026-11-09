@@ -44,8 +44,8 @@ const cards = [
 
   <ul className="services__grid">
     {
-      cards.map((card) => (
-        <li className="photo-card service-card on-dark" style={{ '--tint': card.tint }}>
+      cards.map((card, __i) => (
+        <li key={__i} className="photo-card service-card on-dark" style={{ '--tint': card.tint }}>
           <Img
             className="photo-card__bg"
             src={card.image}

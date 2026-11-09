@@ -1,10 +1,9 @@
 import Shell from '@/components/Shell';
 import PageHeader from '@/components/ui/PageHeader';
-import FilterGroup from '@/components/ui/FilterGroup';
 import PartnerCard from '@/components/ui/PartnerCard';
 import Form from '@/components/forms/Form';
 import Field from '@/components/forms/Field';
-import { partnerFunctions, roster } from '@/data/partners';
+import { roster } from '@/data/partners';
 import './twin-partner-network.css';
 
 
@@ -15,8 +14,6 @@ export const metadata = {
 
 
 export default function TwinPartnerNetwork(props: any) {
-
-const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
 const functionOptions = [
   'Marketing',
@@ -45,21 +42,15 @@ const regionOptions = ['India', 'APAC', 'Middle East', 'United Kingdom', 'United
 
   <section className="roster container section" aria-labelledby="roster-title">
     <h2 id="roster-title" className="h2">The roster</h2>
-    <FilterGroup
-      label="Filter partners by function"
-      options={partnerFunctions.map((f) => ({ value: slug(f), label: f }))}
-      noun={['partner', 'partners']}
-    >
       <ul className="roster__grid">
         {
           roster.map((partner) => (
-            <li data-filter-tags={partner.functions.map(slug).join(' ')}>
+            <li key={partner.name}>
               <PartnerCard partner={partner} />
             </li>
           ))
         }
       </ul>
-    </FilterGroup>
   </section>
 
   <section id="apply" className="apply container section" aria-labelledby="apply-title">

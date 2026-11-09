@@ -42,12 +42,12 @@ const year = new Date().getFullYear();
 
     <nav className="footer__cols" aria-label="Footer">
       {
-        columns.map((col) => (
-          <div>
+        columns.map((col, __i) => (
+          <div key={__i}>
             <h2 className="footer__heading">{col.heading}</h2>
             <ul className="footer__list">
-              {col.links.map((link) => (
-                <li>
+              {col.links.map((link, __i) => (
+                <li key={__i}>
                   {'external' in link && link.external ? (
                     <a href={link.href} rel="noopener">
                       {link.label} <span aria-hidden="true">↗</span>
@@ -68,8 +68,8 @@ const year = new Date().getFullYear();
     <p>© {year} Fractionalogic</p>
     <ul className="footer__legal">
       {
-        legal.map((link) => (
-          <li>
+        legal.map((link, __i) => (
+          <li key={__i}>
             <a href={link.href}>{link.label}</a>
           </li>
         ))
