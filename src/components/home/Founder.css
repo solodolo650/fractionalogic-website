@@ -33,12 +33,12 @@
     margin-top: 12px;
     max-width: 48ch;
     padding: 6px 12px;
-    background: var(--color-prestige);
+    background: var(--color-panel);
     border-radius: var(--radius-sm);
     font-size: 0.875rem;
     font-weight: 500;
     line-height: 1.4;
-    color: var(--color-text-on-panel);
+    color: var(--color-dark);
   }
 
   @media (max-width: 900px) {

@@ -40,10 +40,7 @@
   }
 
   .nav__logo .nav__mark {
-    display: block;
-    width: 144px;
-    height: auto;
-    overflow: visible;
+    font-size: 1.1875rem;
   }
 
   .nav__list {

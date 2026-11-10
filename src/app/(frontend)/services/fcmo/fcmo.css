@@ -206,10 +206,11 @@ main .section-head + * {
   }
 
   /* Who we serve ---------------------------------------------------- */
+  /* Heading and intro across the top, the three stages side by side below,
+     so neither column sits half empty. */
   .serve__block {
     display: grid;
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: 32px clamp(40px, 6vw, 80px);
+    gap: clamp(28px, 3vw, 40px);
     padding: clamp(28px, 4vw, 56px);
     background: var(--color-panel);
     border-radius: var(--radius);
@@ -217,29 +218,31 @@ main .section-head + * {
   }
 
   .serve__intro {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: end;
+    gap: 16px clamp(40px, 6vw, 80px);
+  }
+
+  .serve__intro h2 {
+    margin: 0;
   }
 
   .serve__stages {
     display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 clamp(24px, 3vw, 40px);
     margin: 0;
     padding: 0;
     list-style: none;
-    border-top: 1px solid var(--color-rule-on-panel);
   }
 
   .serve__stages li {
     display: grid;
+    align-content: start;
     gap: 8px;
-    padding: 24px 0;
-    border-bottom: 1px solid var(--color-rule-on-panel);
-  }
-
-  .serve__stages li:last-child {
-    padding-bottom: 0;
-    border-bottom: 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-rule-on-panel);
   }
 
   .serve__stage-name {
@@ -439,8 +442,17 @@ main .section-head + * {
       grid-column: 1 / -1;
     }
 
-    .serve__block {
+    .serve__intro,
+    .serve__stages {
       grid-template-columns: 1fr;
+    }
+
+    .serve__stages li {
+      padding-bottom: 24px;
+    }
+
+    .serve__stages li:last-child {
+      padding-bottom: 0;
     }
 
     .industries__grid {

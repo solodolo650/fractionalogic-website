@@ -1,0 +1,28 @@
+/* Proportions from the business card: mark 16px tall beside 22px type, 3.5px apart. */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.16em;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+}
+
+.logo__mark {
+  display: block;
+  flex: none;
+  width: 1.07em;
+  height: 0.727em;
+}
+
+.logo__word {
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #0b4f4e;
+}
+
+.logo--dark .logo__word,
+.logo--brand .logo__word {
+  color: #ffffff;
+}
