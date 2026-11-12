@@ -3,7 +3,7 @@ import './Logo.css';
 /*
  * Fractionalogic logo, solid version (from the business-card design, option D):
  * three square bars + the name in Inter Bold. Size it with font-size on the parent.
- *   tone "light" (light grounds): bars Teal 950, name Teal 800
+ *   tone "light" (light grounds): bars Teal 650, name Teal 800
  *   tone "dark" / "brand" (dark or teal grounds): all white
  *   variant "full" = mark + name; "mark" = bars only; "word" = name only.
  */
@@ -14,7 +14,7 @@ interface Props {
 }
 
 export default function Logo({ variant = 'full', tone = 'light', className }: Props) {
-  const markColor = tone === 'light' ? '#062e30' : '#ffffff';
+  const markColor = tone === 'light' ? '#126a66' : '#ffffff';
   return (
     <span className={['logo', `logo--${tone}`, className].filter(Boolean).join(' ')}>
       {variant !== 'word' && (

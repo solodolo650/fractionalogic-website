@@ -1,8 +1,8 @@
-/* Proportions from the business card: mark 16px tall beside 22px type, 3.5px apart. */
+/* Mark height = the cap height of the Inter Bold name (~0.7em), so bars and letters line up at every size. */
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.16em;
+  gap: 0.18em;
   font-family: var(--font-sans);
   white-space: nowrap;
 }
@@ -10,8 +10,8 @@
 .logo__mark {
   display: block;
   flex: none;
-  width: 1.07em;
-  height: 0.727em;
+  width: 1.03em;
+  height: 0.7em;
 }
 
 .logo__word {

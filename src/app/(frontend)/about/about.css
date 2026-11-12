@@ -81,7 +81,7 @@
     display: grid;
     gap: 2px;
     padding-left: 16px;
-    border-left: 1px solid var(--color-prestige);
+    border-left: 1px solid var(--logic-teal-650);
   }
 
   .recognition__name {
@@ -402,12 +402,15 @@
 
   .footprint__badge {
     align-self: flex-start;
-    padding: 4px 12px;
-    background: var(--color-prestige);
+    margin: 0;
+    padding: 5px 12px;
+    background: var(--color-panel);
     border-radius: var(--radius-sm);
     font-size: 0.8125rem;
     font-weight: 600;
-    color: var(--color-text-on-panel);
+    line-height: 1.2;
+    white-space: nowrap;
+    color: var(--color-dark);
   }
 
   .footprint__region {
